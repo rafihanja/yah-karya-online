@@ -4,7 +4,7 @@ Repositori ini bukan cuma berisi kode *Front-End* (GSAP / React / Animasi), tapi
 
 ## 🚀 Cara Pindah / Instalasi di Laptop Baru
 
-Jika Anda berganti *Device* atau PC, Anda **TIDAK PERLU** mengatur ulang AI Agent dari nol. Cukup ikuti 3 langkah sakti ini:
+Jika Anda berganti *Device* atau PC, Anda **TIDAK PERLU** mengatur ulang AI Agent dari nol. Cukup ikuti 2 langkah sakti ini:
 
 1. **Clone Repositori Ini**
    Buka Terminal / Command Prompt, lalu jalankan:
@@ -12,14 +12,8 @@ Jika Anda berganti *Device* atau PC, Anda **TIDAK PERLU** mengatur ulang AI Agen
    git clone https://github.com/rafihanja/folderotakgsap.git
    ```
 
-2. **Jalankan Script Kebangkitan (Auto-Restore)**
-   - Buka folder hasil *clone* menggunakan *File Explorer*.
-   - Cari file bernama `restore-brain.bat`.
-   - **Klik Ganda (Double-Click)** file tersebut.
-   - Layar hitam akan muncul dan secara otomatis mengekstrak file `antigravity_brain_backup.zip` menuju otak IDE Anda di `C:\Users\<NamaUser>\.gemini\antigravity-ide`.
-
-3. **Buka Antigravity IDE**
-   Setelah terminal mengatakan **"SELESAI"**, silakan buka aplikasi Antigravity IDE. Sang Agen Elite akan menyapa Anda beserta seluruh memori dan 54 kemampuannya.
+2. **Buka Antigravity IDE**
+   Silakan buka aplikasi Antigravity IDE di folder hasil clone tersebut. Sang Agen Elite akan menyapa Anda beserta seluruh memori dan 54 kemampuannya.
 
 ---
 
