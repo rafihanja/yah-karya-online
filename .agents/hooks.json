@@ -1,0 +1,20 @@
+{
+  "agent-governance-anti-drift": {
+    "PreInvocation": [
+      {
+        "type": "command",
+        "command": "node .agents/scripts/governance-reminder.mjs",
+        "timeout": 10
+      }
+    ]
+  },
+  "agent-governance-stop-gate": {
+    "Stop": [
+      {
+        "type": "command",
+        "command": "node .agents/scripts/stop-gate.mjs",
+        "timeout": 15
+      }
+    ]
+  }
+}

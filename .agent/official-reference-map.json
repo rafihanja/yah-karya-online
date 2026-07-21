@@ -1,0 +1,191 @@
+{
+  "version": 1,
+  "updatedAt": "2026-07-15",
+  "policyId": "OFFICIAL_REFERENCE_VERIFICATION",
+  "purpose": "Daftar referensi teknis yang ditetapkan user sebagai sumber utama untuk repository ini.",
+  "lessonsFile": ".agent/memory/lessons-learned.md",
+  "requiredUncertaintyPhrase": "ini masih perlu dicek ulang",
+  "fastChangingPolicy": {
+    "assumeTrainingMayBeStale": true,
+    "verifyBeforeAnswering": true,
+    "examples": [
+      "framework version",
+      "library API",
+      "cloud service behavior",
+      "security guidance",
+      "deployment workflow"
+    ]
+  },
+  "correctionPolicy": {
+    "updateLessonsBeforeContinuing": true,
+    "recordMistakeAndCorrection": true,
+    "recordRecurringErrorPattern": true
+  },
+  "topics": [
+    {
+      "name": "HTML",
+      "source": "html.com",
+      "signals": ["html", "markup", "semantic html"]
+    },
+    {
+      "name": "CSS",
+      "source": "web.dev/learn/css",
+      "signals": ["css", "stylesheet", "cascade", "layout"]
+    },
+    {
+      "name": "JavaScript",
+      "source": "javascript.info",
+      "signals": ["javascript", "js", "ecmascript"]
+    },
+    {
+      "name": "React",
+      "source": "reactplay.io",
+      "signals": ["react", "jsx", "tsx"]
+    },
+    {
+      "name": "Vue",
+      "source": "learnvue.co",
+      "signals": ["vue", "vuejs", "nuxt"]
+    },
+    {
+      "name": "Angular",
+      "source": "angular.dev/tutorials",
+      "signals": ["angular"]
+    },
+    {
+      "name": "Git",
+      "source": "git-scm.com/book",
+      "signals": ["git", "commit", "branch", "merge", "rebase"]
+    },
+    {
+      "name": "Web3",
+      "source": "learnweb3.io",
+      "signals": ["web3", "dapp", "smart contract"]
+    },
+    {
+      "name": "Python",
+      "source": "learnpython.org",
+      "signals": ["python", "py"]
+    },
+    {
+      "name": "SQL",
+      "source": "w3schools.com/sql",
+      "signals": ["sql", "query", "relational database"]
+    },
+    {
+      "name": "Blockchain",
+      "source": "cryptozombies.io",
+      "signals": ["blockchain", "solidity"]
+    },
+    {
+      "name": "Next.js",
+      "source": "nextjs.org/learn",
+      "signals": ["next.js", "nextjs", "app router", "pages router"]
+    },
+    {
+      "name": "AI (Basics)",
+      "source": "elementsofai.com",
+      "signals": ["ai basics", "artificial intelligence basics", "machine learning basics"]
+    },
+    {
+      "name": "PHP",
+      "source": "phptherightway.com",
+      "signals": ["php"]
+    },
+    {
+      "name": "API",
+      "source": "rapidapi.com/learn",
+      "signals": ["api", "rest api", "http api"]
+    },
+    {
+      "name": "Go",
+      "source": "learn-golang.org",
+      "signals": ["go", "golang"]
+    },
+    {
+      "name": "Rust",
+      "source": "rust-lang.org/learn",
+      "signals": ["rust", "cargo"]
+    },
+    {
+      "name": "Design Patterns",
+      "source": "refactoring.guru",
+      "signals": ["design pattern", "design patterns", "refactoring pattern"]
+    },
+    {
+      "name": "TypeScript",
+      "source": "typescriptlang.org/docs",
+      "signals": ["typescript", "ts", "tsx"]
+    },
+    {
+      "name": "C++",
+      "source": "cplusplus.com/doc/tutorial",
+      "signals": ["c++", "cpp"]
+    },
+    {
+      "name": "Java",
+      "source": "docs.oracle.com/javase/tutorial",
+      "signals": ["java", "jvm"]
+    },
+    {
+      "name": "C#",
+      "source": "dotnet.microsoft.com/learn/csharp",
+      "signals": ["c#", "csharp", ".net"]
+    },
+    {
+      "name": "Swift",
+      "source": "swift.org/learn",
+      "signals": ["swift", "swiftui"]
+    },
+    {
+      "name": "Django",
+      "source": "djangoproject.com/start",
+      "signals": ["django"]
+    },
+    {
+      "name": "Flask",
+      "source": "flask.palletsprojects.com/tutorial",
+      "signals": ["flask"]
+    },
+    {
+      "name": "Docker",
+      "source": "docker.com/get-started",
+      "signals": ["docker", "dockerfile", "container"]
+    },
+    {
+      "name": "Kubernetes",
+      "source": "kubernetes.io/docs/tutorials",
+      "signals": ["kubernetes", "k8s", "kubectl"]
+    },
+    {
+      "name": "Linux",
+      "source": "linuxjourney.com",
+      "signals": ["linux", "shell", "bash"]
+    },
+    {
+      "name": "Cybersecurity",
+      "source": "tryhackme.com",
+      "signals": ["cybersecurity", "security", "pentest"]
+    },
+    {
+      "name": "DevOps",
+      "source": "roadmap.sh/devops",
+      "signals": ["devops", "ci/cd", "cicd"]
+    },
+    {
+      "name": "Cloud AWS",
+      "source": "aws.amazon.com/training",
+      "signals": ["aws", "amazon web services"]
+    },
+    {
+      "name": "Cloud GCP",
+      "source": "cloudskillsboost.google",
+      "signals": ["gcp", "google cloud"]
+    },
+    {
+      "name": "Cloud Azure",
+      "source": "microsoft.com/learn/azure",
+      "signals": ["azure", "microsoft cloud"]
+    }
+  ]
+}

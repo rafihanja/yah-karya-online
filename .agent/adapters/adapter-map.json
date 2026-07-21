@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-01",
+  "canonical": {
+    "root": ".agent",
+    "entrypoint": ".agent/START_HERE.md",
+    "instructions": ".agent/AGENTS.md",
+    "rules": [
+      ".agent/rules/evidence-first.md",
+      ".agent/rules/hybrid-router.md",
+      ".agent/rules/professional-engineering.md"
+    ],
+    "router": ".agent/skill-router.json",
+    "doctor": "node .agent/scripts/agent-doctor.mjs",
+    "detector": "node .agent/scripts/detect-project.mjs",
+    "bootstrap": "node .agent/scripts/bootstrap-agent.mjs",
+    "activeSkills": ".agent/active-skills.json",
+    "projectInventory": ".agent/projects/index.json"
+  },
+  "adapters": {
+    "agents-md": {
+      "path": "AGENTS.md",
+      "type": "markdown-bridge",
+      "autoload": "Supported by AGENTS-compatible tools and Cursor as a simple alternative to .cursor/rules."
+    },
+    "claude": {
+      "path": "CLAUDE.md",
+      "type": "markdown-bridge-with-imports",
+      "autoload": "Claude Code project memory."
+    },
+    "cursor": {
+      "path": ".cursor/rules/agent-kit.mdc",
+      "type": "cursor-project-rule",
+      "autoload": "Cursor project rule."
+    },
+    "agents-rules": {
+      "path": ".agents/rules/agent-kit.md",
+      "type": "rules-bridge",
+      "autoload": "Agents/Antigravity/OpenCode-style rules host when supported."
+    }
+  },
+  "safety": {
+    "defaultMode": "dry-run",
+    "writeRequires": "--write",
+    "canonicalFilesRemainInDotAgent": true,
+    "generatedAdaptersAreDisposable": true
+  },
+  "profiles": {
+    "antigravity": ".agent/adapters/profiles/antigravity.json"
+  }
+}

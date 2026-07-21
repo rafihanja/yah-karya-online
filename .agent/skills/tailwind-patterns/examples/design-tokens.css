@@ -1,0 +1,51 @@
+/* 
+ * Contoh: Konfigurasi Tailwind v4 berbasis CSS Murni.
+ * Selamat tinggal tailwind.config.js!
+ */
+
+@import "tailwindcss";
+
+/* 
+ * Elite Design Tokens 
+ * JANGAN PERNAH hardcode hex color di class HTML!
+ */
+@theme {
+  /* Brand Colors */
+  --color-brand-50: #eff6ff;
+  --color-brand-500: #3b82f6;
+  --color-brand-900: #1e3a8a;
+
+  /* Accent Colors */
+  --color-accent-primary: var(--color-brand-500);
+
+  /* Typography */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Clash Display", sans-serif;
+
+  /* Custom Spacing */
+  --spacing-128: 32rem;
+  
+  /* Animations */
+  --animate-float: float 3s ease-in-out infinite;
+
+  /* Keyframes */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+/* 
+ * Base Layer Overrides
+ * Gunakan hanya untuk reset yang absolut atau definisi fundamental.
+ */
+@layer base {
+  body {
+    @apply antialiased text-slate-800 bg-slate-50;
+  }
+  
+  /* Fokus ring standar untuk aksesibilitas */
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-500 ring-offset-2;
+  }
+}

@@ -1,0 +1,312 @@
+{
+  "version": 2,
+  "updatedAt": "2026-07-15",
+  "purpose": "Keep the daily agent context focused so the full skill library does not overwhelm tasks.",
+  "defaultSet": [
+    "gsap-timeline",
+    "code-reviewer",
+    "gsap-performance",
+    "codebase-audit-pre-push",
+    "project-memory",
+    "supabase",
+    "gsap-horizontal-parallax",
+    "database-design",
+    "backend-architect",
+    "frontend-design",
+    "env-fortress",
+    "phased-delivery",
+    "python-expert",
+    "python-asset-pipeline",
+    "git-survival-guide",
+    "laravel-expert",
+    "gsap-plugins",
+    "gsap-frameworks",
+    "database",
+    "security-audit",
+    "lessons-capture",
+    "self-review-gate",
+    "frontend-developer",
+    "verification-before-completion",
+    "api-patterns",
+    "gsap-core",
+    "gsap-utils",
+    "gsap-scrolltrigger",
+    "nextjs-best-practices",
+    "web-performance-optimization",
+    "nextjs-app-router-patterns",
+    "session-boot",
+    "deep-thinking-enforcer",
+    "expert-reasoning-operator",
+    "official-reference-verifier",
+    "monorepo-multi-bot",
+    "elite-gsap-react-architecture",
+    "react-best-practices",
+    "auto-pro-standards",
+    "content-automation-engine",
+    "nodejs-backend-patterns",
+    "vercel-deployment",
+    "whatsapp-bot-architecture",
+    "gsap-react",
+    "prompt-amplifier",
+    "web-audio-engineering"
+  ],
+  "taskSets": {
+    "gsap-ui": [
+      "gsap-core",
+      "gsap-timeline",
+      "gsap-scrolltrigger",
+      "gsap-react",
+      "gsap-performance",
+      "elite-gsap-react-architecture",
+      "frontend-design"
+    ],
+    "nextjs": [
+      "nextjs-best-practices",
+      "nextjs-app-router-patterns",
+      "react-best-practices",
+      "react-component-performance"
+    ],
+    "quality": [
+      "session-boot",
+      "expert-reasoning-operator",
+      "official-reference-verifier",
+      "code-reviewer",
+      "codebase-audit-pre-push",
+      "verification-before-completion",
+      "security-audit"
+    ],
+    "reference-verification": [
+      "official-reference-verifier",
+      "lessons-capture",
+      "verification-before-completion"
+    ],
+    "deploy": [
+      "vercel-deployment",
+      "deployment-validation-config-validate",
+      "environment-setup-guide"
+    ],
+    "backend-db": [
+      "backend-architect",
+      "database",
+      "database-design",
+      "database-admin",
+      "supabase",
+      "neon-postgres",
+      "postgres-best-practices",
+      "drizzle-orm-expert",
+      "api-patterns",
+      "nodejs-backend-patterns",
+      "laravel-expert"
+    ],
+    "animation-3d": [
+      "three-js-expert",
+      "react-three-fiber",
+      "threejs-fundamentals",
+      "lenis-scroll",
+      "locomotive-scroll",
+      "split-type",
+      "lottie-web",
+      "framer-motion",
+      "shader-programming-glsl",
+      "scroll-experience",
+      "web-mobile-joystick",
+      "howler-js",
+      "spline-3d-integration",
+      "3d-web-experience",
+      "animejs-animation",
+      "barba-js",
+      "algorithmic-art",
+      "canvas-design",
+      "baffle-js",
+      "interactive-portfolio",
+      "zdog",
+      "antigravity-design-expert",
+      "web-audio-engineering"
+    ],
+    "frontend-ui": [
+      "frontend-dev-guidelines",
+      "frontend-api-integration-patterns",
+      "design-taste-frontend",
+      "tailwind-design-system",
+      "tailwind-patterns",
+      "shadcn",
+      "ui-ux-designer",
+      "react-patterns",
+      "react-nextjs-development",
+      "react-state-management",
+      "react-modernization",
+      "tanstack-query-expert",
+      "typescript-expert",
+      "astro",
+      "baseline-ui",
+      "landing-page-generator",
+      "web-artifacts-builder",
+      "algolia-search",
+      "nextjs-supabase-auth"
+    ],
+    "accessibility": [
+      "ui-a11y",
+      "wcag-audit-patterns",
+      "screen-reader-testing",
+      "accessibility-compliance-accessibility-audit"
+    ],
+    "seo": [
+      "seo-fundamentals",
+      "seo-meta-optimizer",
+      "seo-schema",
+      "seo-sitemap",
+      "seo-audit"
+    ],
+    "performance": [
+      "performance-engineer",
+      "performance-optimizer",
+      "performance-profiling",
+      "web-performance-optimization"
+    ],
+    "node-api": [
+      "nodejs-best-practices",
+      "backend-dev-guidelines",
+      "api-design-principles",
+      "api-security-best-practices",
+      "openapi-spec-generation",
+      "nosql-expert"
+    ],
+    "ai-llm": [
+      "gemini-api-integration",
+      "gemini-api-dev",
+      "llm-app-patterns",
+      "prompt-engineering",
+      "llm-structured-output",
+      "ai-engineer"
+    ],
+    "serverless": [
+      "cloudflare-workers-expert"
+    ],
+    "testing-quality": [
+      "playwright",
+      "webapp-testing",
+      "systematic-debugging",
+      "javascript-testing-patterns",
+      "test-driven-development"
+    ],
+    "security-coding": [
+      "backend-security-coder",
+      "frontend-security-coder",
+      "web-security-testing"
+    ],
+    "bot-automation": [
+      "telegram-bot-builder",
+      "telegram-mini-app",
+      "whatsapp-cloud-api",
+      "whatsapp-bot-architecture",
+      "youtube-automation",
+      "youtube-summarizer",
+      "web-scraper",
+      "content-automation-engine"
+    ],
+    "git-devops": [
+      "git-survival-guide",
+      "monorepo-multi-bot",
+      "env-fortress",
+      "codebase-audit-pre-push"
+    ],
+    "planning-prd": [
+      "arsitek-pikiran",
+      "prd-architect-pro",
+      "dewa-prompter-v2"
+    ],
+    "auth": [
+      "auth-implementation-patterns",
+      "clerk-auth",
+      "nextjs-supabase-auth"
+    ],
+    "observability": [
+      "observability-engineer",
+      "sentry-automation"
+    ],
+    "cicd": [
+      "github-actions-templates"
+    ],
+    "cache": [
+      "redis"
+    ],
+    "mobile": [
+      "react-native-architecture",
+      "mobile-developer",
+      "mobile-design",
+      "mobile-security-coder",
+      "upgrading-expo",
+      "expo-deployment",
+      "expo-dev-client",
+      "expo-tailwind-setup",
+      "expo-api-routes",
+      "frontend-mobile-development-component-scaffold"
+    ]
+  },
+  "optionalExternal": [
+    {
+      "name": "typeui-fundamentals",
+      "source": "https://github.com/bergside/typeui",
+      "reason": "Optional UI/UX fundamentals skill for stronger design guidance.",
+      "installCommand": "npx skills add https://github.com/bergside/typeui --skill typeui-fundamentals",
+      "status": "not-installed"
+    }
+  ],
+  "onDemandBundles": {
+    "note": "Skill yang sengaja TIDAK diinstall biar library tetap ramping (0 orphan). Skill ini ada di git history dan bisa di-restore sekali command pas kebutuhannya muncul. Restore: node .agent/scripts/restore-skill-bundle.mjs <bundle>",
+    "restoreSource": "c5fc4080",
+    "bundles": {
+      "mobile": {
+        "reason": "Untuk project React Native / Expo. Belum ada project mobile, jadi belum diinstall.",
+        "skills": [
+          "react-native-architecture",
+          "mobile-developer",
+          "mobile-design",
+          "mobile-security-coder",
+          "upgrading-expo",
+          "expo-deployment",
+          "expo-dev-client",
+          "expo-tailwind-setup",
+          "expo-api-routes",
+          "frontend-mobile-development-component-scaffold"
+        ],
+        "wireInto": {
+          "taskSet": "mobile",
+          "routeWhen": [
+            "request:mobile",
+            "request:react-native",
+            "request:expo",
+            "dependency:expo",
+            "dependency:react-native"
+          ]
+        },
+        "status": "installed"
+      },
+      "wordpress": {
+        "reason": "Untuk job klien berbasis WordPress (CMS). Project sekarang code-based, jadi belum diinstall. Restore pas ada job WP.",
+        "skills": [
+          "wordpress",
+          "wordpress-theme-development",
+          "wordpress-plugin-development",
+          "wordpress-woocommerce-development",
+          "wordpress-centric-high-seo-optimized-blogwriting-skill",
+          "codebase-to-wordpress-converter"
+        ],
+        "wireInto": {
+          "taskSet": "wordpress",
+          "routeWhen": [
+            "request:wordpress",
+            "request:wp",
+            "request:woocommerce",
+            "request:theme",
+            "request:plugin",
+            "request:cms",
+            "file:wp-config.php",
+            "file:functions.php"
+          ]
+        },
+        "status": "not-installed"
+      }
+    }
+  }
+}

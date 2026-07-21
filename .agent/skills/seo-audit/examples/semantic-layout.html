@@ -1,0 +1,56 @@
+<!-- 
+Contoh: Semantic Layout HTML5
+Aturan Elite:
+- Berhenti menggunakan <div class="header">, gunakan <header>.
+- Google bot membaca tag ini untuk memahami prioritas konten.
+-->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <!-- Bagian Head diabaikan di contoh ini, lihat meta-tags-head.html -->
+</head>
+<body>
+
+  <!-- Bagian Navigasi Utama -->
+  <header>
+    <nav aria-label="Main Navigation">
+      <ul>
+        <li><a href="/">Beranda</a></li>
+        <li><a href="/artikel">Artikel</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Konten Utama (Hanya boleh ada 1 per halaman) -->
+  <main>
+    
+    <!-- Hero Section -->
+    <section aria-labelledby="hero-title">
+      <h1 id="hero-title">Panduan SEO Elite 2026</h1>
+      <p>Pelajari cara mendominasi halaman pertama mesin pencari.</p>
+    </section>
+
+    <!-- Kumpulan Artikel Independen -->
+    <section aria-labelledby="articles-title">
+      <h2 id="articles-title">Artikel Terbaru</h2>
+      
+      <!-- Gunakan <article> untuk konten yang bisa berdiri sendiri -->
+      <article>
+        <h3>Kenapa Div-Soup Membunuh SEO Anda?</h3>
+        <!-- Aturan Wajib: Selalu gunakan atribut 'alt' pada gambar -->
+        <img src="/img/div-soup.jpg" alt="Ilustrasi tumpukan tag div yang berantakan" loading="lazy" width="800" height="400">
+        <p>Banyak developer junior...</p>
+      </article>
+
+    </section>
+
+  </main>
+
+  <!-- Bagian Bawah -->
+  <footer>
+    <p>&copy; 2026 Elite Agent Operations. Hak cipta dilindungi.</p>
+  </footer>
+
+</body>
+</html>

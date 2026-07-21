@@ -1,0 +1,36 @@
+<!-- 
+Contoh: Container Queries
+Aturan Elite:
+- Berhenti menggunakan breakpoint global (sm:, md:, lg:) untuk komponen reusable.
+- Gunakan `@container` pada parent, dan `@min-md:` / `@max-lg:` pada child.
+-->
+
+<!-- Definisi Container -->
+<div class="@container w-full resize-x overflow-hidden border border-gray-200 rounded-xl p-4">
+  
+  <!-- Elemen Child yang merespons terhadap Container (BUKAN Viewport) -->
+  <article class="flex flex-col @max-md:gap-2 @min-md:flex-row @min-md:gap-6 bg-white p-6 rounded-lg shadow-sm">
+    
+    <div class="aspect-square w-full @min-md:w-48 bg-slate-100 rounded-md object-cover flex items-center justify-center">
+      <span class="text-slate-400 font-medium">Image Placeholder</span>
+    </div>
+    
+    <div class="flex-1 flex flex-col justify-center">
+      <!-- Typography merespons ukuran container -->
+      <h2 class="text-xl @min-md:text-2xl font-bold text-slate-900 mb-2">
+        Modern Card Component
+      </h2>
+      
+      <p class="text-slate-600 mb-4 @max-md:text-sm">
+        Komponen ini akan berubah wujud dari mode tumpuk (stack) ke mode sejajar (row) 
+        berdasarkan ukuran bungkusannya, BUKAN ukuran layar HP atau Laptop Anda. 
+        Ini adalah standar Elite untuk UI masa depan.
+      </p>
+      
+      <button class="bg-blue-600 text-white font-medium py-2 px-4 rounded-md self-start hover:bg-blue-700 transition-colors">
+        Read More
+      </button>
+    </div>
+  </article>
+
+</div>

@@ -1,0 +1,36 @@
+# Scratch / file iseng lokal — jangan di-commit
+_scratch/
+
+# Test artifacts
+test_image.jpg
+
+API_KEYS_BACKUP.md
+
+node_modules/
+next-build/
+.next/
+.env*
+!.env.example
+!*/.env.example
+*.db
+*.sqlite
+.wwebjs_auth/
+.wwebjs_cache/
+
+*token*.json
+*secret*.json
+
+# Claude Code settings berisi API key asli — JANGAN commit.
+# Yang di-commit: .claude/settings.example.json (template tanpa secret).
+.claude/settings.json
+.claude/settings.local.json
+!.claude/settings.example.json
+
+# Python & Test cache
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+ENV/
+.agent/temp/

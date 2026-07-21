@@ -1,0 +1,1052 @@
+{
+  "version": 3,
+  "updatedAt": "2026-07-16",
+  "sourcePriority": [
+    "local-file-evidence",
+    "command-output",
+    "official-docs-or-primary-sources",
+    "local-skill-docs",
+    "model-reasoning-labelled-as-assumption"
+  ],
+  "antigravity": {
+    "note": "Antigravity is one supported runtime. This repo keeps canonical agent files inside .agent for portability across tools.",
+    "exportRulesPathIfNeeded": ".agents/rules",
+    "exportSkillsPathIfNeeded": ".agents/skills",
+    "canonicalRulesPathUsedByThisRepo": ".agent/rules",
+    "canonicalSkillsPathUsedByThisRepo": ".agent/skills"
+  },
+  "requiredValidation": {
+    "agentConfigChanged": [
+      "node .agent/scripts/bootstrap-agent.mjs",
+      "node .agent/scripts/validate-agent-skills.mjs",
+      "node .agent/scripts/agent-doctor.mjs",
+      "node .agent/scripts/deep-skill-audit.mjs",
+      "node .agent/scripts/audit-skill-quality.mjs",
+      "node .agent/scripts/self-review-validator.mjs --scope agent",
+      "node .agent/scripts/export-agent-adapters.mjs --dry-run"
+    ],
+    "stackUnknown": [
+      "node .agent/scripts/detect-project.mjs"
+    ]
+  },
+  "activeSkillSet": ".agent/active-skills.json",
+  "projectInventory": ".agent/projects/index.json",
+  "onDemandBundleMechanism": {
+    "source": ".agent/active-skills.json -> onDemandBundles",
+    "rule": "Sebagian skill disimpan sebagai bundle yang belum diinstall (mis. wordpress, mobile). Kalau request user cocok dengan onDemandBundles.bundles[].wireInto.routeWhen, agent WAJIB menjalankan 'node .agent/scripts/restore-skill-bundle.mjs <bundle>' lebih dulu (otomatis, beri tahu user singkat), baru lanjut. User tidak perlu hafal command-nya.",
+    "restoreScript": "node .agent/scripts/restore-skill-bundle.mjs <bundle>",
+    "listBundles": "node .agent/scripts/restore-skill-bundle.mjs"
+  },
+  "professionalStandards": {
+    "security": "OWASP ASVS-style verification for web application security controls.",
+    "accessibility": "WCAG 2.2 for user-facing web UI.",
+    "supplyChain": "SLSA-style supply-chain integrity: lockfiles, reproducible commands, no secrets.",
+    "definitionOfDone": [
+      "files changed are named",
+      "evidence inspected is named",
+      "validation command and result are named",
+      "remaining risk is stated"
+    ]
+  },
+  "routes": [
+    {
+      "routeWhen": "ALWAYS ON. This rule triggers automatically for every single task, no matter how small. It forces deep, methodical thinking.",
+      "skillName": "deep-thinking-enforcer"
+    },
+    {
+      "when": [
+        "request:html",
+        "request:css",
+        "request:javascript",
+        "request:react",
+        "request:vue",
+        "request:angular",
+        "request:git",
+        "request:web3",
+        "request:python",
+        "request:sql",
+        "request:blockchain",
+        "request:nextjs",
+        "request:ai-basics",
+        "request:php",
+        "request:api",
+        "request:go",
+        "request:rust",
+        "request:design-patterns",
+        "request:typescript",
+        "request:cpp",
+        "request:java",
+        "request:csharp",
+        "request:swift",
+        "request:django",
+        "request:flask",
+        "request:docker",
+        "request:kubernetes",
+        "request:linux",
+        "request:cybersecurity",
+        "request:devops",
+        "request:aws",
+        "request:gcp",
+        "request:azure"
+      ],
+      "skills": [
+        "official-reference-verifier"
+      ],
+      "validation": [
+        "relevant-lessons-read",
+        "mapped-source-checked-if-uncertain-current-or-version-sensitive",
+        "post-answer-source-cross-check"
+      ],
+      "note": "Source map kanonis: .agent/official-reference-map.json. Jangan menebak API/syntax/current best practice dari training data saat verifikasi diwajibkan."
+    },
+    {
+      "when": [
+        "user-correction:official-reference-topic",
+        "request:technical-correction"
+      ],
+      "skills": [
+        "official-reference-verifier",
+        "lessons-capture"
+      ],
+      "validation": [
+        "lessons-updated-before-continuing",
+        "correction-entry-visible"
+      ],
+      "note": "Correction gate: update .agent/memory/lessons-learned.md before continuing technical work."
+    },
+    {
+      "routeWhen": "ALWAYS ON for every substantive task in this repository. Does not require the user to say 1000x, 1000x lipat, gas total, expert reasoning, or maximum capability; those phrases only reinforce the default obligation. Forces scope statement, evidence ledger, risk budget, alternatives when relevant, and validation before delivery.",
+      "skills": [
+        "expert-reasoning-operator"
+      ],
+      "validation": [
+        "evidence-ledger-present",
+        "risk-budget-present",
+        "validation-command-named"
+      ]
+    },
+    {
+      "routeWhen": "User asks about Python, backend logic in Python, data science, automation, or wants expert Python code using clean code principles and modern type hints.",
+      "skillName": "python-expert"
+    },
+    {
+      "routeWhen": "User asks about Python image/asset scripts, OpenCV contour processing, silhouette cleanups, SVG path vectorization, or build script generators (build_*.py).",
+      "skillName": "python-asset-pipeline"
+    },
+    {
+      "when": [
+        "session:start",
+        "request:any-substantive-task"
+      ],
+      "skills": [
+        "session-boot",
+        "auto-pro-standards",
+        "prompt-amplifier",
+        "phased-delivery",
+        "project-memory",
+        "self-review-gate"
+      ],
+      "validation": [
+        "response-header-present",
+        "fail-closed-policy-present",
+        "violation-recovery-defined"
+      ],
+      "note": "Universal governance — applies to every substantive task. Agent must begin with I AM CRAZY header. skill-excellence-ratchet and skill-upgrader fire only on request:upgrade-skill or request:skill-quality."
+    },
+    {
+      "when": [
+        "dependency:gsap",
+        "file:gsap",
+        "request:animation"
+      ],
+      "skills": [
+        "gsap-core",
+        "gsap-timeline",
+        "gsap-performance"
+      ],
+      "validation": [
+        "project-build-if-available",
+        "browser-or-visual-check-if-ui"
+      ]
+    },
+    {
+      "when": [
+        "dependency:@gsap/react",
+        "dependency:react",
+        "framework:nextjs"
+      ],
+      "skills": [
+        "gsap-react",
+        "elite-gsap-react-architecture",
+        "react-best-practices",
+        "nextjs-best-practices"
+      ],
+      "validation": [
+        "npm-run-build-if-present",
+        "npm-run-lint-if-present"
+      ]
+    },
+    {
+      "when": [
+        "request:scroll-animation",
+        "file:ScrollTrigger",
+        "dependency:gsap"
+      ],
+      "skills": [
+        "gsap-scrolltrigger",
+        "gsap-performance",
+        "gsap-plugins"
+      ],
+      "validation": [
+        "reduced-motion-check",
+        "refresh-cleanup-check",
+        "browser-or-visual-check-if-ui"
+      ]
+    },
+    {
+      "when": [
+        "framework:static-web",
+        "file:index.html"
+      ],
+      "skills": [
+        "frontend-design",
+        "gsap-core",
+        "web-performance-optimization"
+      ],
+      "validation": [
+        "html-css-js-syntax-check",
+        "responsive-check-if-ui"
+      ]
+    },
+    {
+      "when": [
+        "framework:nextjs"
+      ],
+      "skills": [
+        "nextjs-app-router-patterns",
+        "nextjs-best-practices",
+        "react-best-practices"
+      ],
+      "validation": [
+        "npm-run-build-if-present",
+        "npm-run-lint-if-present"
+      ]
+    },
+    {
+      "when": [
+        "framework:vite",
+        "dependency:react"
+      ],
+      "skills": [
+        "react-best-practices",
+        "frontend-design",
+        "react-component-performance"
+      ],
+      "validation": [
+        "npm-run-build-if-present"
+      ]
+    },
+    {
+      "when": [
+        "request:review",
+        "request:pre-push",
+        "request:quality"
+      ],
+      "skills": [
+        "code-reviewer",
+        "codebase-audit-pre-push",
+        "verification-before-completion"
+      ],
+      "validation": [
+        "git-diff-review",
+        "available-tests"
+      ]
+    },
+    {
+      "when": [
+        "request:security",
+        "file:.env",
+        "request:secret-scan"
+      ],
+      "skills": [
+        "security-audit",
+        "cc-skill-security-review",
+        "secrets-management"
+      ],
+      "validation": [
+        "secret-pattern-scan",
+        "dependency-audit-if-present"
+      ]
+    },
+    {
+      "when": [
+        "request:deploy",
+        "platform:vercel"
+      ],
+      "skills": [
+        "vercel-deployment",
+        "deployment-validation-config-validate"
+      ],
+      "validation": [
+        "build-before-deploy",
+        "env-var-check"
+      ]
+    },
+    {
+      "when": [
+        "request:apps-script",
+        "file:Code.gs",
+        "file:appsscript.json"
+      ],
+      "skills": [
+        "google-sheets-automation",
+        "googlesheets-automation",
+        "frontend-design"
+      ],
+      "validation": [
+        "frontend-backend-contract-check"
+      ]
+    },
+    {
+      "when": [
+        "request:ui-design",
+        "request:improve-ui",
+        "request:design-system"
+      ],
+      "skills": [
+        "frontend-design",
+        "web-design-guidelines",
+        "product-design"
+      ],
+      "optionalSkills": [
+        "tailwind-design-system",
+        "shadcn",
+        "ui-ux-designer",
+        "design-taste-frontend"
+      ],
+      "externalSources": [
+        "https://github.com/bergside/typeui"
+      ],
+      "note": "typeui is an optional external source (see externalSources); install via active-skills.json optionalExternal before referencing it as a local skill.",
+      "validation": [
+        "accessibility-check",
+        "responsive-check-if-ui",
+        "visual-review"
+      ]
+    },
+    {
+      "when": [
+        "request:backend",
+        "request:api",
+        "request:rest-api",
+        "request:server"
+      ],
+      "skills": [
+        "backend-architect",
+        "api-patterns",
+        "nodejs-backend-patterns"
+      ],
+      "validation": [
+        "project-build-if-available"
+      ]
+    },
+    {
+      "when": [
+        "request:database",
+        "request:sql",
+        "request:postgres",
+        "request:supabase",
+        "file:schema"
+      ],
+      "skills": [
+        "database",
+        "database-design",
+        "supabase",
+        "neon-postgres",
+        "drizzle-orm-expert",
+        "postgres-best-practices"
+      ],
+      "validation": [
+        "project-build-if-available"
+      ]
+    },
+    {
+      "when": [
+        "request:laravel",
+        "request:php",
+        "file:artisan",
+        "file:composer.json"
+      ],
+      "skills": [
+        "laravel-expert",
+        "database",
+        "database-design",
+        "api-patterns"
+      ],
+      "validation": [
+        "project-build-if-available"
+      ]
+    },
+    {
+      "when": [
+        "dependency:three",
+        "request:3d",
+        "request:webgl",
+        "request:shader",
+        "file:three.min.js"
+      ],
+      "skills": [
+        "three-js-expert",
+        "react-three-fiber",
+        "threejs-fundamentals",
+        "shader-programming-glsl",
+        "spline-3d-integration",
+        "3d-web-experience",
+        "zdog"
+      ],
+      "validation": [
+        "project-build-if-available",
+        "browser-or-visual-check-if-ui",
+        "gsap-performance"
+      ]
+    },
+    {
+      "when": [
+        "dependency:lenis",
+        "dependency:locomotive-scroll",
+        "dependency:@studio-freight/lenis",
+        "request:smooth-scroll",
+        "file:lenis"
+      ],
+      "skills": [
+        "lenis-scroll",
+        "locomotive-scroll",
+        "scroll-experience",
+        "gsap-scrolltrigger"
+      ],
+      "validation": [
+        "reduced-motion-check",
+        "browser-or-visual-check-if-ui"
+      ]
+    },
+    {
+      "when": [
+        "dependency:split-type",
+        "dependency:lottie-web",
+        "dependency:howler",
+        "request:text-animation",
+        "request:audio"
+      ],
+      "skills": [
+        "split-type",
+        "lottie-web",
+        "howler-js",
+        "web-mobile-joystick"
+      ],
+      "validation": [
+        "browser-or-visual-check-if-ui"
+      ]
+    },
+    {
+      "when": [
+        "dependency:animejs",
+        "dependency:barba",
+        "request:page-transition",
+        "request:creative-coding",
+        "request:generative-art",
+        "request:canvas"
+      ],
+      "skills": [
+        "animejs-animation",
+        "barba-js",
+        "algorithmic-art",
+        "canvas-design",
+        "baffle-js",
+        "interactive-portfolio"
+      ],
+      "validation": [
+        "reduced-motion-check",
+        "browser-or-visual-check-if-ui"
+      ]
+    },
+    {
+      "when": [
+        "framework:astro",
+        "request:landing-page",
+        "request:static-site",
+        "request:search",
+        "dependency:algoliasearch"
+      ],
+      "skills": [
+        "astro",
+        "landing-page-generator",
+        "baseline-ui",
+        "web-artifacts-builder",
+        "algolia-search",
+        "nextjs-supabase-auth"
+      ],
+      "validation": [
+        "project-build-if-available",
+        "responsive-check-if-ui"
+      ]
+    },
+    {
+      "when": [
+        "dependency:telegraf",
+        "request:telegram",
+        "request:whatsapp",
+        "request:youtube-bot",
+        "request:bot",
+        "request:scraper",
+        "dependency:cheerio",
+        "dependency:whatsapp-web.js"
+      ],
+      "skills": [
+        "telegram-bot-builder",
+        "telegram-mini-app",
+        "whatsapp-cloud-api",
+        "whatsapp-bot-architecture",
+        "youtube-automation",
+        "youtube-summarizer",
+        "web-scraper",
+        "content-automation-engine",
+        "nodejs-best-practices"
+      ],
+      "validation": [
+        "secret-pattern-scan",
+        "project-build-if-available"
+      ]
+    },
+    {
+      "when": [
+        "request:git",
+        "request:push",
+        "request:commit",
+        "request:gitignore",
+        "request:env",
+        "request:secrets",
+        "request:api-key",
+        "request:monorepo",
+        "file:.gitignore",
+        "file:.env"
+      ],
+      "skills": [
+        "git-survival-guide",
+        "env-fortress",
+        "monorepo-multi-bot",
+        "codebase-audit-pre-push"
+      ],
+      "validation": [
+        "secret-pattern-scan",
+        "git-diff-review"
+      ]
+    },
+    {
+      "when": [
+        "request:youtube-shorts",
+        "request:content-automation",
+        "request:tts",
+        "request:ffmpeg",
+        "request:video",
+        "request:tiktok",
+        "request:reels"
+      ],
+      "skills": [
+        "content-automation-engine",
+        "youtube-automation"
+      ],
+      "validation": [
+        "secret-pattern-scan",
+        "project-build-if-available"
+      ]
+    },
+    {
+      "when": [
+        "dependency:framer-motion",
+        "dependency:motion",
+        "request:motion"
+      ],
+      "skills": [
+        "framer-motion",
+        "react-best-practices"
+      ],
+      "validation": [
+        "npm-run-build-if-present",
+        "reduced-motion-check"
+      ]
+    },
+    {
+      "when": [
+        "dependency:tailwindcss",
+        "request:ui-component",
+        "request:design-system",
+        "dependency:shadcn"
+      ],
+      "skills": [
+        "tailwind-design-system",
+        "tailwind-patterns",
+        "shadcn",
+        "design-taste-frontend",
+        "ui-ux-designer"
+      ],
+      "validation": [
+        "responsive-check-if-ui",
+        "accessibility-check"
+      ]
+    },
+    {
+      "when": [
+        "request:frontend",
+        "dependency:typescript",
+        "request:react"
+      ],
+      "skills": [
+        "frontend-dev-guidelines",
+        "frontend-api-integration-patterns",
+        "react-patterns",
+        "react-nextjs-development",
+        "react-state-management",
+        "react-modernization",
+        "tanstack-query-expert",
+        "typescript-expert"
+      ],
+      "validation": [
+        "npm-run-build-if-present",
+        "npm-run-lint-if-present"
+      ]
+    },
+    {
+      "when": [
+        "request:seo",
+        "request:meta-tags",
+        "request:sitemap",
+        "request:schema-markup"
+      ],
+      "skills": [
+        "seo-fundamentals",
+        "seo-meta-optimizer",
+        "seo-schema",
+        "seo-sitemap",
+        "seo-audit"
+      ],
+      "validation": [
+        "html-css-js-syntax-check"
+      ]
+    },
+    {
+      "when": [
+        "request:accessibility",
+        "request:a11y",
+        "request:wcag",
+        "request:screen-reader"
+      ],
+      "skills": [
+        "ui-a11y",
+        "wcag-audit-patterns",
+        "screen-reader-testing",
+        "accessibility-compliance-accessibility-audit"
+      ],
+      "validation": [
+        "accessibility-check",
+        "responsive-check-if-ui"
+      ]
+    },
+    {
+      "when": [
+        "request:performance",
+        "request:optimize",
+        "request:web-vitals",
+        "request:lighthouse"
+      ],
+      "skills": [
+        "performance-engineer",
+        "performance-optimizer",
+        "performance-profiling",
+        "web-performance-optimization"
+      ],
+      "validation": [
+        "project-build-if-available"
+      ]
+    },
+    {
+      "when": [
+        "request:node",
+        "request:rest-api",
+        "dependency:express",
+        "request:openapi"
+      ],
+      "skills": [
+        "nodejs-best-practices",
+        "backend-dev-guidelines",
+        "api-design-principles",
+        "api-security-best-practices",
+        "openapi-spec-generation",
+        "nosql-expert"
+      ],
+      "validation": [
+        "project-build-if-available"
+      ]
+    },
+    {
+      "when": [
+        "request:ai",
+        "request:llm",
+        "request:gemini",
+        "dependency:@google/generative-ai",
+        "request:prompt-engineering"
+      ],
+      "skills": [
+        "gemini-api-integration",
+        "gemini-api-dev",
+        "llm-app-patterns",
+        "prompt-engineering",
+        "llm-structured-output",
+        "ai-engineer"
+      ],
+      "validation": [
+        "secret-pattern-scan",
+        "project-build-if-available"
+      ]
+    },
+    {
+      "when": [
+        "request:cloudflare",
+        "request:serverless",
+        "request:workers",
+        "file:wrangler.toml"
+      ],
+      "skills": [
+        "cloudflare-workers-expert",
+        "nodejs-best-practices"
+      ],
+      "validation": [
+        "env-var-check",
+        "secret-pattern-scan"
+      ]
+    },
+    {
+      "when": [
+        "request:testing",
+        "request:e2e",
+        "request:playwright",
+        "request:debug",
+        "request:unit-test",
+        "request:vitest",
+        "request:jest",
+        "request:tdd",
+        "dependency:vitest",
+        "dependency:jest"
+      ],
+      "skills": [
+        "playwright",
+        "webapp-testing",
+        "systematic-debugging",
+        "javascript-testing-patterns",
+        "test-driven-development"
+      ],
+      "validation": [
+        "available-tests"
+      ]
+    },
+    {
+      "when": [
+        "request:secure-code",
+        "request:xss",
+        "request:input-validation",
+        "request:secure-frontend"
+      ],
+      "skills": [
+        "backend-security-coder",
+        "frontend-security-coder",
+        "web-security-testing",
+        "security-audit"
+      ],
+      "validation": [
+        "secret-pattern-scan",
+        "dependency-audit-if-present"
+      ]
+    },
+    {
+      "when": [
+        "request:strategy",
+        "request:roadmap",
+        "request:planning",
+        "request:prd",
+        "request:scope",
+        "request:mvp",
+        "request:master-prompt",
+        "request:build-prompt"
+      ],
+      "skills": [
+        "arsitek-pikiran",
+        "prd-architect-pro",
+        "dewa-prompter-v2"
+      ],
+      "validation": [
+        "response-header-present"
+      ],
+      "note": "Pipeline: arsitek-pikiran (ide->5 fase) -> prd-architect-pro (PRD.md) -> dewa-prompter-v2 (master prompt per fase). Semua output utama Bahasa Indonesia."
+    },
+    {
+      "when": [
+        "project:complete",
+        "request:retrospective",
+        "request:lessons",
+        "request:postmortem",
+        "session:end"
+      ],
+      "skills": [
+        "lessons-capture",
+        "project-memory"
+      ],
+      "validation": [
+        "response-header-present"
+      ],
+      "note": "Di akhir project: catat pelajaran lintas-project ke memory/lessons-learned.md (capture-lesson.mjs). Pola berulang (>=3x tag) -> kandidat skill baru."
+    },
+    {
+      "when": [
+        "request:auth",
+        "request:login",
+        "request:authentication",
+        "request:authorization",
+        "request:rbac",
+        "request:jwt",
+        "request:oauth",
+        "dependency:clerk",
+        "dependency:next-auth",
+        "dependency:@clerk/nextjs"
+      ],
+      "skills": [
+        "auth-implementation-patterns",
+        "clerk-auth",
+        "nextjs-supabase-auth",
+        "security-audit",
+        "api-security-best-practices"
+      ],
+      "validation": [
+        "secret-pattern-scan",
+        "project-build-if-available"
+      ]
+    },
+    {
+      "when": [
+        "request:observability",
+        "request:logging",
+        "request:error-tracking",
+        "request:monitoring",
+        "dependency:@sentry/nextjs",
+        "dependency:@sentry/node",
+        "dependency:pino",
+        "dependency:winston"
+      ],
+      "skills": [
+        "observability-engineer",
+        "sentry-automation"
+      ],
+      "validation": [
+        "secret-pattern-scan",
+        "project-build-if-available"
+      ]
+    },
+    {
+      "when": [
+        "request:ci",
+        "request:cicd",
+        "request:github-actions",
+        "request:pipeline",
+        "file:.github/workflows"
+      ],
+      "skills": [
+        "github-actions-templates",
+        "codebase-audit-pre-push",
+        "verification-before-completion"
+      ],
+      "validation": [
+        "available-tests"
+      ]
+    },
+    {
+      "when": [
+        "request:cache",
+        "request:redis",
+        "request:caching",
+        "dependency:redis",
+        "dependency:ioredis",
+        "dependency:@upstash/redis"
+      ],
+      "skills": [
+        "redis",
+        "web-performance-optimization"
+      ],
+      "validation": [
+        "project-build-if-available"
+      ]
+    },
+    {
+      "when": [
+        "request:audio-visualizer",
+        "request:web-audio",
+        "request:audio-animation",
+        "dependency:howler"
+      ],
+      "skills": [
+        "web-audio-engineering",
+        "howler-js"
+      ],
+      "validation": [
+        "project-build-if-available",
+        "browser-or-visual-check-if-ui"
+      ]
+    },
+    {
+      "when": [
+        "request:upgrade-skill",
+        "request:skill-quality",
+        "request:skill-audit",
+        "request:improve-skill"
+      ],
+      "skills": [
+        "skill-excellence-ratchet",
+        "skill-upgrader",
+        "lessons-capture"
+      ],
+      "validation": [
+        "node .agent/scripts/audit-skill-quality.mjs",
+        "node .agent/scripts/validate-agent-skills.mjs"
+      ],
+      "note": "Meta-skills for upgrading the skill library itself. Separated from universal route to avoid unnecessary overhead on normal tasks."
+    },
+    {
+      "when": [
+        "request:mobile",
+        "request:react-native",
+        "request:expo",
+        "dependency:expo",
+        "dependency:react-native"
+      ],
+      "skills": [
+        "react-native-architecture",
+        "mobile-developer",
+        "mobile-design",
+        "mobile-security-coder",
+        "upgrading-expo",
+        "expo-deployment",
+        "expo-dev-client",
+        "expo-tailwind-setup",
+        "expo-api-routes",
+        "frontend-mobile-development-component-scaffold"
+      ],
+      "validation": [
+        "project-build-if-available"
+      ]
+    }
+  ],
+  "nonGenericResponseRules": [
+    "Name exact files inspected.",
+    "Name exact skills selected and why.",
+    "Name exact validation command or explain why no validation exists.",
+    "Do not provide broad advice unless it maps to this repository."
+  ],
+  "mandatorySkillUsage": {
+    "rule": ".agent/rules/mandatory-skill-usage.md",
+    "enforced": true,
+    "appliesTo": [
+      "all-agents",
+      "all-sub-agents"
+    ],
+    "summary": "Every assistant output must disclose the exact skills used. Substantive tasks must route to and read at least one relevant SKILL.md; trivial/status/clarification/error outputs must still disclose session-boot.",
+    "outputSkillDisclosure": {
+      "policyId": "EVERY_OUTPUT_SKILL_DISCLOSURE",
+      "required": true,
+      "appliesTo": "all-assistant-outputs",
+      "substantiveFormat": "full-session-boot",
+      "trivialFormat": "🔥 I AM CRAZY"
+    },
+    "exempt": [],
+    "antiSlopSkills": [
+      "expert-reasoning-operator",
+      "unslop",
+      "avoid-ai-writing",
+      "verification-before-completion",
+      "code-reviewer"
+    ]
+  },
+  "governanceEnforcement": {
+    "policyId": "FAIL_CLOSED_GOVERNANCE",
+    "required": true,
+    "mode": "fail-closed",
+    "agentBypassAllowed": false,
+    "userOverridePolicy": "Only an explicit user instruction naming the exact gate and scope may alter it, subject to higher-priority instructions and safety boundaries.",
+    "onViolation": [
+      "stop-current-work",
+      "disclose-violation",
+      "invalidate-unverified-claims",
+      "recover-missing-gates",
+      "rerun-required-validation"
+    ],
+    "completionBlockedUntil": [
+      "all-required-gates-pass",
+      "required-validation-exits-successfully",
+      "validation-evidence-is-reportable"
+    ],
+    "invalidatingConditions": [
+      "missing-disclosure",
+      "missing-preflight",
+      "missing-route-or-skill-read",
+      "fabricated-evidence",
+      "failed-required-validation",
+      "silent-bypass"
+    ]
+  },
+  "officialReferenceVerification": {
+    "policyId": "OFFICIAL_REFERENCE_VERIFICATION",
+    "required": true,
+    "sourceMap": ".agent/official-reference-map.json",
+    "rule": ".agent/rules/official-reference-verification.md",
+    "skill": "official-reference-verifier",
+    "lessonsFile": ".agent/memory/lessons-learned.md",
+    "topicCount": 33,
+    "correctionGate": "update-lessons-before-continuing",
+    "uncertaintyPhrase": "ini masih perlu dicek ulang"
+  },
+  "openSourceResearch": {
+    "allowed": true,
+    "required": true,
+    "policyId": "MANDATORY_OPEN_SOURCE_HARVEST",
+    "appliesTo": "every-substantive-task",
+    "exemptTasks": [
+      "trivial one-line edits (typo, rename)",
+      "pure conversation or status output",
+      "tasks with no external prior art (novel internal glue)"
+    ],
+    "purpose": "Harvest real, working code from safe-licensed sources and adapt it — never invent from memory when proven prior art exists.",
+    "mustHarvestCode": true,
+    "allowedLicenses": [
+      "MIT",
+      "Apache-2.0",
+      "BSD",
+      "ISC",
+      "Unlicense",
+      "CC0",
+      "public-domain"
+    ],
+    "blockedLicenses": [
+      "GPL",
+      "AGPL",
+      "LGPL",
+      "proprietary",
+      "unknown"
+    ],
+    "rules": [
+      "MANDATORY per substantive task: search for real open-source code implementing the pattern BEFORE writing your own. Do not answer from memory when working prior art exists.",
+      "HARVEST the actual code from a safe-licensed source (MIT/Apache-2.0/BSD/ISC/Unlicense/CC0/public-domain), then ADAPT it to this repo's conventions — this is the required 'take the code' step, not optional inspiration.",
+      "Adaptation is required, verbatim mass-paste is not: rename to repo conventions, wire to repo patterns, strip dead parts. Small idiomatic snippets may stay near-verbatim if attributed.",
+      "License gate is hard: verify the license is on the allowed list before harvesting. Block GPL/AGPL/LGPL/proprietary/unknown — find a permissive alternative instead.",
+      "Audit log MANDATORY: every task that harvested external code must include a 'Source & License Audit' section naming the source URL + license (and record non-trivial ones in .agent/memory/decisions.md).",
+      "Prefer official docs and the library's own repository over random blogs.",
+      "Never run fetched code without review.",
+      "Never send repo contents, secrets, or private context to external services."
+    ]
+  }
+}

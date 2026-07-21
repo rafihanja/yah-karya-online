@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "tool": "antigravity",
+  "updatedAt": "2026-06-01",
+  "canonicalSource": ".agent",
+  "recommendedAdapter": "agents-rules",
+  "exportCommand": "node .agent/scripts/export-agent-adapters.mjs --write --tool agents-rules",
+  "dryRunCommand": "node .agent/scripts/export-agent-adapters.mjs --dry-run --tool agents-rules",
+  "postExportValidation": [
+    "node .agent/scripts/validate-agent-skills.mjs",
+    "node .agent/scripts/agent-doctor.mjs"
+  ],
+  "notes": [
+    "Canonical files remain in .agent.",
+    "The adapter is a small bridge for tools that auto-load .agents/rules.",
+    "Do not export unless the user explicitly wants Antigravity auto-load behavior."
+  ]
+}

@@ -1,0 +1,1298 @@
+{
+  "repoRoot": "D:\\gsap",
+  "projectCount": 18,
+  "projects": [
+    {
+      "root": "ai-chat-web",
+      "markers": [
+        "package.json",
+        "npm-lock"
+      ],
+      "packageManager": "npm",
+      "frameworks": [],
+      "dependencies": [
+        "@google/generative-ai",
+        "@upstash/redis",
+        "cors",
+        "dotenv",
+        "groq-sdk",
+        "puppeteer",
+        "wrangler"
+      ],
+      "validationCommands": [
+        "npm run test",
+        "npm run check"
+      ],
+      "routeSignals": [
+        "dependency:@google/generative-ai",
+        "dependency:@upstash/redis",
+        "dependency:cors",
+        "dependency:dotenv",
+        "dependency:groq-sdk",
+        "dependency:puppeteer",
+        "dependency:wrangler"
+      ],
+      "matchedRoutes": [
+        {
+          "when": [
+            "dependency:@google/generative-ai"
+          ],
+          "skills": [
+            "gemini-api-integration",
+            "gemini-api-dev",
+            "llm-app-patterns",
+            "prompt-engineering",
+            "llm-structured-output",
+            "ai-engineer"
+          ],
+          "validation": [
+            "secret-pattern-scan",
+            "project-build-if-available"
+          ]
+        },
+        {
+          "when": [
+            "dependency:@upstash/redis"
+          ],
+          "skills": [
+            "redis",
+            "web-performance-optimization"
+          ],
+          "validation": [
+            "project-build-if-available"
+          ]
+        }
+      ]
+    },
+    {
+      "root": "bday-card",
+      "markers": [
+        "index.html"
+      ],
+      "packageManager": null,
+      "frameworks": [
+        "static-web"
+      ],
+      "dependencies": [],
+      "validationCommands": [],
+      "routeSignals": [
+        "file:index.html",
+        "framework:static-web"
+      ],
+      "matchedRoutes": [
+        {
+          "when": [
+            "framework:static-web",
+            "file:index.html"
+          ],
+          "skills": [
+            "frontend-design",
+            "gsap-core",
+            "web-performance-optimization"
+          ],
+          "validation": [
+            "html-css-js-syntax-check",
+            "responsive-check-if-ui"
+          ]
+        }
+      ]
+    },
+    {
+      "root": "bot-affiliate",
+      "markers": [
+        "package.json",
+        "npm-lock"
+      ],
+      "packageManager": "npm",
+      "frameworks": [],
+      "dependencies": [
+        "@google/generative-ai",
+        "axios",
+        "cheerio",
+        "dotenv",
+        "express",
+        "rss-parser",
+        "telegraf"
+      ],
+      "validationCommands": [],
+      "routeSignals": [
+        "dependency:@google/generative-ai",
+        "dependency:axios",
+        "dependency:cheerio",
+        "dependency:dotenv",
+        "dependency:express",
+        "dependency:rss-parser",
+        "dependency:telegraf"
+      ],
+      "matchedRoutes": [
+        {
+          "when": [
+            "dependency:telegraf",
+            "dependency:cheerio"
+          ],
+          "skills": [
+            "telegram-bot-builder",
+            "telegram-mini-app",
+            "whatsapp-cloud-api",
+            "whatsapp-bot-architecture",
+            "youtube-automation",
+            "youtube-summarizer",
+            "web-scraper",
+            "content-automation-engine",
+            "nodejs-best-practices"
+          ],
+          "validation": [
+            "secret-pattern-scan",
+            "project-build-if-available"
+          ]
+        },
+        {
+          "when": [
+            "dependency:express"
+          ],
+          "skills": [
+            "nodejs-best-practices",
+            "backend-dev-guidelines",
+            "api-design-principles",
+            "api-security-best-practices",
+            "openapi-spec-generation",
+            "nosql-expert"
+          ],
+          "validation": [
+            "project-build-if-available"
+          ]
+        },
+        {
+          "when": [
+            "dependency:@google/generative-ai"
+          ],
+          "skills": [
+            "gemini-api-integration",
+            "gemini-api-dev",
+            "llm-app-patterns",
+            "prompt-engineering",
+            "llm-structured-output",
+            "ai-engineer"
+          ],
+          "validation": [
+            "secret-pattern-scan",
+            "project-build-if-available"
+          ]
+        }
+      ]
+    },
+    {
+      "root": "BOT_UNTUK_HP",
+      "markers": [
+        "package.json",
+        "npm-lock"
+      ],
+      "packageManager": "npm",
+      "frameworks": [],
+      "dependencies": [
+        "@google/genai",
+        "axios",
+        "dotenv",
+        "express",
+        "ffmpeg-static",
+        "ffprobe-static",
+        "fluent-ffmpeg",
+        "form-data",
+        "fs",
+        "googleapis",
+        "groq-sdk",
+        "gtts",
+        "node-cron",
+        "node-edge-tts",
+        "node-fetch",
+        "socket.io",
+        "videodb"
+      ],
+      "validationCommands": [],
+      "routeSignals": [
+        "dependency:@google/genai",
+        "dependency:axios",
+        "dependency:dotenv",
+        "dependency:express",
+        "dependency:ffmpeg-static",
+        "dependency:ffprobe-static",
+        "dependency:fluent-ffmpeg",
+        "dependency:form-data",
+        "dependency:fs",
+        "dependency:googleapis",
+        "dependency:groq-sdk",
+        "dependency:gtts",
+        "dependency:node-cron",
+        "dependency:node-edge-tts",
+        "dependency:node-fetch",
+        "dependency:socket.io",
+        "dependency:videodb"
+      ],
+      "matchedRoutes": [
+        {
+          "when": [
+            "dependency:express"
+          ],
+          "skills": [
+            "nodejs-best-practices",
+            "backend-dev-guidelines",
+            "api-design-principles",
+            "api-security-best-practices",
+            "openapi-spec-generation",
+            "nosql-expert"
+          ],
+          "validation": [
+            "project-build-if-available"
+          ]
+        }
+      ]
+    },
+    {
+      "root": "galaxy-message",
+      "markers": [
+        "index.html"
+      ],
+      "packageManager": null,
+      "frameworks": [
+        "static-web"
+      ],
+      "dependencies": [],
+      "validationCommands": [],
+      "routeSignals": [
+        "file:index.html",
+        "framework:static-web"
+      ],
+      "matchedRoutes": [
+        {
+          "when": [
+            "framework:static-web",
+            "file:index.html"
+          ],
+          "skills": [
+            "frontend-design",
+            "gsap-core",
+            "web-performance-optimization"
+          ],
+          "validation": [
+            "html-css-js-syntax-check",
+            "responsive-check-if-ui"
+          ]
+        }
+      ]
+    },
+    {
+      "root": "kambing-bandot",
+      "markers": [
+        "package.json",
+        "npm-lock"
+      ],
+      "packageManager": "npm",
+      "frameworks": [],
+      "dependencies": [
+        "axios",
+        "cheerio",
+        "dotenv",
+        "google-tts-api",
+        "html-to-docx",
+        "jimp",
+        "mammoth",
+        "marked",
+        "pdf-parse",
+        "pptxgenjs",
+        "pureimage",
+        "qrcode-terminal",
+        "sharp",
+        "whatsapp-web.js",
+        "youtube-search-api",
+        "youtube-transcript"
+      ],
+      "validationCommands": [],
+      "routeSignals": [
+        "dependency:axios",
+        "dependency:cheerio",
+        "dependency:dotenv",
+        "dependency:google-tts-api",
+        "dependency:html-to-docx",
+        "dependency:jimp",
+        "dependency:mammoth",
+        "dependency:marked",
+        "dependency:pdf-parse",
+        "dependency:pptxgenjs",
+        "dependency:pureimage",
+        "dependency:qrcode-terminal",
+        "dependency:sharp",
+        "dependency:whatsapp-web.js",
+        "dependency:youtube-search-api",
+        "dependency:youtube-transcript"
+      ],
+      "matchedRoutes": [
+        {
+          "when": [
+            "dependency:cheerio",
+            "dependency:whatsapp-web.js"
+          ],
+          "skills": [
+            "telegram-bot-builder",
+            "telegram-mini-app",
+            "whatsapp-cloud-api",
+            "whatsapp-bot-architecture",
+            "youtube-automation",
+            "youtube-summarizer",
+            "web-scraper",
+            "content-automation-engine",
+            "nodejs-best-practices"
+          ],
+          "validation": [
+            "secret-pattern-scan",
+            "project-build-if-available"
+          ]
+        }
+      ]
+    },
+    {
+      "root": "keretaaaa",
+      "markers": [
+        "package.json",
+        "npm-lock"
+      ],
+      "packageManager": "npm",
+      "frameworks": [],
+      "dependencies": [
+        "pdf-parse",
+        "pdf2json",
+        "xlsx"
+      ],
+      "validationCommands": [],
+      "routeSignals": [
+        "dependency:pdf-parse",
+        "dependency:pdf2json",
+        "dependency:xlsx"
+      ],
+      "matchedRoutes": []
+    },
+    {
+      "root": "mantra-riset",
+      "markers": [
+        "package.json",
+        "npm-lock"
+      ],
+      "packageManager": "npm",
+      "frameworks": [
+        "nextjs",
+        "react"
+      ],
+      "dependencies": [
+        "@google/generative-ai",
+        "@tailwindcss/postcss",
+        "@types/node",
+        "@types/react",
+        "@types/react-dom",
+        "docx",
+        "eslint",
+        "eslint-config-next",
+        "lucide-react",
+        "mammoth",
+        "next",
+        "pptxgenjs",
+        "react",
+        "react-dom",
+        "tailwindcss",
+        "typescript"
+      ],
+      "validationCommands": [
+        "npm run lint",
+        "npm run build"
+      ],
+      "routeSignals": [
+        "dependency:@google/generative-ai",
+        "dependency:@tailwindcss/postcss",
+        "dependency:@types/node",
+        "dependency:@types/react",
+        "dependency:@types/react-dom",
+        "dependency:docx",
+        "dependency:eslint",
+        "dependency:eslint-config-next",
+        "dependency:lucide-react",
+        "dependency:mammoth",
+        "dependency:next",
+        "dependency:pptxgenjs",
+        "dependency:react",
+        "dependency:react-dom",
+        "dependency:tailwindcss",
+        "dependency:typescript",
+        "framework:nextjs"
+      ],
+      "matchedRoutes": [
+        {
+          "when": [
+            "dependency:react",
+            "framework:nextjs"
+          ],
+          "skills": [
+            "gsap-react",
+            "elite-gsap-react-architecture",
+            "react-best-practices",
+            "nextjs-best-practices"
+          ],
+          "validation": [
+            "npm-run-build-if-present",
+            "npm-run-lint-if-present"
+          ]
+        },
+        {
+          "when": [
+            "framework:nextjs"
+          ],
+          "skills": [
+            "nextjs-app-router-patterns",
+            "nextjs-best-practices",
+            "react-best-practices"
+          ],
+          "validation": [
+            "npm-run-build-if-present",
+            "npm-run-lint-if-present"
+          ]
+        },
+        {
+          "when": [
+            "dependency:react"
+          ],
+          "skills": [
+            "react-best-practices",
+            "frontend-design",
+            "react-component-performance"
+          ],
+          "validation": [
+            "npm-run-build-if-present"
+          ]
+        },
+        {
+          "when": [
+            "dependency:tailwindcss"
+          ],
+          "skills": [
+            "tailwind-design-system",
+            "tailwind-patterns",
+            "shadcn",
+            "design-taste-frontend",
+            "ui-ux-designer"
+          ],
+          "validation": [
+            "responsive-check-if-ui",
+            "accessibility-check"
+          ]
+        },
+        {
+          "when": [
+            "dependency:typescript"
+          ],
+          "skills": [
+            "frontend-dev-guidelines",
+            "frontend-api-integration-patterns",
+            "react-patterns",
+            "react-nextjs-development",
+            "react-state-management",
+            "react-modernization",
+            "tanstack-query-expert",
+            "typescript-expert"
+          ],
+          "validation": [
+            "npm-run-build-if-present",
+            "npm-run-lint-if-present"
+          ]
+        },
+        {
+          "when": [
+            "dependency:@google/generative-ai"
+          ],
+          "skills": [
+            "gemini-api-integration",
+            "gemini-api-dev",
+            "llm-app-patterns",
+            "prompt-engineering",
+            "llm-structured-output",
+            "ai-engineer"
+          ],
+          "validation": [
+            "secret-pattern-scan",
+            "project-build-if-available"
+          ]
+        }
+      ]
+    },
+    {
+      "root": "microstudio",
+      "markers": [
+        "package.json",
+        "npm-lock"
+      ],
+      "packageManager": "npm",
+      "frameworks": [
+        "nextjs",
+        "react"
+      ],
+      "dependencies": [
+        "@eslint/eslintrc",
+        "@types/adm-zip",
+        "@types/node",
+        "@types/react",
+        "@types/react-dom",
+        "adm-zip",
+        "basic-ftp",
+        "eslint",
+        "eslint-config-next",
+        "lucide-react",
+        "mp4-muxer",
+        "next",
+        "react",
+        "react-dom",
+        "server-only",
+        "typescript",
+        "webm-muxer"
+      ],
+      "validationCommands": [
+        "npm run lint",
+        "npm run test",
+        "npm run build",
+        "npm run typecheck"
+      ],
+      "routeSignals": [
+        "dependency:@eslint/eslintrc",
+        "dependency:@types/adm-zip",
+        "dependency:@types/node",
+        "dependency:@types/react",
+        "dependency:@types/react-dom",
+        "dependency:adm-zip",
+        "dependency:basic-ftp",
+        "dependency:eslint",
+        "dependency:eslint-config-next",
+        "dependency:lucide-react",
+        "dependency:mp4-muxer",
+        "dependency:next",
+        "dependency:react",
+        "dependency:react-dom",
+        "dependency:server-only",
+        "dependency:typescript",
+        "dependency:webm-muxer",
+        "framework:nextjs"
+      ],
+      "matchedRoutes": [
+        {
+          "when": [
+            "dependency:react",
+            "framework:nextjs"
+          ],
+          "skills": [
+            "gsap-react",
+            "elite-gsap-react-architecture",
+            "react-best-practices",
+            "nextjs-best-practices"
+          ],
+          "validation": [
+            "npm-run-build-if-present",
+            "npm-run-lint-if-present"
+          ]
+        },
+        {
+          "when": [
+            "framework:nextjs"
+          ],
+          "skills": [
+            "nextjs-app-router-patterns",
+            "nextjs-best-practices",
+            "react-best-practices"
+          ],
+          "validation": [
+            "npm-run-build-if-present",
+            "npm-run-lint-if-present"
+          ]
+        },
+        {
+          "when": [
+            "dependency:react"
+          ],
+          "skills": [
+            "react-best-practices",
+            "frontend-design",
+            "react-component-performance"
+          ],
+          "validation": [
+            "npm-run-build-if-present"
+          ]
+        },
+        {
+          "when": [
+            "dependency:typescript"
+          ],
+          "skills": [
+            "frontend-dev-guidelines",
+            "frontend-api-integration-patterns",
+            "react-patterns",
+            "react-nextjs-development",
+            "react-state-management",
+            "react-modernization",
+            "tanstack-query-expert",
+            "typescript-expert"
+          ],
+          "validation": [
+            "npm-run-build-if-present",
+            "npm-run-lint-if-present"
+          ]
+        }
+      ]
+    },
+    {
+      "root": "motion-renderer",
+      "markers": [
+        "index.html"
+      ],
+      "packageManager": null,
+      "frameworks": [
+        "static-web"
+      ],
+      "dependencies": [],
+      "validationCommands": [],
+      "routeSignals": [
+        "file:index.html",
+        "framework:static-web"
+      ],
+      "matchedRoutes": [
+        {
+          "when": [
+            "framework:static-web",
+            "file:index.html"
+          ],
+          "skills": [
+            "frontend-design",
+            "gsap-core",
+            "web-performance-optimization"
+          ],
+          "validation": [
+            "html-css-js-syntax-check",
+            "responsive-check-if-ui"
+          ]
+        }
+      ]
+    },
+    {
+      "root": "parallax",
+      "markers": [
+        "package.json",
+        "npm-lock",
+        "index.html"
+      ],
+      "packageManager": "npm",
+      "frameworks": [
+        "static-web"
+      ],
+      "dependencies": [
+        "split-type"
+      ],
+      "validationCommands": [],
+      "routeSignals": [
+        "dependency:split-type",
+        "file:index.html",
+        "framework:static-web"
+      ],
+      "matchedRoutes": [
+        {
+          "when": [
+            "framework:static-web",
+            "file:index.html"
+          ],
+          "skills": [
+            "frontend-design",
+            "gsap-core",
+            "web-performance-optimization"
+          ],
+          "validation": [
+            "html-css-js-syntax-check",
+            "responsive-check-if-ui"
+          ]
+        },
+        {
+          "when": [
+            "dependency:split-type"
+          ],
+          "skills": [
+            "split-type",
+            "lottie-web",
+            "howler-js",
+            "web-mobile-joystick"
+          ],
+          "validation": [
+            "browser-or-visual-check-if-ui"
+          ]
+        }
+      ]
+    },
+    {
+      "root": "parallax-sawah",
+      "markers": [
+        "index.html"
+      ],
+      "packageManager": null,
+      "frameworks": [
+        "static-web"
+      ],
+      "dependencies": [],
+      "validationCommands": [],
+      "routeSignals": [
+        "file:index.html",
+        "framework:static-web"
+      ],
+      "matchedRoutes": [
+        {
+          "when": [
+            "framework:static-web",
+            "file:index.html"
+          ],
+          "skills": [
+            "frontend-design",
+            "gsap-core",
+            "web-performance-optimization"
+          ],
+          "validation": [
+            "html-css-js-syntax-check",
+            "responsive-check-if-ui"
+          ]
+        }
+      ]
+    },
+    {
+      "root": "portfolio-rafih",
+      "markers": [
+        "index.html"
+      ],
+      "packageManager": null,
+      "frameworks": [
+        "static-web"
+      ],
+      "dependencies": [],
+      "validationCommands": [],
+      "routeSignals": [
+        "file:index.html",
+        "framework:static-web"
+      ],
+      "matchedRoutes": [
+        {
+          "when": [
+            "framework:static-web",
+            "file:index.html"
+          ],
+          "skills": [
+            "frontend-design",
+            "gsap-core",
+            "web-performance-optimization"
+          ],
+          "validation": [
+            "html-css-js-syntax-check",
+            "responsive-check-if-ui"
+          ]
+        }
+      ]
+    },
+    {
+      "root": "ranja-digital-store",
+      "markers": [
+        "package.json",
+        "npm-lock"
+      ],
+      "packageManager": "npm",
+      "frameworks": [
+        "nextjs",
+        "react"
+      ],
+      "dependencies": [
+        "@gsap/react",
+        "@phosphor-icons/react",
+        "@tailwindcss/postcss",
+        "@types/node",
+        "@types/react",
+        "@types/react-dom",
+        "eslint",
+        "eslint-config-next",
+        "geist",
+        "gsap",
+        "motion",
+        "next",
+        "react",
+        "react-dom",
+        "split-type",
+        "tailwindcss",
+        "typescript"
+      ],
+      "validationCommands": [
+        "npm run lint",
+        "npm run build"
+      ],
+      "routeSignals": [
+        "dependency:@gsap/react",
+        "dependency:@phosphor-icons/react",
+        "dependency:@tailwindcss/postcss",
+        "dependency:@types/node",
+        "dependency:@types/react",
+        "dependency:@types/react-dom",
+        "dependency:eslint",
+        "dependency:eslint-config-next",
+        "dependency:geist",
+        "dependency:gsap",
+        "dependency:motion",
+        "dependency:next",
+        "dependency:react",
+        "dependency:react-dom",
+        "dependency:split-type",
+        "dependency:tailwindcss",
+        "dependency:typescript",
+        "framework:nextjs"
+      ],
+      "matchedRoutes": [
+        {
+          "when": [
+            "dependency:gsap"
+          ],
+          "skills": [
+            "gsap-core",
+            "gsap-timeline",
+            "gsap-performance"
+          ],
+          "validation": [
+            "project-build-if-available",
+            "browser-or-visual-check-if-ui"
+          ]
+        },
+        {
+          "when": [
+            "dependency:@gsap/react",
+            "dependency:react",
+            "framework:nextjs"
+          ],
+          "skills": [
+            "gsap-react",
+            "elite-gsap-react-architecture",
+            "react-best-practices",
+            "nextjs-best-practices"
+          ],
+          "validation": [
+            "npm-run-build-if-present",
+            "npm-run-lint-if-present"
+          ]
+        },
+        {
+          "when": [
+            "dependency:gsap"
+          ],
+          "skills": [
+            "gsap-scrolltrigger",
+            "gsap-performance",
+            "gsap-plugins"
+          ],
+          "validation": [
+            "reduced-motion-check",
+            "refresh-cleanup-check",
+            "browser-or-visual-check-if-ui"
+          ]
+        },
+        {
+          "when": [
+            "framework:nextjs"
+          ],
+          "skills": [
+            "nextjs-app-router-patterns",
+            "nextjs-best-practices",
+            "react-best-practices"
+          ],
+          "validation": [
+            "npm-run-build-if-present",
+            "npm-run-lint-if-present"
+          ]
+        },
+        {
+          "when": [
+            "dependency:react"
+          ],
+          "skills": [
+            "react-best-practices",
+            "frontend-design",
+            "react-component-performance"
+          ],
+          "validation": [
+            "npm-run-build-if-present"
+          ]
+        },
+        {
+          "when": [
+            "dependency:split-type"
+          ],
+          "skills": [
+            "split-type",
+            "lottie-web",
+            "howler-js",
+            "web-mobile-joystick"
+          ],
+          "validation": [
+            "browser-or-visual-check-if-ui"
+          ]
+        },
+        {
+          "when": [
+            "dependency:motion"
+          ],
+          "skills": [
+            "framer-motion",
+            "react-best-practices"
+          ],
+          "validation": [
+            "npm-run-build-if-present",
+            "reduced-motion-check"
+          ]
+        },
+        {
+          "when": [
+            "dependency:tailwindcss"
+          ],
+          "skills": [
+            "tailwind-design-system",
+            "tailwind-patterns",
+            "shadcn",
+            "design-taste-frontend",
+            "ui-ux-designer"
+          ],
+          "validation": [
+            "responsive-check-if-ui",
+            "accessibility-check"
+          ]
+        },
+        {
+          "when": [
+            "dependency:typescript"
+          ],
+          "skills": [
+            "frontend-dev-guidelines",
+            "frontend-api-integration-patterns",
+            "react-patterns",
+            "react-nextjs-development",
+            "react-state-management",
+            "react-modernization",
+            "tanstack-query-expert",
+            "typescript-expert"
+          ],
+          "validation": [
+            "npm-run-build-if-present",
+            "npm-run-lint-if-present"
+          ]
+        }
+      ]
+    },
+    {
+      "root": "vector-renderer",
+      "markers": [
+        "index.html"
+      ],
+      "packageManager": null,
+      "frameworks": [
+        "static-web"
+      ],
+      "dependencies": [],
+      "validationCommands": [],
+      "routeSignals": [
+        "file:index.html",
+        "framework:static-web"
+      ],
+      "matchedRoutes": [
+        {
+          "when": [
+            "framework:static-web",
+            "file:index.html"
+          ],
+          "skills": [
+            "frontend-design",
+            "gsap-core",
+            "web-performance-optimization"
+          ],
+          "validation": [
+            "html-css-js-syntax-check",
+            "responsive-check-if-ui"
+          ]
+        }
+      ]
+    },
+    {
+      "root": "wa-auto-chat",
+      "markers": [
+        "package.json",
+        "npm-lock"
+      ],
+      "packageManager": "npm",
+      "frameworks": [],
+      "dependencies": [
+        "axios",
+        "dotenv",
+        "qrcode-terminal",
+        "whatsapp-web.js"
+      ],
+      "validationCommands": [],
+      "routeSignals": [
+        "dependency:axios",
+        "dependency:dotenv",
+        "dependency:qrcode-terminal",
+        "dependency:whatsapp-web.js"
+      ],
+      "matchedRoutes": [
+        {
+          "when": [
+            "dependency:whatsapp-web.js"
+          ],
+          "skills": [
+            "telegram-bot-builder",
+            "telegram-mini-app",
+            "whatsapp-cloud-api",
+            "whatsapp-bot-architecture",
+            "youtube-automation",
+            "youtube-summarizer",
+            "web-scraper",
+            "content-automation-engine",
+            "nodejs-best-practices"
+          ],
+          "validation": [
+            "secret-pattern-scan",
+            "project-build-if-available"
+          ]
+        }
+      ]
+    },
+    {
+      "root": "web-bot-affiliate",
+      "markers": [
+        "package.json",
+        "npm-lock"
+      ],
+      "packageManager": "npm",
+      "frameworks": [
+        "nextjs",
+        "react"
+      ],
+      "dependencies": [
+        "@tailwindcss/postcss",
+        "@types/node",
+        "@types/react",
+        "@types/react-dom",
+        "axios",
+        "eslint",
+        "eslint-config-next",
+        "gsap",
+        "lucide-react",
+        "next",
+        "react",
+        "react-dom",
+        "tailwindcss",
+        "telegraf",
+        "twitter-api-v2",
+        "typescript"
+      ],
+      "validationCommands": [
+        "npm run lint",
+        "npm run build"
+      ],
+      "routeSignals": [
+        "dependency:@tailwindcss/postcss",
+        "dependency:@types/node",
+        "dependency:@types/react",
+        "dependency:@types/react-dom",
+        "dependency:axios",
+        "dependency:eslint",
+        "dependency:eslint-config-next",
+        "dependency:gsap",
+        "dependency:lucide-react",
+        "dependency:next",
+        "dependency:react",
+        "dependency:react-dom",
+        "dependency:tailwindcss",
+        "dependency:telegraf",
+        "dependency:twitter-api-v2",
+        "dependency:typescript",
+        "framework:nextjs"
+      ],
+      "matchedRoutes": [
+        {
+          "when": [
+            "dependency:gsap"
+          ],
+          "skills": [
+            "gsap-core",
+            "gsap-timeline",
+            "gsap-performance"
+          ],
+          "validation": [
+            "project-build-if-available",
+            "browser-or-visual-check-if-ui"
+          ]
+        },
+        {
+          "when": [
+            "dependency:react",
+            "framework:nextjs"
+          ],
+          "skills": [
+            "gsap-react",
+            "elite-gsap-react-architecture",
+            "react-best-practices",
+            "nextjs-best-practices"
+          ],
+          "validation": [
+            "npm-run-build-if-present",
+            "npm-run-lint-if-present"
+          ]
+        },
+        {
+          "when": [
+            "dependency:gsap"
+          ],
+          "skills": [
+            "gsap-scrolltrigger",
+            "gsap-performance",
+            "gsap-plugins"
+          ],
+          "validation": [
+            "reduced-motion-check",
+            "refresh-cleanup-check",
+            "browser-or-visual-check-if-ui"
+          ]
+        },
+        {
+          "when": [
+            "framework:nextjs"
+          ],
+          "skills": [
+            "nextjs-app-router-patterns",
+            "nextjs-best-practices",
+            "react-best-practices"
+          ],
+          "validation": [
+            "npm-run-build-if-present",
+            "npm-run-lint-if-present"
+          ]
+        },
+        {
+          "when": [
+            "dependency:react"
+          ],
+          "skills": [
+            "react-best-practices",
+            "frontend-design",
+            "react-component-performance"
+          ],
+          "validation": [
+            "npm-run-build-if-present"
+          ]
+        },
+        {
+          "when": [
+            "dependency:telegraf"
+          ],
+          "skills": [
+            "telegram-bot-builder",
+            "telegram-mini-app",
+            "whatsapp-cloud-api",
+            "whatsapp-bot-architecture",
+            "youtube-automation",
+            "youtube-summarizer",
+            "web-scraper",
+            "content-automation-engine",
+            "nodejs-best-practices"
+          ],
+          "validation": [
+            "secret-pattern-scan",
+            "project-build-if-available"
+          ]
+        },
+        {
+          "when": [
+            "dependency:tailwindcss"
+          ],
+          "skills": [
+            "tailwind-design-system",
+            "tailwind-patterns",
+            "shadcn",
+            "design-taste-frontend",
+            "ui-ux-designer"
+          ],
+          "validation": [
+            "responsive-check-if-ui",
+            "accessibility-check"
+          ]
+        },
+        {
+          "when": [
+            "dependency:typescript"
+          ],
+          "skills": [
+            "frontend-dev-guidelines",
+            "frontend-api-integration-patterns",
+            "react-patterns",
+            "react-nextjs-development",
+            "react-state-management",
+            "react-modernization",
+            "tanstack-query-expert",
+            "typescript-expert"
+          ],
+          "validation": [
+            "npm-run-build-if-present",
+            "npm-run-lint-if-present"
+          ]
+        }
+      ]
+    },
+    {
+      "root": "yt-shorts-bot",
+      "markers": [
+        "package.json",
+        "npm-lock"
+      ],
+      "packageManager": "npm",
+      "frameworks": [],
+      "dependencies": [
+        "@google/genai",
+        "axios",
+        "dotenv",
+        "ffmpeg-static",
+        "ffprobe-static",
+        "fluent-ffmpeg",
+        "form-data",
+        "fs",
+        "googleapis",
+        "groq-sdk",
+        "gtts",
+        "node-cron",
+        "node-edge-tts",
+        "node-fetch",
+        "sqlite",
+        "sqlite3",
+        "videodb"
+      ],
+      "validationCommands": [],
+      "routeSignals": [
+        "dependency:@google/genai",
+        "dependency:axios",
+        "dependency:dotenv",
+        "dependency:ffmpeg-static",
+        "dependency:ffprobe-static",
+        "dependency:fluent-ffmpeg",
+        "dependency:form-data",
+        "dependency:fs",
+        "dependency:googleapis",
+        "dependency:groq-sdk",
+        "dependency:gtts",
+        "dependency:node-cron",
+        "dependency:node-edge-tts",
+        "dependency:node-fetch",
+        "dependency:sqlite",
+        "dependency:sqlite3",
+        "dependency:videodb"
+      ],
+      "matchedRoutes": []
+    }
+  ],
+  "generatedAt": "2026-07-16T14:41:24.690Z",
+  "generator": ".agent/scripts/bootstrap-agent.mjs"
+}
