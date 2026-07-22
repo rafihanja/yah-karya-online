@@ -25,6 +25,7 @@ Before doing any work, read and follow:
 .agent/rules/fail-closed-governance.md
 PROJECT_MEMORY.md
 .agent/skill-router.json
+.agent/skills/INDEX.md
 .agent/active-skills.json
 .agent/official-reference-map.json
 .agent/memory/lessons-learned.md

@@ -23,6 +23,7 @@ Without a forced output structure, agents tend to skip skill lookup, omit valida
 
 <!-- EVERY_OUTPUT_SKILL_DISCLOSURE -->
 <!-- FAIL_CLOSED_GOVERNANCE -->
+<!-- MANDATORY_SKILL_INDEX -->
 
 Every assistant output MUST begin with a skill disclosure before any other content.
 
@@ -101,11 +102,12 @@ Before any substantive task, read this full bundle in order:
 8. `.agent/rules/fail-closed-governance.md`
 9. `PROJECT_MEMORY.md`
 10. `.agent/skill-router.json`
-11. `.agent/active-skills.json`
-12. `.agent/official-reference-map.json`
-13. `.agent/memory/lessons-learned.md`
+11. `.agent/skills/INDEX.md` — scan katalog SEMUA skill (bukan cuma yang match keyword router)
+12. `.agent/active-skills.json`
+13. `.agent/official-reference-map.json`
+14. `.agent/memory/lessons-learned.md`
 
-After this bundle, read every matched technical `SKILL.md` from the router before writing code, review findings, deployment steps, or substantive content.
+After this bundle, scan the FULL skill index (`.agent/skills/INDEX.md` — every skill in the repo is listed there, nothing hidden), then read every matched technical `SKILL.md` in full from the router/index before writing code, review findings, deployment steps, or substantive content. If the index is stale or missing, run `node .agent/scripts/generate-skill-index.mjs` first.
 
 ### Mandatory Bundle Proof
 

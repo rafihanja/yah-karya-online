@@ -40,6 +40,7 @@ function bridgeHeader(toolName) {
 function coreGate() {
   return [
     "<!-- EVERY_OUTPUT_SKILL_DISCLOSURE -->",
+    "<!-- MANDATORY_SKILL_INDEX -->",
     "## UNIVERSAL OUTPUT SKILL DISCLOSURE - TANPA PENGECUALIAN",
     "",
     "SETIAP output agent wajib menyebut skill yang dipakai sebelum konten lain.",
@@ -70,6 +71,9 @@ function coreGate() {
     "3. Kalau user minta **project/fitur baru** → jalankan flow `prompt-amplifier` (tanya dulu, jelaskan rencana, minta persetujuan). Kalau prompt sudah lengkap: minimal tulis asumsi singkat, tetap emit I AM CRAZY header, terapkan `auto-pro-standards`, dan kerjakan bertahap (`phased-delivery`). Jangan langsung bikin semua sekaligus.",
     "4. Kalau project sudah ada → baca `PROJECT_MEMORY.md` dulu.",
     "5. Jangan pernah bilang \"selesai\" tanpa menjalankan checklist `self-review-gate`.",
+    "",
+    "### SCAN SEMUA SKILL DULU — `.agent/skills/INDEX.md` (WAJIB)",
+    "Sebelum routing, **scan katalog penuh `.agent/skills/INDEX.md`** — SEMUA skill di repo ada di sana, tidak ada yang disembunyikan. Ini mencegah asumsi \"cuma file tertentu\": kamu melihat semua opsi, bukan cuma yang kebetulan match keyword di router. Baru setelah itu buka `SKILL.md` penuh yang relevan. Kalau INDEX.md stale/hilang, jalankan `node .agent/scripts/generate-skill-index.mjs` dulu.",
     "",
     "### 8 Governance Files (baca berurutan):",
     "1. `.agent/skills/session-boot/SKILL.md` — format I AM CRAZY header wajib.",
@@ -213,7 +217,16 @@ for (const item of planned) {
   const exists = fs.existsSync(item.target);
 
   if (!write) {
-    console.log(`[dry-run] ${exists ? "would update" : "would create"} ${relativeTarget}`);
+    if (!exists) {
+      console.log(`[dry-run] would create ${relativeTarget}`);
+    } else {
+      const current = fs.readFileSync(item.target, "utf8");
+      console.log(
+        current === item.content
+          ? `[dry-run] up-to-date ${relativeTarget}`
+          : `[dry-run] would update ${relativeTarget} (content drift detected)`,
+      );
+    }
     continue;
   }
 

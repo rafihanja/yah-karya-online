@@ -29,7 +29,9 @@ LINTAS-project** dan promosi pola berulang jadi kemampuan reusable.
 - Di AKHIR setiap project atau fase besar (barengan `self-review-gate` / laporan akhir).
 - Saat ketemu bug, gotcha, atau keputusan arsitektur yang kemungkinan berulang di project lain.
 - Saat user bilang "retrospektif", "pelajaran", "kenapa kemarin gini", atau review pasca-project.
-- Saat user mengoreksi kesalahan agent pada topik di `.agent/official-reference-map.json`.
+- Saat user mengoreksi kesalahan agent pada topik di `.agent/official-reference-map.json`
+  (hard gate, section 4) atau pada topik lain yang berpotensi berulang (kebijakan
+  wajib, section 5).
 
 ## ALWAYS DO THIS
 
@@ -84,6 +86,30 @@ Jika user mengoreksi agent pada topik yang terdaftar di
 
 Correction gate ini tidak menunggu akhir fase karena tujuannya mencegah kesalahan
 yang sama terulang pada langkah berikutnya.
+
+### 5. Correction Gate — Kesalahan Teknis Agent Sendiri (Bukan Hanya Official-Reference)
+
+Section 4 di atas hanya wajib untuk topik yang terdaftar di
+`official-reference-map.json`. Itu meninggalkan celah: kesalahan biasa agent
+(bug yang ditulis sendiri, keputusan arsitektur yang salah, asumsi yang meleset)
+di luar 33 topik itu tidak punya gate yang sama, sehingga bisa lolos tanpa pernah
+tercatat. Untuk menutup celah ini:
+
+Jika user mengoreksi kode, keputusan, atau klaim agent — pada topik APAPUN, bukan
+cuma yang terdaftar — dan koreksi itu mengungkap kesalahan yang masuk akal terjadi
+lagi di project lain (bukan typo sepele atau salah paham satu-off), agent WAJIB:
+
+1. Tambahkan entry ke `lessons-learned.md` sebelum mengklaim fase/task selesai
+   (boleh ditunda sampai akhir fase, TIDAK boleh dilewatkan sepenuhnya).
+2. Tag dengan domain yang relevan (`gsap`, `nextjs`, dst) ditambah `self-correction`
+   supaya beda dari `user-correction` (yang khusus official-reference).
+3. Sebutkan: apa yang salah, kenapa salah, aturan konkret apa yang mencegahnya
+   terulang.
+
+Bedanya dengan section 4: section 4 = hard gate + wajib untuk 33 topik terdaftar
+(divalidasi otomatis oleh `validate-agent-skills.mjs`). Section 5 ini = wajib
+secara kebijakan tapi tidak (belum) divalidasi oleh script — agent tidak boleh
+memakai ketiadaan validator otomatis sebagai alasan untuk skip.
 
 ## NEVER DO THIS
 

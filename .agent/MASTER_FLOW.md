@@ -4,6 +4,10 @@ Dokumen ini mendefinisikan alur wajib (flow dari awal) kapan menggunakan seluruh
 
 ## ZERO-WASTE CONTRACT
 
+<!-- EVERY_OUTPUT_SKILL_DISCLOSURE -->
+<!-- FAIL_CLOSED_GOVERNANCE -->
+<!-- MANDATORY_SKILL_INDEX -->
+
 Setiap skill yang dipakai WAJIB menghasilkan minimal satu dari empat hal berikut:
 
 1. **Keputusan**: memilih arah kerja, scope, skill teknis, atau validasi yang tepat.
@@ -61,11 +65,12 @@ Sebelum task substantif apa pun, agent WAJIB membaca bundle ini secara berurutan
 8. `.agent/rules/fail-closed-governance.md`
 9. `PROJECT_MEMORY.md`
 10. `.agent/skill-router.json`
-11. `.agent/active-skills.json`
-12. `.agent/official-reference-map.json`
-13. `.agent/memory/lessons-learned.md`
+11. `.agent/skills/INDEX.md` — katalog SEMUA skill; scan penuh, jangan cuma andalkan match keyword router
+12. `.agent/active-skills.json`
+13. `.agent/official-reference-map.json`
+14. `.agent/memory/lessons-learned.md`
 
-Setelah bundle di atas dibaca, agent WAJIB membaca `SKILL.md` teknis yang match dari router sebelum menulis kode, review, deployment, atau konten substantif.
+Setelah bundle di atas dibaca, agent WAJIB men-scan katalog penuh `.agent/skills/INDEX.md` (semua skill repo ada di sana, tidak ada yang disembunyikan) lalu membaca `SKILL.md` teknis yang match dari router/index sebelum menulis kode, review, deployment, atau konten substantif. Kalau INDEX.md stale/hilang, jalankan `node .agent/scripts/generate-skill-index.mjs` dulu.
 
 ### Output Pre-Flight
 
@@ -90,7 +95,8 @@ Jika ini adalah permintaan fitur baru, bug rumit, atau perombakan arsitektur:
 3. **`phased-delivery`**: Agent WAJIB memecah pekerjaan menjadi fase kecil jika scope besar. Tiap fase harus punya output terverifikasi, command validasi, dan stop condition.
 
 ## PHASE 2: EXECUTION & ENGINEERING
-Pilih skill teknis spesifik (dari 148+ skills) berdasarkan router.
+Pilih skill teknis spesifik berdasarkan router — jumlah pasti selalu berubah, cek
+total terkini di `.agent/skills/INDEX.md` (jangan hardcode angka di sini lagi).
 
 1. **Routing Framework & Language**: Contoh `react-nextjs-development`, `gsap-core`, `python-expert`, `laravel-expert`, dll. Gunakan sesuai stack yang terdeteksi dari file/command.
 2. **`auto-pro-standards`**: Saat ngoding, otomatis injeksi best practices untuk performa, SEO, aksesibilitas, dan keamanan. Output harus terlihat sebagai kode/validasi, bukan hanya klaim.

@@ -31,6 +31,7 @@ const requiredFiles = [
   ".agent/projects/index.json",
   ".agent/skill-router.json",
   ".agent/skills/llms.txt",
+  ".agent/skills/INDEX.md",
   ".agent/scripts/bootstrap-agent.mjs",
   ".agent/scripts/validate-agent-skills.mjs",
   ".agent/scripts/detect-project.mjs",
@@ -181,6 +182,50 @@ if (orphanSkills.length > 0) {
   );
   for (const skill of orphanSkills.slice(0, 10)) warnings.push(`  orphan: ${skill}`);
   if (orphanSkills.length > 10) warnings.push(`  ... dan ${orphanSkills.length - 10} lainnya`);
+}
+
+// Orphan script check: .agent/scripts/*.mjs yang tidak direferensikan di manapun
+// di dalam .agent (router, rules, hooks, docs, memory, skills, atau script lain).
+// Bridge di root tidak di-scan karena isinya generated dari .agent (menghindari
+// referensi palsu dari file turunan). Mirror orphan-skill check: WARNING dulu,
+// bukan hard-fail — naikkan ke fail hanya setelah relic sekali-jalan dibersihkan.
+const scriptsRoot = path.join(agentRoot, "scripts");
+if (fs.existsSync(scriptsRoot)) {
+  const scriptFiles = fs.readdirSync(scriptsRoot).filter((name) => name.endsWith(".mjs"));
+  const scriptTextByName = new Map();
+  let staticRefBlob = "";
+
+  walk(agentRoot, (file) => {
+    let text;
+    try {
+      text = fs.readFileSync(file, "utf8");
+    } catch {
+      return;
+    }
+    if (path.dirname(file) === scriptsRoot && file.endsWith(".mjs")) {
+      scriptTextByName.set(path.basename(file), text);
+    } else {
+      staticRefBlob += `\n${text}`;
+    }
+  });
+
+  const orphanScripts = scriptFiles.filter((script) => {
+    const base = script.replace(/\.mjs$/, "");
+    if (staticRefBlob.includes(base)) return false;
+    for (const [other, text] of scriptTextByName) {
+      if (other !== script && text.includes(base)) return false;
+    }
+    return true;
+  });
+
+  if (orphanScripts.length > 0) {
+    warnings.push(
+      `${orphanScripts.length} script di .agent/scripts tidak direferensikan di manapun ` +
+      "(kemungkinan relic sekali-jalan). Tinjau, lalu hapus/arsipkan kalau memang usang."
+    );
+    for (const script of orphanScripts.slice(0, 12)) warnings.push(`  orphan-script: ${script}`);
+    if (orphanScripts.length > 12) warnings.push(`  ... dan ${orphanScripts.length - 12} lainnya`);
+  }
 }
 
 const agentControlFiles = [

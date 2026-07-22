@@ -53,6 +53,8 @@ yarn install
 - Any command that reads or writes outside the active workspace.
 - Any script inside `.agent/skills` unless its `SKILL.md` and source code have been reviewed.
 - Any command involving credentials, production deploys, payments, databases, or auth migration.
+- `node .agent/scripts/prune-orphan-skills.mjs --confirm` — deletes skill directories with `fs.rmSync(recursive: true, force: true)`. Only run `--confirm` after the operator has reviewed the dry-run output (default mode, no flag) and explicitly approved the deletion list.
+- `node .agent/scripts/restore-skill-bundle.mjs <bundle>` — runs `git checkout <ref> -- <paths>` against `.agent/skills/<bundle-paths>`, which silently discards any uncommitted local edits to those exact paths. Before running it, check for local drift with `git status --short -- .agent/skills` and get explicit confirmation if that command returns any output.
 
 ## Rule
 

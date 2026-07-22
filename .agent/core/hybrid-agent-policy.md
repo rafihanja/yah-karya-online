@@ -1,9 +1,14 @@
 # Hybrid Agent Policy
 
+> **Canonical source-priority hierarchy.** This is the single place this four-tier
+> hierarchy is defined. `../rules/hybrid-router.md` links here instead of
+> restating it — if you change the order or wording, this is the only file to
+> edit; do not fork a second copy elsewhere.
+
 This repository uses a hybrid operating model for any AI coding agent:
 
 1. **Local evidence first**: inspect project files, manifests, package scripts, and command output.
-2. **Skill routing second**: choose relevant `.agent/skills/*/SKILL.md` entries through `.agent/skill-router.json`.
+2. **Skill routing second**: choose relevant `.agent/skills/*/SKILL.md` entries through `.agent/skill-router.json`. See `../rules/hybrid-router.md` for what to do when two routed skills give contradicting guidance.
 3. **Official docs third**: use official or primary docs for current platform behavior.
 4. **Model reasoning last**: use general reasoning only after the above sources are exhausted or explicitly marked as assumptions.
 

@@ -10,6 +10,8 @@ const manifestPath = path.join(skillsRoot, ".antigravity-install-manifest.json")
 const outputDisclosurePolicyId = "EVERY_OUTPUT_SKILL_DISCLOSURE";
 const officialReferencePolicyId = "OFFICIAL_REFERENCE_VERIFICATION";
 const failClosedPolicyId = "FAIL_CLOSED_GOVERNANCE";
+const mandatorySkillIndexPolicyId = "MANDATORY_SKILL_INDEX";
+const skillIndexPath = path.join(skillsRoot, "INDEX.md");
 const officialReferenceMapPath = path.join(agentRoot, "official-reference-map.json");
 const outputDisclosurePolicyFiles = [
   path.join(agentRoot, "AGENTS.md"),
@@ -33,6 +35,13 @@ const failClosedPolicyFiles = [
   path.join(agentRoot, "rules", "fail-closed-governance.md"),
   path.join(skillsRoot, "session-boot", "SKILL.md"),
   path.join(skillsRoot, "self-review-gate", "SKILL.md"),
+  path.join(agentRoot, "scripts", "export-agent-adapters.mjs"),
+];
+const mandatorySkillIndexPolicyFiles = [
+  path.join(agentRoot, "AGENTS.md"),
+  path.join(agentRoot, "MASTER_FLOW.md"),
+  path.join(agentRoot, "rules", "mandatory-skill-usage.md"),
+  path.join(skillsRoot, "session-boot", "SKILL.md"),
   path.join(agentRoot, "scripts", "export-agent-adapters.mjs"),
 ];
 const generatedBridgePolicyFiles = [
@@ -135,6 +144,7 @@ const requiredSupportFiles = [
   path.join(agentRoot, "memory", "lessons-learned.md"),
   path.join(agentRoot, "skill-router.json"),
   path.join(skillsRoot, "llms.txt"),
+  path.join(skillsRoot, "INDEX.md"),
   path.join(agentRoot, "scripts", "bootstrap-agent.mjs"),
   path.join(agentRoot, "scripts", "detect-project.mjs"),
   path.join(agentRoot, "scripts", "agent-doctor.mjs"),
@@ -479,6 +489,75 @@ function validateFailClosedGovernancePolicy() {
   return violations;
 }
 
+function validateMandatorySkillIndexPolicy() {
+  const violations = [];
+
+  // 1. Policy marker must be present in canonical files + generated bridges.
+  for (const file of mandatorySkillIndexPolicyFiles) {
+    if (!fs.existsSync(file)) {
+      violations.push(`missing skill-index policy file: ${path.relative(repoRoot, file)}`);
+      continue;
+    }
+    const content = fs.readFileSync(file, "utf8");
+    if (!content.includes(mandatorySkillIndexPolicyId)) {
+      violations.push(`missing ${mandatorySkillIndexPolicyId} marker: ${path.relative(repoRoot, file)}`);
+    }
+  }
+
+  for (const file of generatedBridgePolicyFiles) {
+    if (!fs.existsSync(file)) continue;
+    const content = fs.readFileSync(file, "utf8");
+    if (!content.includes(mandatorySkillIndexPolicyId)) {
+      violations.push(`generated bridge is stale or missing skill-index marker: ${path.relative(repoRoot, file)}`);
+    }
+  }
+
+  // 2. INDEX.md must exist, carry its marker, and be in sync with skills on disk (no drift).
+  if (!fs.existsSync(skillIndexPath)) {
+    violations.push("missing .agent/skills/INDEX.md — run: node .agent/scripts/generate-skill-index.mjs");
+    return violations;
+  }
+
+  const indexContent = fs.readFileSync(skillIndexPath, "utf8");
+  if (!indexContent.includes(mandatorySkillIndexPolicyId)) {
+    violations.push("INDEX.md is missing its policy marker — regenerate it");
+  }
+
+  const indexedSkills = new Set(
+    indexContent
+      .split(/\r?\n/)
+      .map((line) => line.match(/^- \*\*Path:\*\* `\.agent\/skills\/(.+?)\/SKILL\.md`$/))
+      .filter(Boolean)
+      .map((m) => m[1]),
+  );
+
+  const diskSkills = new Set(
+    fs
+      .readdirSync(skillsRoot, { withFileTypes: true })
+      .filter((entry) => entry.isDirectory())
+      .filter((entry) => fs.existsSync(path.join(skillsRoot, entry.name, "SKILL.md")))
+      .map((entry) => entry.name),
+  );
+
+  const missingFromIndex = [...diskSkills].filter((s) => !indexedSkills.has(s));
+  const staleInIndex = [...indexedSkills].filter((s) => !diskSkills.has(s));
+
+  if (missingFromIndex.length > 0) {
+    violations.push(
+      `INDEX.md is stale — ${missingFromIndex.length} skill(s) on disk not indexed ` +
+        `(e.g. ${missingFromIndex.slice(0, 5).join(", ")}). Run: node .agent/scripts/generate-skill-index.mjs`,
+    );
+  }
+  if (staleInIndex.length > 0) {
+    violations.push(
+      `INDEX.md references ${staleInIndex.length} skill(s) not on disk ` +
+        `(e.g. ${staleInIndex.slice(0, 5).join(", ")}). Run: node .agent/scripts/generate-skill-index.mjs`,
+    );
+  }
+
+  return violations;
+}
+
 const topLevelDirs = listTopLevelDirs();
 const skillDirs = listSkillDirs();
 const manifest = readManifest();
@@ -501,6 +580,7 @@ const missingRequiredSkills = requiredSkills.filter(
 const outputDisclosureViolations = validateOutputSkillDisclosurePolicy();
 const officialReferenceViolations = validateOfficialReferencePolicy();
 const failClosedGovernanceViolations = validateFailClosedGovernancePolicy();
+const mandatorySkillIndexViolations = validateMandatorySkillIndexPolicy();
 
 if (missingFromManifest.length > 0) {
   fail("Some disk skills are missing from manifest.", missingFromManifest);
@@ -537,6 +617,10 @@ if (failClosedGovernanceViolations.length > 0) {
   fail("Fail-closed governance policy is incomplete.", failClosedGovernanceViolations);
 }
 
+if (mandatorySkillIndexViolations.length > 0) {
+  fail("Mandatory skill index policy is incomplete.", mandatorySkillIndexViolations);
+}
+
 if (process.exitCode) {
   process.exit();
 }
@@ -549,3 +633,4 @@ console.log(`- Required GSAP/frontend skills: ${requiredSkills.length}`);
 console.log(`- Required guardrail files: ${requiredSupportFiles.length}`);
 console.log(`- Official reference topics enforced: ${expectedOfficialReferences.size}`);
 console.log("- Fail-closed governance: enforced");
+console.log("- Mandatory skill index: enforced");

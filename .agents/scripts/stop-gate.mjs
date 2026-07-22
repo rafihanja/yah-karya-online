@@ -98,12 +98,38 @@ try {
 }
 
 // Trivial / empty turns: don't gate.
-if (!lastAssistantText || lastAssistantText.trim().length < 40) allowStop();
+const trimmed = lastAssistantText.trim();
+if (!trimmed || trimmed.length < 40) allowStop();
 
 // Governance satisfied? Accept the new I AM CRAZY brand, and keep the legacy
 // SESSION BOOT string valid for a one-turn transition so in-flight answers
 // are never trapped by the rename.
-if (/I AM CRAZY|SESSION BOOT/i.test(lastAssistantText)) {
+//
+// Two strengthenings over a plain "does the string appear anywhere" check
+// (see .agent/core/safe-commands.md HIGH severity finding, 2026-07-22):
+//   1. The brand must open the response (within the first HEADER_WINDOW
+//      chars), not just be mentioned in passing later in the text.
+//   2. Substantive-length replies (>= SUBSTANTIVE_LENGTH chars) must also
+//      show at least 3 of the 5 required header fields (Skill/Diperiksa/
+//      Diubah/Validasi/Risiko), matching session-boot/SKILL.md's "no empty
+//      fields" rule instead of accepting the brand line alone.
+const HEADER_WINDOW = 700;
+const SUBSTANTIVE_LENGTH = 400;
+const opening = trimmed.slice(0, HEADER_WINDOW);
+const hasBrandNearStart = /I AM CRAZY|SESSION BOOT/i.test(opening);
+
+const FIELD_PATTERNS = [
+  /skill aktif|🧠/i,
+  /diperiksa|📂/i,
+  /diubah|✏️/i,
+  /validasi|🧪/i,
+  /risiko|⚠️/i,
+];
+const fieldsPresent = FIELD_PATTERNS.filter((rx) => rx.test(trimmed)).length;
+const isSubstantive = trimmed.length >= SUBSTANTIVE_LENGTH;
+const governanceSatisfied = hasBrandNearStart && (!isSubstantive || fieldsPresent >= 3);
+
+if (governanceSatisfied) {
   bumpRetries(0); // reset for next time
   allowStop();
 }
@@ -115,9 +141,13 @@ if (retries >= MAX_RETRIES) {
   allowStop();
 }
 bumpRetries(retries + 1);
+const reasonDetail = !hasBrandNearStart
+  ? "header 'I AM CRAZY' tidak ditemukan di awal balasan (harus membuka respons, bukan disebut di tengah/akhir)."
+  : `header ada tapi cuma ${fieldsPresent}/5 field wajib terisi (butuh minimal 3): 🧠 Skill aktif / 📂 Diperiksa / ✏️ Diubah / 🧪 Validasi / ⚠️ Risiko.`;
+
 forceContinue(
-  "GOVERNANCE GATE: balasan terakhirmu tidak punya header 'I AM CRAZY'. " +
-    "Sesuai .agent governance, output substantif WAJIB diawali header I AM CRAZY " +
+  `GOVERNANCE GATE: ${reasonDetail} ` +
+    "Sesuai .agent governance, output substantif WAJIB diawali header I AM CRAZY lengkap " +
     "(🧠 Skill aktif / 📂 Diperiksa / ✏️ Diubah / 🧪 Validasi / ⚠️ Risiko / 🔢 Token). " +
     "Jalankan self-review-gate, route ke .agent/skill-router.json, lalu tulis ulang " +
     "balasan dengan header lengkap sebelum berhenti."

@@ -21,6 +21,7 @@ A model answering from memory alone produces generic, average, often-wrong outpu
 
 <!-- EVERY_OUTPUT_SKILL_DISCLOSURE -->
 <!-- FAIL_CLOSED_GOVERNANCE -->
+<!-- MANDATORY_SKILL_INDEX -->
 
 **Universal output disclosure:** every assistant output, without exception, must begin by naming the skill(s) used. Substantive output uses the full `I AM CRAZY` header. Trivial/status/clarification/error output uses at least the brand line `🔥 I AM CRAZY`. No conversational output is exempt.
 
@@ -35,11 +36,12 @@ A model answering from memory alone produces generic, average, often-wrong outpu
    - `.agent/rules/fail-closed-governance.md`
    - `PROJECT_MEMORY.md`
    - `.agent/skill-router.json`
+   - `.agent/skills/INDEX.md` — katalog SEMUA skill (scan penuh; bukan cuma yang kebetulan match keyword)
    - `.agent/active-skills.json`
    - `.agent/official-reference-map.json`
    - `.agent/memory/lessons-learned.md`
 
-1. **Route before acting.** Before writing or editing anything, match the task against `.agent/skill-router.json` (and `.agent/active-skills.json` for the default set). Pick the most specific skill(s) that apply.
+1. **Scan the full skill index, then route.** Before writing or editing anything, scan `.agent/skills/INDEX.md` (every skill in the repo is listed there — nothing hidden) and match the task against `.agent/skill-router.json` (and `.agent/active-skills.json` for the default set). Pick the most specific skill(s) that apply. If the index is stale/missing, run `node .agent/scripts/generate-skill-index.mjs` first.
 2. **Read the matched `SKILL.md` before producing output.** Do not rely on the skill name or your memory of it. Open the file using `view_file` and follow its `NEVER DO THIS` / `ALWAYS DO THIS` sections. **Anti-Hallucination Verification**: The agent must trigger a file read (`view_file`) on the target `SKILL.md` within the current active session. Claiming a skill without executing a file check in the session logs will trigger a hard Governance Violation.
 3. **Apply skills at the correct depth.** Every output applies `session-boot` for disclosure. Substantive tasks must additionally apply at least one relevant routed skill for code, config, design, review, security, deployment, or content work.
 4. **State the skills used in every output.** Full `I AM CRAZY` header is mandatory for substantive work. Trivial/status/clarification/error output must still start with the exact `🔥 I AM CRAZY` brand line.
@@ -55,6 +57,7 @@ A model answering from memory alone produces generic, average, often-wrong outpu
     cross-check before delivery, and update lessons before continuing after a user
     correction.
 10. **Fail-closed violation recovery.** Jika mandatory gate terlewat, required validation gagal, atau bukti diklaim tanpa command/file yang nyata, agent WAJIB berhenti, menulis `GOVERNANCE VIOLATION DETECTED`, menarik klaim yang tidak tepercaya, menjalankan recovery, dan memvalidasi ulang. Agent tidak boleh mengizinkan bypass untuk dirinya sendiri.
+11. **General mistake capture (bukan hanya official-reference).** Koreksi user pada topik `official-reference-map.json` punya hard gate tervalidasi (lihat `official-reference-verifier`). Koreksi pada topik lain yang berpotensi berulang tetap wajib dicatat lewat `lessons-capture` section 5 sebelum task/fase diklaim selesai — ini kebijakan wajib meski belum ada validator otomatis untuk itu.
 
 ## Anti-Slop Contract
 

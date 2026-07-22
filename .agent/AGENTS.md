@@ -56,6 +56,7 @@ node .agent/scripts/detect-project.mjs
 
 <!-- EVERY_OUTPUT_SKILL_DISCLOSURE -->
 <!-- FAIL_CLOSED_GOVERNANCE -->
+<!-- MANDATORY_SKILL_INDEX -->
 
 ### Universal Output Skill Disclosure
 
@@ -89,12 +90,13 @@ Mandatory pre-flight bundle (must be read in order before substantive work):
 8. `.agent/rules/fail-closed-governance.md`
 9. `PROJECT_MEMORY.md`
 10. `.agent/skill-router.json`
-11. `.agent/active-skills.json`
-12. `.agent/official-reference-map.json`
-13. `.agent/memory/lessons-learned.md`
+11. `.agent/skills/INDEX.md`
+12. `.agent/active-skills.json`
+13. `.agent/official-reference-map.json`
+14. `.agent/memory/lessons-learned.md`
 
 - Aturan lengkap: `.agent/rules/mandatory-skill-usage.md`. Aturan ini **wajib** untuk semua agent dan sub-agent.
-- Untuk setiap task substantif (kode, config, desain, review, security, deploy, konten): **route dulu** ke `.agent/skill-router.json` + `.agent/active-skills.json`, lalu **baca `SKILL.md`** yang cocok sebelum menghasilkan output. Jangan mengandalkan ingatan tentang isi skill.
+- Untuk setiap task substantif (kode, config, desain, review, security, deploy, konten): **scan `.agent/skills/INDEX.md` dulu** (katalog SEMUA skill repo — tidak ada yang disembunyikan), **route** ke `.agent/skill-router.json` + `.agent/active-skills.json`, lalu **baca `SKILL.md`** yang cocok sebelum menghasilkan output. Jangan mengandalkan ingatan tentang isi skill, dan jangan cuma andalkan match keyword router — index memastikan kamu melihat semua opsi. Kalau INDEX.md stale/hilang, jalankan `node .agent/scripts/generate-skill-index.mjs`.
 - **Anti-Hallucination Skill Verification (BACA FILE WAJIB)**: Agent DILARANG keras berasumsi tentang isi skill. Sebelum mengklaim penggunaan skill teknis apa pun (seperti `gsap-core`, `typescript-expert`, dll.), agent WAJIB membuka berkas `SKILL.md` dari skill tersebut dalam sesi aktif saat ini menggunakan tool `view_file`. Klaim penggunaan skill tanpa memicu pembacaan file di log sesi adalah pelanggaran berat (*Governance Violation*) yang akan memicu hard failure.
 - Terapkan `session-boot` pada setiap output untuk disclosure. Untuk task substantif, terapkan minimal satu skill relevan tambahan lalu **sebutkan skill yang dipakai** di hasil akhir. Kalau tidak ada skill teknis yang cocok, tetap tulis `session-boot` dan nyatakan "no technical skill matched".
 - Saat men-dispatch sub-agent, **teruskan nama skill** untuk sub-task itu dan perintah untuk membaca `SKILL.md` terkait.

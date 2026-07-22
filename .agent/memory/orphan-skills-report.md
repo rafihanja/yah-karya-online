@@ -1,21 +1,21 @@
 # Orphan Skills Report
 
 > Dibuat otomatis oleh `.agent/scripts/audit-orphan-skills.mjs`
-> Terakhir dijalankan: 2026-06-25T06:37:51.934Z
+> Terakhir dijalankan: 2026-07-22T09:33:12.553Z
 
 ## Ringkasan
 
 | Metrik | Angka |
 |---|---|
-| Total skill di disk | 143 |
-| Dirujuk di router | 132 |
-| Dirujuk di active-skills | 130 |
-| Total terpakai (union) | 138 |
+| Total skill di disk | 162 |
+| Dirujuk di router | 152 |
+| Dirujuk di active-skills | 152 |
+| Total terpakai (union) | 162 |
 | Referensi rusak | 0 |
-| Orphan (ga kepake) | 5 |
-| Rasio orphan | 3.5% |
+| Orphan (ga kepake) | 0 |
+| Rasio orphan | 0% |
 
-## Skill Terpakai (138)
+## Skill Terpakai (162)
 
 - `3d-web-experience`
 - `accessibility-compliance-accessibility-audit`
@@ -44,28 +44,39 @@
 - `cloudflare-workers-expert`
 - `code-reviewer`
 - `codebase-audit-pre-push`
+- `content-automation-engine`
 - `database`
 - `database-admin`
 - `database-design`
+- `deep-thinking-enforcer`
 - `deployment-validation-config-validate`
 - `design-taste-frontend`
 - `dewa-prompter-v2`
 - `drizzle-orm-expert`
 - `elite-gsap-react-architecture`
+- `env-fortress`
 - `environment-setup-guide`
+- `expert-reasoning-operator`
+- `expo-api-routes`
+- `expo-deployment`
+- `expo-dev-client`
+- `expo-tailwind-setup`
 - `framer-motion`
 - `frontend-api-integration-patterns`
 - `frontend-design`
 - `frontend-dev-guidelines`
 - `frontend-developer`
+- `frontend-mobile-development-component-scaffold`
 - `frontend-security-coder`
 - `gemini-api-dev`
 - `gemini-api-integration`
+- `git-survival-guide`
 - `github-actions-templates`
 - `google-sheets-automation`
 - `googlesheets-automation`
 - `gsap-core`
 - `gsap-frameworks`
+- `gsap-horizontal-parallax`
 - `gsap-performance`
 - `gsap-plugins`
 - `gsap-react`
@@ -83,6 +94,10 @@
 - `llm-structured-output`
 - `locomotive-scroll`
 - `lottie-web`
+- `mobile-design`
+- `mobile-developer`
+- `mobile-security-coder`
+- `monorepo-multi-bot`
 - `neon-postgres`
 - `nextjs-app-router-patterns`
 - `nextjs-best-practices`
@@ -91,6 +106,7 @@
 - `nodejs-best-practices`
 - `nosql-expert`
 - `observability-engineer`
+- `official-reference-verifier`
 - `openapi-spec-generation`
 - `performance-engineer`
 - `performance-optimizer`
@@ -103,9 +119,12 @@
 - `project-memory`
 - `prompt-amplifier`
 - `prompt-engineering`
+- `python-asset-pipeline`
+- `python-expert`
 - `react-best-practices`
 - `react-component-performance`
 - `react-modernization`
+- `react-native-architecture`
 - `react-nextjs-development`
 - `react-patterns`
 - `react-state-management`
@@ -125,6 +144,8 @@
 - `session-boot`
 - `shadcn`
 - `shader-programming-glsl`
+- `skill-excellence-ratchet`
+- `skill-upgrader`
 - `spline-3d-integration`
 - `split-type`
 - `supabase`
@@ -141,25 +162,23 @@
 - `ui-a11y`
 - `ui-ux-designer`
 - `unslop`
+- `upgrading-expo`
 - `vercel-deployment`
 - `verification-before-completion`
 - `wcag-audit-patterns`
 - `web-artifacts-builder`
+- `web-audio-engineering`
 - `web-design-guidelines`
 - `web-mobile-joystick`
 - `web-performance-optimization`
 - `web-scraper`
 - `web-security-testing`
 - `webapp-testing`
+- `whatsapp-bot-architecture`
 - `whatsapp-cloud-api`
 - `youtube-automation`
 - `youtube-summarizer`
 - `zdog`
 
-## Orphan Skills (5) — kandidat prune/arsip
+## Orphan Skills (0) — kandidat prune/arsip
 
-- content-automation-engine
-- env-fortress
-- git-survival-guide
-- monorepo-multi-bot
-- whatsapp-bot-architecture

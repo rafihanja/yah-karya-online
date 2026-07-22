@@ -31,6 +31,7 @@ const routerPath = path.join(agentRoot, "skill-router.json");
 const manifestPath = path.join(skillsRoot, ".antigravity-install-manifest.json");
 
 const bundleName = process.argv[2];
+const force = process.argv.includes("--force");
 const active = JSON.parse(fs.readFileSync(activePath, "utf8"));
 const onDemand = active.onDemandBundles || {};
 const bundles = onDemand.bundles || {};
@@ -59,8 +60,29 @@ console.log(`=== RESTORE BUNDLE: ${bundleName} ===`);
 console.log(`Sumber git: ${restoreSource}`);
 console.log(`Skill: ${bundle.skills.length}\n`);
 
-// 1. git checkout skill folders
+// 0. dirty-tree check (safe-commands.md: git checkout on these paths can
+//    silently discard uncommitted local edits — refuse unless --force).
 const targets = bundle.skills.map((s) => `.agent/skills/${s}`);
+let dirtyOutput = "";
+try {
+  dirtyOutput = execSync(`git status --short -- ${targets.join(" ")}`, {
+    cwd: repoRoot,
+    encoding: "utf8",
+  }).trim();
+} catch (err) {
+  console.error(`FAIL: could not check git status before restore: ${err.message}`);
+  process.exit(1);
+}
+if (dirtyOutput && !force) {
+  console.error("FAIL: uncommitted local changes found in target skill paths — restore aborted.");
+  console.error("This restore runs `git checkout` on these paths, which would silently discard:");
+  console.error(dirtyOutput);
+  console.error("\nCommit or stash those changes first, or re-run with --force to discard them intentionally:");
+  console.error(`  node .agent/scripts/restore-skill-bundle.mjs ${bundleName} --force`);
+  process.exit(1);
+}
+
+// 1. git checkout skill folders
 try {
   execSync(`git checkout ${restoreSource} -- ${targets.join(" ")}`, { cwd: repoRoot, stdio: "inherit" });
 } catch (err) {
