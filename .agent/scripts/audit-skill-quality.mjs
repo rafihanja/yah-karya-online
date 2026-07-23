@@ -87,4 +87,7 @@ if (results.empty.length > 0) {
 
 if (results.weak.length === 0 && results.empty.length === 0) {
   console.log("\n✅ Semua skill berkualitas cukup baik!");
+} else {
+  console.log(`\n❌ FAIL: ${results.weak.length + results.empty.length} skill(s) below quality bar (weak/empty).`);
+  process.exit(1);
 }

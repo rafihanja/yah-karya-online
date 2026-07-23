@@ -2,6 +2,13 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+// Minimum Node version guard — ESM, replaceAll, optional chaining need Node >= 16
+const [major] = process.version.slice(1).split(".").map(Number);
+if (major < 16) {
+  console.error(`FAIL: Node.js v16+ required (current: ${process.version}). Upgrade Node to run agent scripts.`);
+  process.exit(1);
+}
+
 const currentFile = fileURLToPath(import.meta.url);
 const repoRoot = path.resolve(path.dirname(currentFile), "..", "..");
 const agentRoot = path.join(repoRoot, ".agent");

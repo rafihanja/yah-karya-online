@@ -67,10 +67,33 @@ Policy ini dianggap aktif hanya jika:
    recovery contract dihapus/dilemahkan.
 4. Seluruh validation `.agent` lulus setelah perubahan.
 
+## Batasan Mekanisme (Known Limitation, audit 2026-07-23)
+
+Baca ini sebelum mengklaim "fail-closed" berarti tidak bisa di-bypass secara teknis:
+
+- Deteksi pelanggaran 100% bergantung pada LLM yang sama mengaku sendiri di dalam
+  jawabannya. Tidak ada CI, git hook, atau transcript parser di repo ini yang membaca
+  riwayat tool-call sungguhan dan memverifikasi klaim itu independen dari teksnya.
+- `.agent/scripts/validate-agent-skills.mjs` (lihat Evidence Gate di atas) hanya
+  memverifikasi bahwa marker/string (`FAIL_CLOSED_GOVERNANCE`,
+  `GOVERNANCE VIOLATION DETECTED`) **ada di suatu file markdown**. Itu membuktikan
+  formatnya benar, bukan bahwa pelanggaran benar terjadi, terdeteksi jujur, atau
+  dipulihkan sungguhan.
+- Kesimpulan jujur: dokumen ini adalah **protokol perilaku yang butuh kepatuhan
+  sukarela dari agent**, bukan gate teknis yang mustahil di-bypass. Kalau ke depan
+  dibutuhkan enforcement teknis nyata, itu perlu verifier terpisah yang membaca
+  transcript/tool-call — belum ada di repo ini per audit ini.
+- Implikasi praktis: jangan pernah menyajikan "fail-closed" sebagai jaminan
+  keamanan yang setara dengan gate CI/hook nyata ke user. Sajikan sebagai lapisan
+  disiplin proses, dipasangkan dengan validator fs/JSON nyata (`validate-agent-skills.mjs`,
+  `agent-doctor.mjs`) untuk bagian yang memang bisa diverifikasi otomatis.
+
 ## NEVER DO THIS
 
 - Jangan menulis bahasa keras tanpa enforcement otomatis. Itu hanya intimidasi kosmetik.
 - Jangan melanjutkan diam-diam setelah mendeteksi gate yang terlewat.
 - Jangan mengubah pelanggaran menjadi alasan untuk me-revert pekerjaan user.
 - Jangan mengklaim policy aktif jika bridge atau validator belum sinkron.
+- Jangan menyajikan self-attestation (pengakuan LLM sendiri) sebagai bukti setara
+  dengan validator otomatis nyata — sebutkan bedanya (lihat "Batasan Mekanisme").
 

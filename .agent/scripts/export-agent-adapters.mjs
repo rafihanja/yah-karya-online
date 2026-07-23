@@ -212,6 +212,8 @@ const selectedTools = explicitTool === "all"
 
 const planned = selectedTools.map((tool) => ({ tool, ...generators[tool]() }));
 
+let dryRunDrift = false;
+
 for (const item of planned) {
   const relativeTarget = path.relative(repoRoot, item.target).replaceAll(path.sep, "/");
   const exists = fs.existsSync(item.target);
@@ -219,13 +221,16 @@ for (const item of planned) {
   if (!write) {
     if (!exists) {
       console.log(`[dry-run] would create ${relativeTarget}`);
+      dryRunDrift = true;
     } else {
       const current = fs.readFileSync(item.target, "utf8");
+      const upToDate = current === item.content;
       console.log(
-        current === item.content
+        upToDate
           ? `[dry-run] up-to-date ${relativeTarget}`
           : `[dry-run] would update ${relativeTarget} (content drift detected)`,
       );
+      if (!upToDate) dryRunDrift = true;
     }
     continue;
   }
@@ -245,4 +250,9 @@ if (!write) {
   console.log("");
   console.log("Dry-run only. Add --write to create adapter files outside .agent.");
   console.log("Use --tool agents-md|claude|cursor|agents-rules to export one adapter.");
+  if (dryRunDrift) {
+    console.log("");
+    console.log("❌ FAIL: one or more adapters are missing or out of date (see [dry-run] lines above). Re-run with --write.");
+    process.exitCode = 1;
+  }
 }

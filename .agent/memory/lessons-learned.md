@@ -137,3 +137,13 @@ dan validasi marker plus seluruh pasangan topik/sumber secara otomatis.
 **Lesson:** Ketika membandingkan model AI terkini di tahun 2026, pastikan tidak berasumsi bahwa Claude Sonnet terbaru adalah 3.5. Anthropic telah merilis Claude Sonnet 5 pada 30 Juni 2026. Lakukan web search aktif untuk memverifikasi versi rilis temporal guna menghindari asumsi salah/halusinasi versi.
 **Tags:** governance, official-reference, versioning, anti-hallucination
 **Promote?:** no
+
+## 2026-07-23 — folderotakgsap (Red Team Audit — validator blind spots)
+**Lesson:** Validator yang scan folder hardcoded (misalnya `scanDirs = ['parallax-sawah', 'tes']`) memberikan rasa aman palsu karena file di root/direktori lain TIDAK PERNAH diperiksa. Selalu scan seluruh repo secara rekursif dengan exclusion list (`.git`, `node_modules`, `.agent`), jangan daftar folder eksplisit yang harus diupdate manual setiap ada perubahan struktur.
+**Tags:** governance, validation, security, anti-hallucination
+**Promote?:** yes
+
+## 2026-07-23 — folderotakgsap (Red Team Audit — cross-agent audit value)
+**Lesson:** Audit lintas-agent (Claude CLI menemukan 7 celah, Antigravity menemukan 8 celah BERBEDA) jauh lebih efektif daripada single-agent audit. Setiap agent punya blind spot masing-masing. Ketika melakukan governance audit, selalu jalankan minimal 2 agent berbeda secara independen lalu gabungkan temuan.
+**Tags:** governance, audit, multi-agent, validation
+**Promote?:** maybe

@@ -64,6 +64,14 @@ if (reviewScope === 'agent') {
         }
     }
 
+    // Check PROJECT_MEMORY.md exists (governance requires it)
+    const projectMemoryPath = path.join(rootDir, 'PROJECT_MEMORY.md');
+    if (fs.existsSync(projectMemoryPath)) {
+        logPass('PROJECT_MEMORY.md exists.');
+    } else {
+        logFail('PROJECT_MEMORY.md is missing — governance requires it for cross-session continuity.');
+    }
+
     console.log('\n==================================================');
     console.log('AGENT-SCOPE SELF-REVIEW RESULTS');
     console.log('==================================================');
@@ -96,12 +104,16 @@ try {
 
 // 2. Check for Hardcoded Absolute Paths
 console.log('\n--- Scanning for Hardcoded Paths & Cache Keys ---');
-const scanDirs = ['parallax-sawah', 'tes'];
+// Scan ENTIRE repo root recursively, not just hardcoded subdirectories.
+// Exclusions: .git, node_modules, .agent (governance files are scanned separately by agent-doctor).
 const forbiddenPatterns = [
     /C:\/Users\/[a-zA-Z0-9_.-]+\/\.gemini\/antigravity-ide/gi,
     /d:\/gsap/gi,
     /C:\\Users\\/gi
 ];
+const scanExtensions = new Set(['.html', '.js', '.py', '.css', '.json', '.md']);
+const scanExcludeDirs = new Set(['.git', 'node_modules', '.agent', '.cursor', '.agents']);
+let hardcodedPathFound = false;
 
 function scanDirectory(dirPath) {
     if (!fs.existsSync(dirPath)) return;
@@ -110,16 +122,19 @@ function scanDirectory(dirPath) {
         const fullPath = path.join(dirPath, item);
         const stat = fs.statSync(fullPath);
         if (stat.isDirectory()) {
-            if (item !== '.git' && item !== 'node_modules' && item !== '.agent') {
+            if (!scanExcludeDirs.has(item)) {
                 scanDirectory(fullPath);
             }
         } else if (stat.isFile()) {
             const ext = path.extname(item);
-            if (['.html', '.js', '.py', '.css'].includes(ext)) {
+            if (scanExtensions.has(ext)) {
                 const content = fs.readFileSync(fullPath, 'utf8');
                 for (const pattern of forbiddenPatterns) {
+                    // Reset lastIndex for global regex
+                    pattern.lastIndex = 0;
                     if (pattern.test(content)) {
                         logFail(`Hardcoded absolute path / cache pattern found in: ${path.relative(rootDir, fullPath)}`);
+                        hardcodedPathFound = true;
                         break;
                     }
                 }
@@ -128,17 +143,18 @@ function scanDirectory(dirPath) {
     }
 }
 
-for (const dir of scanDirs) {
-    scanDirectory(path.join(rootDir, dir));
-}
-if (!failed) {
-    logPass('No hardcoded path/cache patterns found in active folders.');
+scanDirectory(rootDir);
+if (!hardcodedPathFound) {
+    logPass('No hardcoded path/cache patterns found across the entire repo.');
 }
 
 // 3. Scan for Hardcoded Secrets / Credentials
 console.log('\n--- Scanning for Hardcoded Credentials & Secrets ---');
 const secretKeys = [/api[-_]?key/i, /secret/i, /password/i, /token/i];
 const rawValueCheck = /['"`][a-zA-Z0-9_\-+=]{20,}['"`]/; // Check for raw long alphanumeric tokens
+// Include .md and .html — agents often leak API keys in markdown docs and inline scripts
+const secretScanExtensions = new Set(['.js', '.py', '.env', '.json', '.md', '.html', '.ts', '.mjs']);
+const secretScanExcludeFiles = new Set(['package.json', 'package-lock.json', '.antigravity-install-manifest.json']);
 
 function scanSecrets(dirPath) {
     if (!fs.existsSync(dirPath)) return;
@@ -147,13 +163,13 @@ function scanSecrets(dirPath) {
         const fullPath = path.join(dirPath, item);
         const stat = fs.statSync(fullPath);
         if (stat.isDirectory()) {
-            if (item !== '.git' && item !== 'node_modules' && item !== '.agent') {
+            if (!scanExcludeDirs.has(item)) {
                 scanSecrets(fullPath);
             }
         } else if (stat.isFile()) {
             const ext = path.extname(item);
-            if (['.js', '.py', '.env', '.json'].includes(ext)) {
-                if (item === 'package.json' || item === 'package-lock.json') continue;
+            if (secretScanExtensions.has(ext)) {
+                if (secretScanExcludeFiles.has(item)) continue;
                 const content = fs.readFileSync(fullPath, 'utf8');
                 const lines = content.split('\n');
                 lines.forEach((line, index) => {
@@ -182,7 +198,7 @@ function findHtmlFiles(dirPath) {
     for (const item of items) {
         const fullPath = path.join(dirPath, item);
         if (fs.statSync(fullPath).isDirectory()) {
-            if (item !== '.git' && item !== 'node_modules' && item !== '.agent') {
+            if (!scanExcludeDirs.has(item)) {
                 findHtmlFiles(fullPath);
             }
         } else if (item.endsWith('.html')) {
@@ -190,8 +206,8 @@ function findHtmlFiles(dirPath) {
         }
     }
 }
-findHtmlFiles(path.join(rootDir, 'parallax-sawah'));
-findHtmlFiles(path.join(rootDir, 'tes'));
+// Scan entire repo root for HTML files, not just hardcoded subdirectories
+findHtmlFiles(rootDir);
 
 for (const htmlFile of htmlFiles) {
     const content = fs.readFileSync(htmlFile, 'utf8');

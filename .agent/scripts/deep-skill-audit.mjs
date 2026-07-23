@@ -137,3 +137,8 @@ fs.writeFileSync(
 );
 
 console.log(`\n💾 Full report saved to .agent/temp/skill-audit-report.json`);
+
+if (totalIssues > 0) {
+  console.log(`\n❌ FAIL: ${totalIssues} issue(s) found — see .agent/temp/skill-audit-report.json`);
+  process.exit(1);
+}
