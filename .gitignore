@@ -27,8 +27,10 @@ next-build/
 .claude/settings.local.json
 !.claude/settings.example.json
 
-# API Key test script (reads .env secrets — NEVER commit)
+# Files deleted by user request — NEVER restore
 test_api_keys*
+test_landing_page*
+PRD_AUDIT_OTAK_AI.md
 
 # Python & Test cache
 __pycache__/
