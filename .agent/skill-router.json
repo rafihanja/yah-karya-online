@@ -954,7 +954,10 @@
         "3d-web-experience"
       ],
       "validation": [
-        "browser-or-visual-check-if-ui"
+        "npm-run-build-if-present",
+        "browser-or-visual-check-if-ui",
+        "node -e \"const f=require('fs');const files=['package.json','vite.config.js','webpack.config.js'];const found=files.filter(x=>f.existsSync(x));console.log(found.length?'Build config: '+found.join(', '):'No build config found')\"",
+        "check-webgl-support"
       ],
       "note": "Specialized 3D design expert for Antigravity IDE creative projects."
     },
@@ -1021,7 +1024,9 @@
       ],
       "validation": [
         "npm-run-build-if-present",
-        "responsive-check-if-ui"
+        "npm-run-lint-if-present",
+        "responsive-check-if-ui",
+        "grep-accessibility-checks"
       ]
     },
     {
@@ -1037,7 +1042,9 @@
       ],
       "validation": [
         "project-build-if-available",
-        "browser-or-visual-check-if-ui"
+        "browser-or-visual-check-if-ui",
+        "reduced-motion-check",
+        "npm-run-lint-if-present"
       ]
     },
     {
