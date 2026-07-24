@@ -66,6 +66,9 @@ folderotakgsap/
 | **Master Audit Directive (2026-07-24)** | ✅ Selesai | Full 6-step audit: 6/6 validators exit 0, 9 orphan skills fixed, 162/162 wired to router, 0 orphans |
 | **Landing Page Benchmark (Dado 4.7)** | ✅ Selesai | `dado-4-7.html` — 2,159 baris, 95.4 KB, SaaS landing page NEURALFLOW AI, score 98/100 |
 | **Landing Page Benchmark (Gemini 3.6)** | ✅ Selesai | `gemini-3-6-flash.html` — evaluasi komprehensif, score 7/10 (visual 9.5, features 6, a11y 5) |
+| **CI/CD Pipeline** | ✅ Selesai | `.github/workflows/agent-health-check.yml` — auto-validation on push, 10 steps |
+| **Landing Page Test Suite** | ✅ Selesai | `test_landing_page.mjs` — 63 automated checks, all passing |
+| **Enhanced Router Validation** | ✅ Selesai | 3 routes enhanced: antigravity-design-expert, frontend-developer, gsap-frameworks |
 
 ---
 
