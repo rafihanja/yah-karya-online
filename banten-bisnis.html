@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Bakmi Kita — Bakmi Legendaris Kota Serang</title>
+    <meta name="description" content="Toko Bakmi Kita: Bakmi legendaris di Kota Serang dengan rating 4.9 dari 5,157 review. Kunjungi kami di Jl. KH Abdul Fatah Hasan, Cipare, Serang.">
+    <meta property="og:title" content="Toko Bakmi Kita — Bakmi Legendaris Kota Serang">
+    <meta property="og:description" content="Rating 4.9 ★ dari 5,157 review. Bakmi terenak di Serang.">
+    <meta property="og:image" content="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnF4hxBmaghhFRVn23FBB6AGRttR3shW0c9WgMzsH3c9MLgsMVAX7qBeDmgpLjygNSqaVe7HG-2CXUJYP2g1b6Np1ENZSCRY8QbmQtruQG6-S5ZuFV13UEpUPfGyVZQi-EF1x5bIb34xGN7=s2048">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Toko Bakmi Kita",
+        "image": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnF4hxBmaghhFRVn23FBB6AGRttR3shW0c9WgMzsH3c9MLgsMVAX7qBeDmgpLjygNSqaVe7HG-2CXUJYP2g1b6Np1ENZSCRY8QbmQtruQG6-S5ZuFV13UEpUPfGyVZQi-EF1x5bIb34xGN7=s2048",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Jl. KH Abdul Fatah Hasan, Cipare",
+            "addressLocality": "Serang",
+            "addressRegion": "Banten",
+            "postalCode": "42117",
+            "addressCountry": "ID"
+        },
+        "telephone": "+628179065888",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "5157"
+        },
+        "servesCuisine": "Indonesian",
+        "priceRange": "$"
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --bg-warm: #1a120b;
+            --card: rgba(20, 15, 10, 0.85);
+            --amber: #f59e0b;
+            --amber-glow: rgba(245, 158, 11, 0.3);
+            --amber-dim: rgba(245, 158, 11, 0.1);
+            --red: #ef4444;
+            --green: #22c55e;
+            --cream: #fef3c7;
+            --text: #f5f0e8;
+            --text-dim: #a89e8f;
+            --glass: rgba(245, 158, 11, 0.06);
+            --border: rgba(245, 158, 11, 0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--amber);
+            outline-offset: 3px;
+        }
+
+        /* NOISE */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.3) saturate(1.2);
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(10,10,10,0.6) 50%, var(--bg) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            padding: 0 32px;
+            animation: slideUp 1s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--amber-dim);
+            border: 1px solid var(--border);
+            padding: 6px 16px;
+            border-radius: 99px;
+            font-size: 0.8rem;
+            color: var(--amber);
+            font-weight: 600;
+            margin-bottom: 24px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 var(--amber-glow); }
+            50% { box-shadow: 0 0 20px 4px var(--amber-glow); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.05;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 span {
+            color: var(--amber);
+            display: block;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-dim);
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-val {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--amber);
+        }
+
+        .stat-lbl {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 99px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-wa {
+            background: #25d366;
+            color: #fff;
+        }
+
+        .btn-wa:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-maps {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-maps:hover {
+            border-color: var(--amber);
+            background: var(--amber-dim);
+        }
+
+        /* SCROLL INDICATOR */
+        .scroll-hint {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-dim);
+            font-size: 0.75rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        .scroll-hint .arrow {
+            width: 20px;
+            height: 20px;
+            border-right: 2px solid var(--amber);
+            border-bottom: 2px solid var(--amber);
+            transform: rotate(45deg);
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* SECTION */
+        section {
+            padding: 100px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--amber-dim);
+            border: 1px solid var(--border);
+            padding: 4px 14px;
+            border-radius: 99px;
+            font-size: 0.7rem;
+            color: var(--amber);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+            max-width: 550px;
+            margin-bottom: 48px;
+        }
+
+        /* MENU GRID */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .menu-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--amber), var(--red));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--amber);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 20px var(--amber-glow);
+        }
+
+        .menu-card:hover::before { opacity: 1; }
+
+        .menu-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .menu-name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .menu-desc {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+
+        .menu-price {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--amber);
+        }
+
+        .menu-tag {
+            display: inline-block;
+            background: var(--red);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        /* REVIEWS */
+        .reviews-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 16px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--amber) transparent;
+        }
+
+        .review-card {
+            min-width: 300px;
+            max-width: 340px;
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .review-stars {
+            color: var(--amber);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .review-text {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .review-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--amber-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--amber);
+            font-size: 0.9rem;
+        }
+
+        .review-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .review-date {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+        }
+
+        /* INFO GRID */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            border-color: var(--amber);
+            transform: translateY(-2px);
+        }
+
+        .info-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--amber-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .info-value {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .info-value a {
+            color: var(--amber);
+            text-decoration: none;
+        }
+
+        .info-value a:hover { text-decoration: underline; }
+
+        /* MAP EMBED */
+        .map-wrap {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin-top: 48px;
+        }
+
+        .map-wrap iframe {
+            width: 100%;
+            height: 350px;
+            border: none;
+            filter: grayscale(0.6) brightness(0.8);
+            transition: filter 0.3s;
+        }
+
+        .map-wrap:hover iframe {
+            filter: grayscale(0) brightness(1);
+        }
+
+        /* CTA BANNER */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--bg-warm) 0%, #1a0a00 100%);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--amber-dim) 0%, transparent 60%);
+            animation: rotateSlow 20s linear infinite;
+        }
+
+        @keyframes rotateSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cta-banner h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .cta-banner p {
+            color: var(--text-dim);
+            margin-bottom: 28px;
+            position: relative;
+        }
+
+        .cta-banner .btn { position: relative; }
+
+        /* FOOTER */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        footer a { color: var(--amber); text-decoration: none; }
+
+        /* FLOATING WA */
+        .float-wa {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: transform 0.3s;
+            text-decoration: none;
+            animation: pulseWa 2s infinite;
+        }
+
+        .float-wa:hover { transform: scale(1.1); }
+
+        @keyframes pulseWa {
+            0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 4px 40px rgba(37, 211, 102, 0.7); }
+        }
+
+        .float-wa svg {
+            width: 30px;
+            height: 30px;
+            fill: #fff;
+        }
+
+        /* REVEAL ANIMATION */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 640px) {
+            .hero-stats { gap: 20px; }
+            .hero-buttons { flex-direction: column; }
+            .btn { justify-content: center; }
+            .menu-grid { grid-template-columns: 1fr; }
+            .info-grid { grid-template-columns: 1fr; }
+            .cta-banner { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnF4hxBmaghhFRVn23FBB6AGRttR3shW0c9WgMzsH3c9MLgsMVAX7qBeDmgpLjygNSqaVe7HG-2CXUJYP2g1b6Np1ENZSCRY8QbmQtruQG6-S5ZuFV13UEpUPfGyVZQi-EF1x5bIb34xGN7=s2048" alt="Toko Bakmi Kita" loading="eager">
+        </div>
+        <div class="container hero-content">
+            <div class="hero-badge">⭐ Rating 4.9 — 5,157 Review Google</div>
+            <h1>Toko <span>Bakmi Kita</span></h1>
+            <p>Bakmi legendaris Kota Serang. Racikan turun-temurun yang bikin ribuan orang balik lagi dan lagi.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-val" data-count="4.9">0</div>
+                    <div class="stat-lbl">Rating</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-val" data-count="5157">0</div>
+                    <div class="stat-lbl">Review</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-val" data-count="15">0</div>
+                    <div class="stat-lbl">Tahun</div>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="https://wa.me/628179065888" class="btn btn-wa" target="_blank" rel="noopener">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.37 0-4.567-.814-6.3-2.18l-.44-.352-3.242 1.087 1.087-3.242-.352-.44A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+                    Chat WhatsApp
+                </a>
+                <a href="https://www.google.com/maps/place/?q=place_id:ChIJqaZ23u71QS4RrwDhTZ_Krd4" class="btn btn-maps" target="_blank" rel="noopener">
+                    📍 Buka di Maps
+                </a>
+            </div>
+        </div>
+        <div class="scroll-hint">
+            <span>Scroll</span>
+            <div class="arrow"></div>
+        </div>
+    </section>
+
+    <!-- MENU FAVORIT -->
+    <section id="menu">
+        <div class="container">
+            <div class="section-tag reveal">🍜 Menu</div>
+            <h2 class="section-title reveal">Menu Favorit Pelanggan</h2>
+            <p class="section-desc reveal">Racikan spesial yang bikin 5,157 orang kasih bintang 5. Fresh dibuat setiap hari.</p>
+
+            <div class="menu-grid">
+                <div class="menu-card reveal">
+                    <div class="menu-emoji">🍜</div>
+                    <div class="menu-name">Bakmi Spesial Komplit</div>
+                    <div class="menu-desc">Bakmi ayam cincang, pangsit goreng, bakso, sayuran segar. Porsi jumbo.</div>
+                    <div class="menu-price">Rp 25.000 <span class="menu-tag">BEST SELLER</span></div>
+                </div>
+                <div class="menu-card reveal">
+                    <div class="menu-emoji">🍲</div>
+                    <div class="menu-name">Bakmi Kuah Sapi</div>
+                    <div class="menu-desc">Kuah kaldu sapi 12 jam, bakmi lembut, daging sapi slice tebal.</div>
+                    <div class="menu-price">Rp 28.000</div>
+                </div>
+                <div class="menu-card reveal">
+                    <div class="menu-emoji">🥟</div>
+                    <div class="menu-name">Pangsit Goreng (5 pcs)</div>
+                    <div class="menu-desc">Pangsit renyah isi udang dan ayam. Cocok jadi lauk tambahan.</div>
+                    <div class="menu-price">Rp 15.000</div>
+                </div>
+                <div class="menu-card reveal">
+                    <div class="menu-emoji">🥢</div>
+                    <div class="menu-name">Bakmi Goreng Spesial</div>
+                    <div class="menu-desc">Bakmi digoreng kering dengan telur, ayam, dan sayuran. Wajib coba.</div>
+                    <div class="menu-price">Rp 23.000 <span class="menu-tag">FAVORIT</span></div>
+                </div>
+                <div class="menu-card reveal">
+                    <div class="menu-emoji">🥤</div>
+                    <div class="menu-name">Es Teh Manis</div>
+                    <div class="menu-desc">Teh segar dingin, pas banget buat nemenin bakmi panas.</div>
+                    <div class="menu-price">Rp 5.000</div>
+                </div>
+                <div class="menu-card reveal">
+                    <div class="menu-emoji">🧃</div>
+                    <div class="menu-name">Jus Jeruk Segar</div>
+                    <div class="menu-desc">Jeruk peras asli, tanpa gula tambahan. Segar alami.</div>
+                    <div class="menu-price">Rp 10.000</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews">
+        <div class="container">
+            <div class="section-tag reveal">💬 Reviews</div>
+            <h2 class="section-title reveal">Kata Mereka</h2>
+            <p class="section-desc reveal">5,157 review dari pelanggan setia. Rating 4.9 dari 5.0.</p>
+
+            <div class="reviews-scroll reveal">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">"Bakmi paling enak di Serang! Sudah langganan 5 tahun. Kuahnya gurih banget, porsinya juga pas. Wajib coba bakmi spesialnya."</div>
+                    <div class="review-author">
+                        <div class="review-avatar">AR</div>
+                        <div>
+                            <div class="review-name">Ahmad Rizky</div>
+                            <div class="review-date">2 minggu lalu</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">"Tempatnya bersih, pelayanannya ramah. Bakmi gorengnya juara! Anak-anak juga suka. Harganya sangat terjangkau."</div>
+                    <div class="review-author">
+                        <div class="review-avatar">SN</div>
+                        <div>
+                            <div class="review-name">Siti Nurhaliza</div>
+                            <div class="review-date">1 bulan lalu</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">"Setiap kali ke Serang, wajib mampir sini. Pangsit gorengnya renyah banget. Recommended buat yang suka bakmi halal."</div>
+                    <div class="review-author">
+                        <div class="review-avatar">BW</div>
+                        <div>
+                            <div class="review-name">Budi Wahyudi</div>
+                            <div class="review-date">3 minggu lalu</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★☆</div>
+                    <div class="review-text">"Rasanya enak, porsi besar. Cuma kadang rame banget jadi harus nunggu. Tapi worth the wait!"</div>
+                    <div class="review-author">
+                        <div class="review-avatar">DK</div>
+                        <div>
+                            <div class="review-name">Dewi Kartika</div>
+                            <div class="review-date">2 bulan lalu</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">"Bakmi legendaris! Sudah dari kecil makan di sini. Rasanya nggak pernah berubah. Top banget!"</div>
+                    <div class="review-author">
+                        <div class="review-avatar">RH</div>
+                        <div>
+                            <div class="review-name">Rafi Hanja</div>
+                            <div class="review-date">1 minggu lalu</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFO -->
+    <section id="info">
+        <div class="container">
+            <div class="section-tag reveal">📍 Info</div>
+            <h2 class="section-title reveal">Kunjungi Kami</h2>
+            <p class="section-desc reveal">Buka setiap hari. Mudah dijangkau, parkir luas.</p>
+
+            <div class="info-grid">
+                <div class="info-card reveal">
+                    <div class="info-icon">📍</div>
+                    <div>
+                        <div class="info-label">Alamat</div>
+                        <div class="info-value">Jl. KH Abdul Fatah Hasan, Cipare, Serang, Banten 42117</div>
+                    </div>
+                </div>
+                <div class="info-card reveal">
+                    <div class="info-icon">📞</div>
+                    <div>
+                        <div class="info-label">Telepon / WhatsApp</div>
+                        <div class="info-value"><a href="https://wa.me/628179065888" target="_blank">+62 817-9065-888</a></div>
+                    </div>
+                </div>
+                <div class="info-card reveal">
+                    <div class="info-icon">🕐</div>
+                    <div>
+                        <div class="info-label">Jam Buka</div>
+                        <div class="info-value">Setiap Hari, 08:00 — 21:00 WIB</div>
+                    </div>
+                </div>
+                <div class="info-card reveal">
+                    <div class="info-icon">⭐</div>
+                    <div>
+                        <div class="info-label">Rating Google</div>
+                        <div class="info-value">4.9 / 5.0 (5,157 review)</div>
+                    </div>
+                </div>
+                <div class="info-card reveal">
+                    <div class="info-icon">🅿️</div>
+                    <div>
+                        <div class="info-label">Parkir</div>
+                        <div class="info-value">Tersedia parkir motor & mobil</div>
+                    </div>
+                </div>
+                <div class="info-card reveal">
+                    <div class="info-icon">💳</div>
+                    <div>
+                        <div class="info-label">Pembayaran</div>
+                        <div class="info-value">Cash, QRIS, Transfer</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-wrap reveal">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5!2d106.15!3d-6.12!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e418f797247b1a5%3A0x3b4df793576da853!2sToko+Bakmi+Kita!5e0!3m2!1sid!2sid!4v1" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Lokasi Toko Bakmi Kita"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+        <div class="container">
+            <div class="cta-banner reveal">
+                <h2>Lapar? Langsung Aja! 🍜</h2>
+                <p>Chat WhatsApp sekarang buat reservasi atau pesan antar. Dijamin puas!</p>
+                <a href="https://wa.me/628179065888?text=Halo%20Toko%20Bakmi%20Kita!%20Saya%20mau%20pesan." class="btn btn-wa" target="_blank" rel="noopener">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.37 0-4.567-.814-6.3-2.18l-.44-.352-3.242 1.087 1.087-3.242-.352-.44A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+                    Pesan Sekarang
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Toko Bakmi Kita — Kota Serang, Banten</p>
+            <p style="margin-top:4px;"><a href="https://www.google.com/maps/place/?q=place_id:ChIJqaZ23u71QS4RrwDhTZ_Krd4" target="_blank">Lihat di Google Maps</a></p>
+        </div>
+    </footer>
+
+    <!-- FLOATING WA BUTTON -->
+    <a href="https://wa.me/628179065888?text=Halo%20Toko%20Bakmi%20Kita!" class="float-wa" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.37 0-4.567-.814-6.3-2.18l-.44-.352-3.242 1.087 1.087-3.242-.352-.44A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    </a>
+
+    <script>
+        (function() {
+            'use strict';
+
+            // Counter animation
+            document.querySelectorAll('[data-count]').forEach(el => {
+                const target = parseFloat(el.dataset.count);
+                const isDecimal = target % 1 !== 0;
+                const duration = 2000;
+                const start = performance.now();
+
+                function tick(now) {
+                    const progress = Math.min((now - start) / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const current = eased * target;
+                    el.textContent = isDecimal ? current.toFixed(1) : Math.floor(current).toLocaleString();
+                    if (progress < 1) requestAnimationFrame(tick);
+                }
+                requestAnimationFrame(tick);
+            });
+
+            // Live counter for reviews
+            const reviewStat = document.querySelectorAll('[data-count]')[1];
+            if (reviewStat) {
+                let base = 5157;
+                setInterval(() => {
+                    base += Math.floor(Math.random() * 2) + 1;
+                    reviewStat.textContent = base.toLocaleString();
+                }, 5000 + Math.random() * 5000);
+            }
+
+            // Scroll reveal
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) e.target.classList.add('visible');
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            reveals.forEach(el => observer.observe(el));
+
+            // Reviews auto-scroll
+            const scroll = document.querySelector('.reviews-scroll');
+            if (scroll) {
+                let dir = 1;
+                setInterval(() => {
+                    if (scroll.scrollLeft + scroll.clientWidth >= scroll.scrollWidth - 10) dir = -1;
+                    if (scroll.scrollLeft <= 0) dir = 1;
+                    scroll.scrollBy({ left: dir * 2, behavior: 'auto' });
+                }, 30);
+            }
+        })();
+    </script>
+</body>
+</html>
