@@ -462,6 +462,50 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            background-size: 200% 200%;
+            animation: gradientShift 4s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Noise Texture Overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
+        }
+
+        /* 3D Tilt Card */
+        .tilt-card {
+            transform-style: preserve-3d;
+            will-change: transform;
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+        }
+
+        .tilt-card:hover {
+            box-shadow: var(--shadow-elevated), var(--shadow-glow-cyan);
+            border-color: var(--border-glow);
+        }
+
+        .tilt-card .tilt-inner {
+            transform: translateZ(30px);
+            transform-style: preserve-3d;
+        }
+
+        /* Parallax layer */
+        .parallax-layer {
+            will-change: transform;
+            transition: transform 0.1s linear;
         }
 
         .hero p {
@@ -1495,42 +1539,42 @@
                     <p>Built for teams who demand production-grade reliability with cutting-edge intelligence.</p>
                 </div>
                 <div class="features-grid">
-                    <article class="feature-card glass-card reveal" tabindex="0">
+                    <article class="feature-card glass-card tilt-card reveal" tabindex="0">
                         <div class="feature-icon cyan" aria-hidden="true">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                         </div>
                         <h3>Neural Orchestration</h3>
                         <p>Deploy and manage multi-model AI pipelines with automatic load balancing and failover across regions.</p>
                     </article>
-                    <article class="feature-card glass-card reveal" tabindex="0">
+                    <article class="feature-card glass-card tilt-card reveal" tabindex="0">
                         <div class="feature-icon violet" aria-hidden="true">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                         </div>
                         <h3>Real-time Analytics</h3>
                         <p>Stream processing engine handles millions of events per second with sub-10ms latency guarantees.</p>
                     </article>
-                    <article class="feature-card glass-card reveal" tabindex="0">
+                    <article class="feature-card glass-card tilt-card reveal" tabindex="0">
                         <div class="feature-icon rose" aria-hidden="true">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
                         </div>
                         <h3>Zero-Trust Security</h3>
                         <p>SOC 2 Type II certified with end-to-end encryption, RBAC, and automated compliance reporting.</p>
                     </article>
-                    <article class="feature-card glass-card reveal" tabindex="0">
+                    <article class="feature-card glass-card tilt-card reveal" tabindex="0">
                         <div class="feature-icon cyan" aria-hidden="true">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg>
                         </div>
                         <h3>Auto-Scaling Infra</h3>
                         <p>Kubernetes-native architecture scales from zero to millions of inference requests automatically.</p>
                     </article>
-                    <article class="feature-card glass-card reveal" tabindex="0">
+                    <article class="feature-card glass-card tilt-card reveal" tabindex="0">
                         <div class="feature-icon violet" aria-hidden="true">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0022 16z"/></svg>
                         </div>
                         <h3>Model Marketplace</h3>
                         <p>Access 500+ pre-trained models or deploy your own custom models with one-click integration.</p>
                     </article>
-                    <article class="feature-card glass-card reveal" tabindex="0">
+                    <article class="feature-card glass-card tilt-card reveal" tabindex="0">
                         <div class="feature-icon rose" aria-hidden="true">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
                         </div>
@@ -2015,6 +2059,70 @@
                 cursorRing.classList.remove('hovering');
             }
         });
+
+        /* ============================================
+           3D TILT EFFECT ON CARDS
+           ============================================ */
+        const tiltCards = document.querySelectorAll('.tilt-card');
+
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -8;
+                const rotateY = ((x - centerX) / centerX) * 8;
+
+                card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            });
+        });
+
+        /* ============================================
+           PARALLAX HERO EFFECT
+           ============================================ */
+        const hero = document.querySelector('.hero');
+        const heroContent = document.querySelector('.hero-content');
+
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            if (hero && heroContent) {
+                const heroHeight = hero.offsetHeight;
+                if (scrolled < heroHeight) {
+                    const parallaxY = scrolled * 0.3;
+                    const opacityFade = 1 - (scrolled / heroHeight) * 0.5;
+                    heroContent.style.transform = `translateY(${parallaxY}px)`;
+                    heroContent.style.opacity = opacityFade;
+                }
+            }
+        });
+
+        /* ============================================
+           LIVE COUNTER — Always Incrementing
+           ============================================ */
+        const heroStatValues = document.querySelectorAll('.hero-stat-value');
+
+        function startLiveCounter() {
+            heroStatValues.forEach(el => {
+                const baseTarget = parseFloat(el.dataset.count);
+                const isDecimal = baseTarget % 1 !== 0;
+                let current = baseTarget;
+
+                setInterval(() => {
+                    const increment = isDecimal ? (Math.random() * 0.1) : Math.floor(Math.random() * 3) + 1;
+                    current += increment;
+                    el.textContent = isDecimal ? current.toFixed(1) : Math.floor(current).toLocaleString();
+                }, 3000 + Math.random() * 2000);
+            });
+        }
+
+        // Start live counter after initial animation
+        setTimeout(startLiveCounter, 3000);
 
         /* ============================================
            NAVIGATION — Scroll & Mobile
