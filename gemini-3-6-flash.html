@@ -1,0 +1,1793 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>NEURALFLOW AI — Autonomous Enterprise Intelligence Engine</title>
+  <meta name="title" content="NEURALFLOW AI — Autonomous Enterprise Intelligence Engine">
+  <meta name="description" content="Orchestrate real-time neural data pipelines, predictive analytics, and autonomous multi-agent enterprise workflows with microsecond latency.">
+  <meta name="keywords" content="AI Enterprise, Neural Data Engine, Autonomous AI Agents, Machine Learning Platform, Real-time Analytics, AI Infrastructure">
+  <meta name="author" content="NeuralFlow AI Technologies">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://neuralflow.ai/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://neuralflow.ai/">
+  <meta property="og:title" content="NEURALFLOW AI — Enterprise Autonomous AI Infrastructure">
+  <meta property="og:description" content="Next-generation glassmorphism 3D enterprise AI platform powering real-time decision engines worldwide.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://neuralflow.ai/">
+  <meta name="twitter:title" content="NEURALFLOW AI — Enterprise Autonomous AI Engine">
+  <meta name="twitter:description" content="Next-generation enterprise AI platform powering real-time decision engines worldwide.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Structured Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "NeuralFlow AI",
+    "operatingSystem": "All",
+    "applicationCategory": "BusinessApplication",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "49",
+      "highPrice": "499",
+      "offerCount": "3"
+    },
+    "description": "Enterprise autonomous AI intelligence platform with real-time neural processing and predictive analytics."
+  }
+  </script>
+
+  <!-- Google Fonts Preconnect & Styling -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #030712;
+      --bg-card: rgba(15, 23, 42, 0.65);
+      --glass-bg: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --glass-border-hover: rgba(6, 182, 212, 0.4);
+      --accent-cyan: #06b6d4;
+      --accent-cyan-glow: rgba(6, 182, 212, 0.25);
+      --accent-violet: #8b5cf6;
+      --accent-violet-glow: rgba(139, 92, 246, 0.25);
+      --accent-rose: #f43f5e;
+      --accent-rose-glow: rgba(244, 63, 94, 0.25);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-heading: 'Outfit', system-ui, -apple-system, sans-serif;
+      --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      --shadow-glow-cyan: 0 0 35px rgba(6, 182, 212, 0.3);
+      --shadow-glow-violet: 0 0 35px rgba(139, 92, 246, 0.3);
+      --border-radius-lg: 24px;
+      --border-radius-md: 16px;
+      --border-radius-sm: 10px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      cursor: default;
+    }
+
+    /* Accessibility Skip Navigation Link */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 20px;
+      background: var(--accent-cyan);
+      color: #000;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: var(--border-radius-sm);
+      z-index: 10000;
+      text-decoration: none;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 20px;
+      outline: 3px solid #fff;
+    }
+
+    /* Accessibility Focus Styles */
+    :focus-visible {
+      outline: 2px solid var(--accent-cyan);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    /* Reduced Motion Preference Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      #particleCanvas, #cursor-dot, #cursor-outline {
+        display: none !important;
+      }
+    }
+
+    /* Custom Particle Canvas Background */
+    #particleCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Custom Magnetic Pointer */
+    #cursor-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--accent-cyan);
+      position: fixed;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+      z-index: 9999;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: width 0.2s, height 0.2s, background-color 0.2s;
+    }
+
+    #cursor-outline {
+      width: 36px;
+      height: 36px;
+      border: 1.5px solid rgba(6, 182, 212, 0.6);
+      position: fixed;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+      z-index: 9998;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s ease-out, width 0.2s, height 0.2s, border-color 0.2s;
+    }
+
+    body.cursor-hover #cursor-outline {
+      width: 55px;
+      height: 55px;
+      border-color: var(--accent-violet);
+      background-color: rgba(139, 92, 246, 0.08);
+    }
+
+    body.cursor-hover #cursor-dot {
+      background-color: var(--accent-rose);
+      width: 12px;
+      height: 12px;
+    }
+
+    /* Typography & Utilities */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 0%, var(--accent-cyan) 50%, var(--accent-violet) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Glassmorphism Panel */
+    .glass-panel {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-glass);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .glass-panel:hover {
+      border-color: var(--glass-border-hover);
+      box-shadow: var(--shadow-glass), var(--shadow-glow-cyan);
+    }
+
+    .glass-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 9999px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-btn-primary {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+      color: #ffffff;
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4);
+      border: none;
+    }
+
+    .glass-btn-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 30px rgba(139, 92, 246, 0.6);
+    }
+
+    .glass-btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      backdrop-filter: blur(10px);
+    }
+
+    .glass-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--accent-cyan);
+      transform: translateY(-2px);
+    }
+
+    /* Container Layout */
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Navigation Bar */
+    header {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 48px);
+      max-width: 1200px;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    nav.glass-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 28px;
+      background: rgba(3, 7, 18, 0.75);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 9999px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 15px var(--accent-cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-cyan);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      min-height: 100vh;
+      padding-top: 160px;
+      padding-bottom: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      background: rgba(6, 182, 212, 0.08);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      margin-bottom: 28px;
+      box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 5.5vw, 4.8rem);
+      line-height: 1.08;
+      max-width: 1000px;
+      margin-bottom: 24px;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 720px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 70px;
+    }
+
+    /* Live Dashboard Interactive Widget */
+    .dashboard-container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+      position: relative;
+    }
+
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .dashboard-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 12px #10b981;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+
+    .dashboard-controls {
+      display: flex;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 4px;
+      border-radius: 12px;
+      border: 1px solid var(--glass-border);
+    }
+
+    .tab-btn {
+      padding: 8px 16px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .tab-btn.active {
+      background: var(--accent-cyan);
+      color: #000;
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: var(--border-radius-md);
+      border: 1px solid var(--glass-border);
+      text-align: left;
+      transition: border-color 0.3s;
+    }
+
+    .stat-card:hover {
+      border-color: var(--accent-cyan);
+    }
+
+    .stat-card.cyan { border-left: 3px solid var(--accent-cyan); }
+    .stat-card.violet { border-left: 3px solid var(--accent-violet); }
+    .stat-card.rose { border-left: 3px solid var(--accent-rose); }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    .stat-value {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .stat-delta {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #10b981;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .chart-wrapper {
+      width: 100%;
+      height: 340px;
+      position: relative;
+    }
+
+    #liveChart {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+    }
+
+    /* 3D Real Tilt Feature Cards Grid */
+    .section-padding {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px auto;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 28px;
+    }
+
+    .tilt-card {
+      padding: 36px;
+      transform-style: preserve-3d;
+      will-change: transform;
+      position: relative;
+      perspective: 1000px;
+      transition: transform 0.15s ease-out, border-color 0.3s;
+    }
+
+    .card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(139, 92, 246, 0.15));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--accent-cyan);
+      transform: translateZ(25px);
+    }
+
+    .tilt-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      transform: translateZ(30px);
+    }
+
+    .tilt-card p {
+      color: var(--text-muted);
+      line-height: 1.6;
+      font-size: 0.95rem;
+      transform: translateZ(15px);
+    }
+
+    /* Pricing Section & Calculator Switch */
+    .pricing-toggle-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 50px;
+    }
+
+    .switch-label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .switch-label.active {
+      color: #fff;
+    }
+
+    .toggle-switch {
+      width: 64px;
+      height: 34px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 9999px;
+      padding: 4px;
+      cursor: pointer;
+      border: 1px solid var(--glass-border);
+      transition: background 0.3s;
+      position: relative;
+    }
+
+    .toggle-switch.checked {
+      background: var(--accent-violet);
+    }
+
+    .toggle-handle {
+      width: 24px;
+      height: 24px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .toggle-switch.checked .toggle-handle {
+      transform: translateX(30px);
+    }
+
+    .discount-badge {
+      padding: 4px 10px;
+      background: rgba(244, 63, 94, 0.15);
+      border: 1px solid var(--accent-rose);
+      color: var(--accent-rose);
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: 9999px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .pricing-card {
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .pricing-card.featured {
+      border-color: var(--accent-cyan);
+      box-shadow: var(--shadow-glass), var(--shadow-glow-cyan);
+      background: linear-gradient(180deg, rgba(6, 182, 212, 0.08) 0%, rgba(15, 23, 42, 0.6) 100%);
+    }
+
+    .pricing-card.featured::before {
+      content: 'MOST POPULAR';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 4px 16px;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-violet));
+      color: #000;
+      font-size: 0.75rem;
+      font-weight: 800;
+      border-radius: 9999px;
+      letter-spacing: 0.05em;
+    }
+
+    .price-amount {
+      font-size: 3.2rem;
+      font-weight: 800;
+      font-family: var(--font-heading);
+      margin: 20px 0 8px 0;
+      transition: all 0.3s ease;
+    }
+
+    .price-period {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .feature-list {
+      list-style: none;
+      margin: 32px 0;
+      flex-grow: 1;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .feature-icon {
+      color: var(--accent-cyan);
+      flex-shrink: 0;
+    }
+
+    /* Accordion FAQ Component */
+    .faq-container {
+      max-width: 840px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--glass-border);
+      border-radius: var(--border-radius-md);
+      background: var(--bg-card);
+      backdrop-filter: blur(15px);
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+
+    .faq-item:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .faq-button {
+      width: 100%;
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: none;
+      border: none;
+      color: var(--text-main);
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.3s ease;
+      color: var(--accent-cyan);
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s ease;
+      padding: 0 24px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding: 0 24px 24px 24px;
+    }
+
+    /* Contact Form & Dedicated Info Section */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .contact-info-card {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .info-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      color: var(--accent-cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: left;
+    }
+
+    .form-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .form-input, .form-textarea {
+      width: 100%;
+      padding: 14px 18px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--border-radius-sm);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .form-input:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+    }
+
+    .error-msg {
+      font-size: 0.8rem;
+      color: var(--accent-rose);
+      display: none;
+    }
+
+    .form-group.error .error-msg {
+      display: block;
+    }
+
+    .form-group.error .form-input, .form-group.error .form-textarea {
+      border-color: var(--accent-rose);
+    }
+
+    /* Floating Toast Notifications */
+    #toastContainer {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 10000;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .toast {
+      padding: 16px 20px;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(20px);
+      border-left: 4px solid var(--accent-cyan);
+      border-radius: var(--border-radius-sm);
+      box-shadow: var(--shadow-glass), 0 10px 30px rgba(0,0,0,0.5);
+      color: #fff;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transform: translateX(120%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .toast.show {
+      transform: translateX(0);
+    }
+
+    .toast.success { border-color: #10b981; }
+    .toast.error { border-color: var(--accent-rose); }
+
+    .toast-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin-left: auto;
+      padding: 0 4px;
+    }
+
+    .toast-close:hover { color: #fff; }
+
+    /* Interactive Demo Modal System */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(3, 7, 18, 0.85);
+      backdrop-filter: blur(25px);
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      width: 90%;
+      max-width: 800px;
+      padding: 40px;
+      position: relative;
+      transform: scale(0.9);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--glass-border);
+      padding: 60px 0 30px 0;
+      background: rgba(3, 7, 18, 0.95);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr repeat(3, 1fr);
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-col h4 {
+      margin-bottom: 20px;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-cyan);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 992px) {
+      .contact-wrapper { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      header { width: calc(100% - 32px); }
+      .nav-links { display: none; }
+      .menu-toggle { display: block; }
+      .hero-section { padding-top: 130px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+      #cursor-dot, #cursor-outline { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- WCAG Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Background Interactive 3D Particle Canvas Engine -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Custom Magnetic Cursor -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-outline"></div>
+
+  <!-- Floating Glassmorphism Header -->
+  <header>
+    <nav class="glass-nav" aria-label="Main Navigation">
+      <a href="#" class="logo">
+        <div class="logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        NEURALFLOW
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#dashboard">Live Analytics</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="glass-btn glass-btn-primary" onclick="openModal()" aria-label="Request Live Interactive Demo">
+        Schedule Demo
+      </button>
+      <button class="menu-toggle" aria-label="Toggle mobile navigation menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero-section container">
+      <div class="hero-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+        </svg>
+        NEURAL ENGINE 4.2 IS NOW LIVE
+      </div>
+      <h1 class="hero-title">
+        Autonomous Enterprise <span class="gradient-text">Neural Intelligence</span> Engine
+      </h1>
+      <p class="hero-subtitle">
+        Orchestrate real-time predictive analytics, dynamic data vectorization, and multi-agent AI execution across global enterprise infrastructure with microsecond latency.
+      </p>
+      <div class="hero-actions">
+        <button class="glass-btn glass-btn-primary" onclick="scrollToSection('contact')">
+          Deploy Neural Flow
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+        <button class="glass-btn glass-btn-secondary" onclick="openModal()">
+          Watch Interactive Video
+        </button>
+      </div>
+
+      <!-- Live Dashboard Simulation Widget -->
+      <div id="dashboard" class="dashboard-container glass-panel">
+        <div class="dashboard-header">
+          <div class="dashboard-title">
+            <div class="status-dot"></div>
+            <span>Global Telemetry Mesh (Real-time Stream)</span>
+          </div>
+          <div class="dashboard-controls" role="tablist" aria-label="Dashboard metrics time period">
+            <button class="tab-btn active" role="tab" aria-selected="true" id="tabDaily" onclick="updateChart('daily', this)">Daily</button>
+            <button class="tab-btn" role="tab" aria-selected="false" id="tabWeekly" onclick="updateChart('weekly', this)">Weekly</button>
+            <button class="tab-btn" role="tab" aria-selected="false" id="tabMonthly" onclick="updateChart('monthly', this)">Monthly</button>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card cyan">
+            <div class="stat-label">Neural Ingestion Rate</div>
+            <div class="stat-value" id="statRate">1.48 M/s</div>
+            <div class="stat-delta">↑ 14.2% vs last period</div>
+          </div>
+          <div class="stat-card violet">
+            <div class="stat-label">Avg Execution Latency</div>
+            <div class="stat-value" id="statLatency">3.82 ms</div>
+            <div class="stat-delta">↓ 2.1ms optimization</div>
+          </div>
+          <div class="stat-card rose">
+            <div class="stat-label">Model Accuracy Index</div>
+            <div class="stat-value" id="statAccuracy">99.98%</div>
+            <div class="stat-delta">↑ 0.04% precision</div>
+          </div>
+        </div>
+
+        <div class="chart-wrapper">
+          <canvas id="liveChart" aria-label="Real-time telemetry chart displaying network throughput over time"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3D Real Tilt Feature Grid Section -->
+    <section id="features" class="section-padding container">
+      <div class="section-header">
+        <h2 class="section-title">Engineered for Extreme Performance</h2>
+        <p class="section-desc">Next-generation distributed AI framework designed to solve complex enterprise operational bottlenecks.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="tilt-card glass-panel">
+          <div class="card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <h3>Multi-Agent Swarm Orchestration</h3>
+          <p>Deploy autonomous AI agents that communicate, negotiate, and execute complex workflows without manual supervision.</p>
+        </div>
+
+        <div class="tilt-card glass-panel">
+          <div class="card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <h3>Sub-Millisecond Vector Mesh</h3>
+          <p>Ultra-dense high-dimensional embedding database optimized for instant semantic search and retrieval augmented generation.</p>
+        </div>
+
+        <div class="tilt-card glass-panel">
+          <div class="card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h3>Zero-Trust Cryptographic Guard</h3>
+          <p>Bank-grade encryption, automated PII scrubbing, and fine-grained role RBAC guarantees regulatory compliance across regions.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Calculator Section (3 Tiers Specification) -->
+    <section id="pricing" class="section-padding container">
+      <div class="section-header">
+        <h2 class="section-title">Transparent Enterprise Licensing</h2>
+        <p class="section-desc">Flexible compute tiers tailored to your global processing demands.</p>
+      </div>
+
+      <div class="pricing-toggle-container">
+        <span class="switch-label active" id="labelMonthly">Monthly Billing</span>
+        <div class="toggle-switch" id="pricingToggle" onclick="togglePricing()" role="switch" aria-checked="false" tabindex="0" aria-label="Toggle annual billing 20 percent discount">
+          <div class="toggle-handle"></div>
+        </div>
+        <span class="switch-label" id="labelAnnual">Annual Billing</span>
+        <span class="discount-badge">SAVE 20%</span>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Tier 1: Starter Developer -->
+        <div class="pricing-card glass-panel">
+          <h3>Developer Pro</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Ideal for fast-growing startups</p>
+          <div class="price-amount" id="priceDeveloper">$49</div>
+          <div class="price-period">per user / month</div>
+          <ul class="feature-list">
+            <li class="feature-item">
+              <svg class="feature-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              5M Token Ingestion / mo
+            </li>
+            <li class="feature-item">
+              <svg class="feature-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Up to 10 Swarm Agents
+            </li>
+            <li class="feature-item">
+              <svg class="feature-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Community Slack Support
+            </li>
+          </ul>
+          <button class="glass-btn glass-btn-secondary" style="width: 100%;">Start Developer Tier</button>
+        </div>
+
+        <!-- Tier 2: Enterprise Scale (Featured) -->
+        <div class="pricing-card glass-panel featured">
+          <h3>Enterprise Scale</h3>
+          <p style="color: var(--accent-cyan); font-size: 0.9rem;">For mission-critical operations</p>
+          <div class="price-amount" id="priceEnterprise">$199</div>
+          <div class="price-period">per user / month</div>
+          <ul class="feature-list">
+            <li class="feature-item">
+              <svg class="feature-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              100M Token Ingestion / mo
+            </li>
+            <li class="feature-item">
+              <svg class="feature-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Unlimited Autonomous Swarms
+            </li>
+            <li class="feature-item">
+              <svg class="feature-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Dedicated SLA & 24/7 Engineers
+            </li>
+          </ul>
+          <button class="glass-btn glass-btn-primary" style="width: 100%;">Deploy Enterprise Tier</button>
+        </div>
+
+        <!-- Tier 3: Quantum Custom -->
+        <div class="pricing-card glass-panel">
+          <h3>Quantum Custom</h3>
+          <p style="color: var(--accent-rose); font-size: 0.9rem;">High-throughput custom deployments</p>
+          <div class="price-amount" id="priceQuantum">$499</div>
+          <div class="price-period">per cluster / month</div>
+          <ul class="feature-list">
+            <li class="feature-item">
+              <svg class="feature-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Unlimited Token Throughput
+            </li>
+            <li class="feature-item">
+              <svg class="feature-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Isolated VPC Dedicated Nodes
+            </li>
+            <li class="feature-item">
+              <svg class="feature-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Custom On-Prem Hybrid Bridge
+            </li>
+          </ul>
+          <button class="glass-btn glass-btn-secondary" style="width: 100%;">Request Custom Cluster</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion Section (5 Items Specification) -->
+    <section id="faq" class="section-padding container">
+      <div class="section-header">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc">Everything you need to know about integrating NeuralFlow into your codebase.</p>
+      </div>
+
+      <div class="faq-container">
+        <!-- FAQ Item 1 -->
+        <div class="faq-item">
+          <button class="faq-button" id="faqBtn1" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faqAns1">
+            How does NeuralFlow achieve sub-millisecond execution times?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer" id="faqAns1" role="region" aria-labelledby="faqBtn1">
+            Our platform leverages custom Rust-compiled WASM kernels deployed directly to edge nodes globally, ensuring data vectorization occurs nearest to your source API.
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="faq-item">
+          <button class="faq-button" id="faqBtn2" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faqAns2">
+            Is our corporate data used to train public LLM models?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer" id="faqAns2" role="region" aria-labelledby="faqBtn2">
+            Strictly NO. NeuralFlow operates under a zero-retention guarantee. Your data is isolated in dedicated SOC2 Type II compliant VPC containers.
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="faq-item">
+          <button class="faq-button" id="faqBtn3" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faqAns3">
+            Can we deploy NeuralFlow on-premise inside our private cloud?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer" id="faqAns3" role="region" aria-labelledby="faqBtn3">
+            Yes. Quantum tier customers receive custom Helm charts and Terraform scripts to deploy NeuralFlow clusters inside AWS Outposts, Azure Stack, or bare-metal Kubernetes.
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="faq-item">
+          <button class="faq-button" id="faqBtn4" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faqAns4">
+            How does multi-agent swarm orchestration prevent hallucination loops?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer" id="faqAns4" role="region" aria-labelledby="faqBtn4">
+            We employ an automated Critic-Verification consensus protocol where secondary arbiter agents cross-reference generated outputs against deterministic vector evidence before final execution.
+          </div>
+        </div>
+
+        <!-- FAQ Item 5 -->
+        <div class="faq-item">
+          <button class="faq-button" id="faqBtn5" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faqAns5">
+            What SLAs and technical support response times are guaranteed?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-answer" id="faqAns5" role="region" aria-labelledby="faqBtn5">
+            Enterprise and Quantum tiers include a 99.99% uptime SLA backed by 15-minute response times from dedicated Solutions Architects 24/7/365.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Channel Info Section -->
+    <section id="contact" class="section-padding container">
+      <div class="contact-wrapper glass-panel" style="padding: 48px;">
+        <div class="contact-info-card">
+          <h2 class="section-title" style="text-align: left;">Ready to Accelerate Your Enterprise AI Engine?</h2>
+          <p class="section-desc" style="text-align: left; margin-bottom: 20px;">Speak directly with our principal AI architects and schedule your custom proof-of-concept deployment.</p>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div>
+              <h4 style="color: #fff; font-size: 1rem;">Global HQ & Labs</h4>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">500 Tech Highway, Suite 900, San Francisco, CA</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <div>
+              <h4 style="color: #fff; font-size: 1rem;">Direct Architecture Hotline</h4>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">enterprise@neuralflow.ai • +1 (800) 555-AI-ENGINE</p>
+            </div>
+          </div>
+        </div>
+
+        <form id="contactForm" class="contact-form" onsubmit="handleFormSubmit(event)" novalidate>
+          <div class="form-group" id="groupName">
+            <label class="form-label" for="inputName">Full Name</label>
+            <input type="text" id="inputName" class="form-input" placeholder="Dr. Sarah Connor" aria-required="true" aria-describedby="errName" required>
+            <span class="error-msg" id="errName" role="alert">Please enter your full name (minimum 3 characters).</span>
+          </div>
+
+          <div class="form-group" id="groupEmail">
+            <label class="form-label" for="inputEmail">Work Email</label>
+            <input type="email" id="inputEmail" class="form-input" placeholder="sarah@enterprise.com" aria-required="true" aria-describedby="errEmail" required>
+            <span class="error-msg" id="errEmail" role="alert">Please enter a valid work email address.</span>
+          </div>
+
+          <div class="form-group" id="groupMessage">
+            <label class="form-label" for="inputMessage">Project Scope & Requirements</label>
+            <textarea id="inputMessage" class="form-textarea" rows="4" placeholder="Tell us about your data telemetry throughput requirement..." aria-required="true" aria-describedby="errMsg" required></textarea>
+            <span class="error-msg" id="errMsg" role="alert">Message body cannot be left blank.</span>
+          </div>
+
+          <button type="submit" class="glass-btn glass-btn-primary" style="width: 100%;">
+            Submit Architecture Request
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Interactive Demo Video Modal with Focus Trap -->
+  <div id="demoModal" class="modal-overlay" onclick="closeModalOnBackdrop(event)" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content glass-panel" id="modalContainer">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close demo modal">✕</button>
+      <h3 id="modalTitle" style="margin-bottom: 20px; font-size: 1.6rem;" class="gradient-text">Neural Engine Real-time Telemetry Demo</h3>
+      <div style="width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 12px; display: flex; align-items: center; justify-content: center; position: relative; border: 1px solid var(--glass-border);">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="var(--accent-cyan)"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" aria-live="polite"></div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#" class="logo" style="margin-bottom: 16px;">
+            <div class="logo-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+            NEURALFLOW
+          </a>
+          <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 300px; line-height: 1.6;">Building the autonomous intelligence foundation for the next century of enterprise computing.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul class="footer-links">
+            <li><a href="#features">Swarm Orchestrator</a></li>
+            <li><a href="#features">Vector Mesh Engine</a></li>
+            <li><a href="#features">Security Guardrail</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="#contact">About Us</a></li>
+            <li><a href="#contact">Careers</a></li>
+            <li><a href="#contact">Security Audit</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="#dashboard">Live Telemetry</a></li>
+            <li><a href="#pricing">Pricing Calculator</a></li>
+            <li><a href="#faq">FAQ Documentation</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 NEURALFLOW AI Technologies Inc. All rights reserved.</p>
+        <p>WCAG 2.2 AA Certified • 100% Single-File Pure HTML5 Edition</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Single-File JavaScript Logic -->
+  <script>
+    /* 1. Dynamic Canvas 3D Particle Constellation Engine (Optimized - No shadowBlur) */
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let mouse = { x: null, y: null, radius: 180 };
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2.5 + 1;
+        this.vx = (Math.random() - 0.5) * 0.8;
+        this.vy = (Math.random() - 0.5) * 0.8;
+        this.color = Math.random() > 0.5 ? '#06b6d4' : '#8b5cf6';
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+
+        if (mouse.x && mouse.y) {
+          let dx = mouse.x - this.x;
+          let dy = mouse.y - this.y;
+          let dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouse.radius) {
+            let force = (mouse.radius - dist) / mouse.radius;
+            this.x -= (dx / dist) * force * 3;
+            this.y -= (dy / dist) * force * 3;
+          }
+        }
+      }
+    }
+
+    function initParticles() {
+      particles = [];
+      let count = Math.floor((canvas.width * canvas.height) / 12000);
+      for (let i = 0; i < count; i++) {
+        particles.push(new Particle());
+      }
+    }
+    initParticles();
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          let dx = particles[i].x - particles[j].x;
+          let dy = particles[i].y - particles[j].y;
+          let dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(6, 182, 212, ${1 - dist / 120})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    /* 2. Custom Magnetic Spring Pointer */
+    const cursorDot = document.getElementById('cursor-dot');
+    const cursorOutline = document.getElementById('cursor-outline');
+    let cursorX = 0, cursorY = 0, outlineX = 0, outlineY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+      cursorX = e.clientX;
+      cursorY = e.clientY;
+      cursorDot.style.left = `${cursorX}px`;
+      cursorDot.style.top = `${cursorY}px`;
+    });
+
+    function animateCursor() {
+      outlineX += (cursorX - outlineX) * 0.15;
+      outlineY += (cursorY - outlineY) * 0.15;
+      cursorOutline.style.left = `${outlineX}px`;
+      cursorOutline.style.top = `${outlineY}px`;
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    document.querySelectorAll('a, button, input, textarea, .tilt-card, .toggle-switch').forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+
+    /* 3. Real JS 3D Tilt Card Math */
+    document.querySelectorAll('.tilt-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -12;
+        const rotateY = ((x - centerX) / centerX) * 12;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+      });
+    });
+
+    /* 4. Interactive Telemetry Chart Canvas with Axis Labels & Legend */
+    const chartCanvas = document.getElementById('liveChart');
+    const chartCtx = chartCanvas.getContext('2d');
+    let chartData = [40, 55, 35, 70, 65, 85, 95];
+    const xLabels = ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '24:00'];
+
+    function renderChart() {
+      chartCanvas.width = chartCanvas.parentElement.clientWidth;
+      chartCanvas.height = chartCanvas.parentElement.clientHeight;
+      const w = chartCanvas.width;
+      const h = chartCanvas.height;
+      const paddingLeft = 50;
+      const paddingBottom = 35;
+      const graphWidth = w - paddingLeft - 20;
+      const graphHeight = h - paddingBottom - 40;
+
+      chartCtx.clearRect(0, 0, w, h);
+
+      // Y-Axis Labels & Grid lines
+      chartCtx.fillStyle = '#64748b';
+      chartCtx.font = '11px Inter, sans-serif';
+      chartCtx.textAlign = 'right';
+      const yTicks = [0, 25, 50, 75, 100];
+      yTicks.forEach(val => {
+        let y = (h - paddingBottom) - (val / 100) * graphHeight;
+        chartCtx.fillText(`${val}M`, paddingLeft - 10, y + 4);
+        chartCtx.beginPath();
+        chartCtx.moveTo(paddingLeft, y);
+        chartCtx.lineTo(w - 20, y);
+        chartCtx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+        chartCtx.stroke();
+      });
+
+      // X-Axis Labels
+      chartCtx.textAlign = 'center';
+      let step = graphWidth / (chartData.length - 1);
+      xLabels.forEach((label, idx) => {
+        let x = paddingLeft + idx * step;
+        chartCtx.fillText(label, x, h - 10);
+      });
+
+      // Gradient Line Fill
+      let grad = chartCtx.createLinearGradient(0, 40, 0, h - paddingBottom);
+      grad.addColorStop(0, 'rgba(6, 182, 212, 0.35)');
+      grad.addColorStop(1, 'rgba(6, 182, 212, 0.0)');
+
+      chartCtx.beginPath();
+      chartCtx.moveTo(paddingLeft, (h - paddingBottom) - (chartData[0] / 100) * graphHeight);
+      for (let i = 1; i < chartData.length; i++) {
+        let x = paddingLeft + i * step;
+        let y = (h - paddingBottom) - (chartData[i] / 100) * graphHeight;
+        chartCtx.lineTo(x, y);
+      }
+
+      chartCtx.strokeStyle = '#06b6d4';
+      chartCtx.lineWidth = 3;
+      chartCtx.stroke();
+
+      chartCtx.lineTo(paddingLeft + graphWidth, h - paddingBottom);
+      chartCtx.lineTo(paddingLeft, h - paddingBottom);
+      chartCtx.fillStyle = grad;
+      chartCtx.fill();
+
+      // Legend
+      chartCtx.fillStyle = '#06b6d4';
+      chartCtx.fillRect(w - 150, 15, 12, 12);
+      chartCtx.fillStyle = '#f8fafc';
+      chartCtx.textAlign = 'left';
+      chartCtx.fillText('Throughput (Req/s)', w - 132, 25);
+    }
+
+    window.addEventListener('resize', renderChart);
+    setTimeout(renderChart, 100);
+
+    function updateChart(period, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      if (period === 'daily') {
+        chartData = [40, 55, 35, 70, 65, 85, 95];
+        document.getElementById('statRate').innerText = '1.48 M/s';
+        document.getElementById('statLatency').innerText = '3.82 ms';
+      } else if (period === 'weekly') {
+        chartData = [60, 45, 80, 50, 90, 75, 99];
+        document.getElementById('statRate').innerText = '9.82 M/s';
+        document.getElementById('statLatency').innerText = '4.10 ms';
+      } else {
+        chartData = [30, 65, 75, 80, 85, 92, 98];
+        document.getElementById('statRate').innerText = '42.1 M/s';
+        document.getElementById('statLatency').innerText = '3.50 ms';
+      }
+      renderChart();
+    }
+
+    /* 5. Dynamic Pricing Calculator with Animated Numbers (3 Tiers) */
+    let isAnnual = false;
+    function togglePricing() {
+      isAnnual = !isAnnual;
+      const switchEl = document.getElementById('pricingToggle');
+      switchEl.classList.toggle('checked', isAnnual);
+      switchEl.setAttribute('aria-checked', isAnnual);
+
+      document.getElementById('labelMonthly').classList.toggle('active', !isAnnual);
+      document.getElementById('labelAnnual').classList.toggle('active', isAnnual);
+
+      animateValue('priceDeveloper', isAnnual ? 49 : 39, isAnnual ? 39 : 49, 400);
+      animateValue('priceEnterprise', isAnnual ? 199 : 159, isAnnual ? 159 : 199, 400);
+      animateValue('priceQuantum', isAnnual ? 499 : 399, isAnnual ? 399 : 499, 400);
+    }
+
+    function animateValue(id, start, end, duration) {
+      const obj = document.getElementById(id);
+      let startTimestamp = null;
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        obj.innerText = '$' + Math.floor(progress * (end - start) + start);
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+      window.requestAnimationFrame(step);
+    }
+
+    /* 6. Accordion FAQ System (5 Items) */
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', !expanded);
+      item.classList.toggle('active');
+    }
+
+    /* 7. Contact Form Validation & Toast System with Close Button */
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      let valid = true;
+
+      const name = document.getElementById('inputName');
+      const email = document.getElementById('inputEmail');
+      const msg = document.getElementById('inputMessage');
+
+      if (name.value.trim().length < 3) {
+        document.getElementById('groupName').classList.add('error');
+        valid = false;
+      } else {
+        document.getElementById('groupName').classList.remove('error');
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email.value.trim())) {
+        document.getElementById('groupEmail').classList.add('error');
+        valid = false;
+      } else {
+        document.getElementById('groupEmail').classList.remove('error');
+      }
+
+      if (msg.value.trim() === '') {
+        document.getElementById('groupMessage').classList.add('error');
+        valid = false;
+      } else {
+        document.getElementById('groupMessage').classList.remove('error');
+      }
+
+      if (valid) {
+        showToast('Deployment Request Received! Our engineering lead will contact you shortly.', 'success');
+        document.getElementById('contactForm').reset();
+      } else {
+        showToast('Form submission failed. Please fix highlighted fields.', 'error');
+      }
+    }
+
+    function showToast(message, type) {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      toast.className = `toast ${type}`;
+      toast.innerHTML = `
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <span>${message}</span>
+        <button class="toast-close" onclick="this.parentElement.remove()" aria-label="Close notification">✕</button>
+      `;
+      container.appendChild(toast);
+      setTimeout(() => toast.classList.add('show'), 50);
+      setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 400);
+      }, 5000);
+    }
+
+    /* 8. Modal System with Focus Trap */
+    function openModal() {
+      const modal = document.getElementById('demoModal');
+      modal.classList.add('active');
+      const closeBtn = modal.querySelector('.modal-close');
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function closeModal() {
+      document.getElementById('demoModal').classList.remove('active');
+    }
+
+    function closeModalOnBackdrop(e) {
+      if (e.target.id === 'demoModal') closeModal();
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

@@ -147,3 +147,8 @@ dan validasi marker plus seluruh pasangan topik/sumber secara otomatis.
 **Lesson:** Audit lintas-agent (Claude CLI menemukan 7 celah, Antigravity menemukan 8 celah BERBEDA) jauh lebih efektif daripada single-agent audit. Setiap agent punya blind spot masing-masing. Ketika melakukan governance audit, selalu jalankan minimal 2 agent berbeda secara independen lalu gabungkan temuan.
 **Tags:** governance, audit, multi-agent, validation
 **Promote?:** maybe
+
+## 2026-07-24 — folderotakgsap (Master Audit Directive — orphan skill remediation)
+**Lesson:** Skill yang ada di `active-skills.json` defaultSet/taskSets tapi tidak punya route di `skill-router.json` tetap bisa diakses tapi tidak bisa di-trigger otomatis oleh router. Selalu cross-check alignment antara skill folder ↔ INDEX.md ↔ skill-router.json ↔ active-skills.json secara otomatis setelah menambah skill baru.
+**Tags:** governance, validation, orphan-skills, router-alignment
+**Promote?:** yes

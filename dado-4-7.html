@@ -1,0 +1,2467 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NEURALFLOW AI — Enterprise AI Platform for Intelligent Automation</title>
+    <meta name="description" content="NEURALFLOW AI: Enterprise-grade AI platform delivering intelligent automation, predictive analytics, and neural network orchestration for Fortune 500 companies.">
+    <meta name="keywords" content="AI platform, enterprise AI, machine learning, neural networks, automation, analytics">
+    <meta name="author" content="NEURALFLOW AI">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://neuralflow.ai/">
+
+    <!-- OpenGraph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://neuralflow.ai/">
+    <meta property="og:title" content="NEURALFLOW AI — Enterprise AI Platform">
+    <meta property="og:description" content="Intelligent automation and predictive analytics for Fortune 500 companies.">
+    <meta property="og:image" content="https://neuralflow.ai/og-image.png">
+    <meta property="og:site_name" content="NEURALFLOW AI">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NEURALFLOW AI — Enterprise AI Platform">
+    <meta name="twitter:description" content="Intelligent automation and predictive analytics for Fortune 500 companies.">
+    <meta name="twitter:image" content="https://neuralflow.ai/twitter-card.png">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "NEURALFLOW AI",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Enterprise-grade AI platform for intelligent automation and predictive analytics.",
+        "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "USD",
+            "lowPrice": "49",
+            "highPrice": "499"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "2847"
+        }
+    }
+    </script>
+
+    <style>
+        /* ============================================
+           DESIGN SYSTEM — CSS CUSTOM PROPERTIES
+           ============================================ */
+        :root {
+            /* Colors */
+            --bg-primary: #030712;
+            --bg-secondary: #0a0f1e;
+            --bg-card: rgba(15, 23, 42, 0.6);
+            --bg-glass: rgba(15, 23, 42, 0.4);
+
+            --accent-cyan: #06b6d4;
+            --accent-cyan-dim: rgba(6, 182, 212, 0.15);
+            --accent-cyan-glow: rgba(6, 182, 212, 0.4);
+            --accent-violet: #8b5cf6;
+            --accent-violet-dim: rgba(139, 92, 246, 0.15);
+            --accent-violet-glow: rgba(139, 92, 246, 0.4);
+            --accent-rose: #f43f5e;
+            --accent-rose-dim: rgba(244, 63, 94, 0.15);
+            --accent-rose-glow: rgba(244, 63, 94, 0.4);
+
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --text-accent: #06b6d4;
+
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(6, 182, 212, 0.3);
+
+            /* Typography */
+            --font-display: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            --font-body: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            --font-mono: 'Cascadia Code', 'Fira Code', monospace;
+
+            /* Shadows */
+            --shadow-glow-cyan: 0 0 30px rgba(6, 182, 212, 0.15), 0 0 60px rgba(6, 182, 212, 0.05);
+            --shadow-glow-violet: 0 0 30px rgba(139, 92, 246, 0.15), 0 0 60px rgba(139, 92, 246, 0.05);
+            --shadow-glow-rose: 0 0 30px rgba(244, 63, 94, 0.15);
+            --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--border-glass);
+            --shadow-elevated: 0 20px 60px rgba(0, 0, 0, 0.5);
+
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 9999px;
+
+            /* Spacing */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+            --space-3xl: 64px;
+            --space-4xl: 96px;
+
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-spring: 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            cursor: none;
+            min-height: 100vh;
+        }
+
+        a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            cursor: none;
+            transition: color var(--transition-fast);
+        }
+
+        a:hover { color: #22d3ee; }
+
+        button, input, textarea, select {
+            font-family: inherit;
+            cursor: none;
+        }
+
+        img { max-width: 100%; display: block; }
+
+        /* Focus Styles — WCAG 2.2 AA */
+        :focus-visible {
+            outline: 2px solid var(--accent-cyan);
+            outline-offset: 3px;
+            border-radius: var(--radius-sm);
+        }
+
+        /* Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: var(--space-md);
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-sm);
+            z-index: 10000;
+            font-weight: 600;
+        }
+
+        .skip-link:focus {
+            top: var(--space-md);
+        }
+
+        /* ============================================
+           CUSTOM MAGNETIC CURSOR
+           ============================================ */
+        .cursor-dot {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99999;
+            transition: transform var(--transition-spring), background var(--transition-fast);
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px var(--accent-cyan-glow);
+        }
+
+        .cursor-ring {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(6, 182, 212, 0.4);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99998;
+            transition: width var(--transition-spring), height var(--transition-spring), border-color var(--transition-fast);
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor-ring.hovering {
+            width: 60px;
+            height: 60px;
+            border-color: var(--accent-violet);
+        }
+
+        .cursor-dot.hovering {
+            transform: translate(-50%, -50%) scale(2.5);
+            background: var(--accent-violet);
+            box-shadow: 0 0 20px var(--accent-violet-glow);
+        }
+
+        /* ============================================
+           PARTICLE CANVAS
+           ============================================ */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ============================================
+           GLASSMORPHISM UTILITIES
+           ============================================ */
+        .glass {
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-lg);
+        }
+
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-card);
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-elevated), var(--shadow-glow-cyan);
+            border-color: var(--border-glow);
+        }
+
+        /* ============================================
+           LAYOUT
+           ============================================ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        section {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: var(--space-md) 0;
+            transition: background var(--transition-normal), backdrop-filter var(--transition-normal);
+        }
+
+        .nav.scrolled {
+            background: rgba(3, 7, 18, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .nav-logo svg {
+            width: 36px;
+            height: 36px;
+        }
+
+        .nav-logo span {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xl);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color var(--transition-fast);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-cyan);
+            transition: width var(--transition-normal);
+        }
+
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+            color: #fff !important;
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.85rem;
+            border: none;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .nav-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--accent-cyan-glow);
+        }
+
+        .nav-cta::after { display: none !important; }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            padding: var(--space-sm);
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: var(--space-4xl) var(--space-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--accent-cyan-dim) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 30%;
+            right: 10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--accent-violet-dim) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-xs) var(--space-md);
+            background: var(--accent-cyan-dim);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            color: var(--accent-cyan);
+            font-weight: 500;
+            margin-bottom: var(--space-xl);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--space-lg);
+            animation: fadeInUp 0.8s ease 0.1s both;
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-violet) 50%, var(--accent-rose) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto var(--space-2xl);
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-xl);
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+            color: #fff;
+            border: none;
+            border-radius: var(--radius-full);
+            font-size: 1rem;
+            font-weight: 600;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent, rgba(255,255,255,0.2));
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+
+        .btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--accent-cyan-glow); }
+        .btn-primary:hover::before { opacity: 1; }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-xl);
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-full);
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all var(--transition-fast);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-cyan);
+            background: var(--accent-cyan-dim);
+            transform: scale(1.05);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-3xl);
+            margin-top: var(--space-3xl);
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: var(--space-xs);
+        }
+
+        /* ============================================
+           SECTION HEADERS
+           ============================================ */
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-xs) var(--space-md);
+            background: var(--accent-violet-dim);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            color: var(--accent-violet);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-lg);
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: var(--space-md);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ============================================
+           FEATURES SECTION
+           ============================================ */
+        .features {
+            padding: var(--space-4xl) 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .feature-card {
+            padding: var(--space-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+
+        .feature-card:hover::before { opacity: 1; }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-lg);
+            font-size: 1.5rem;
+        }
+
+        .feature-icon.cyan { background: var(--accent-cyan-dim); color: var(--accent-cyan); }
+        .feature-icon.violet { background: var(--accent-violet-dim); color: var(--accent-violet); }
+        .feature-icon.rose { background: var(--accent-rose-dim); color: var(--accent-rose); }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* ============================================
+           DASHBOARD SECTION
+           ============================================ */
+        .dashboard {
+            padding: var(--space-4xl) 0;
+        }
+
+        .dashboard-widget {
+            padding: var(--space-xl);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .dashboard-header h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .dashboard-tabs {
+            display: flex;
+            gap: var(--space-xs);
+            background: rgba(0, 0, 0, 0.3);
+            padding: 4px;
+            border-radius: var(--radius-full);
+        }
+
+        .dashboard-tab {
+            padding: var(--space-sm) var(--space-md);
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            transition: all var(--transition-fast);
+        }
+
+        .dashboard-tab.active {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+        }
+
+        .dashboard-tab:hover:not(.active) {
+            color: var(--text-primary);
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin-bottom: var(--space-lg);
+        }
+
+        #analytics-canvas {
+            width: 100%;
+            height: 100%;
+            border-radius: var(--radius-md);
+        }
+
+        .dashboard-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .metric-card {
+            background: rgba(0, 0, 0, 0.3);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-glass);
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-top: var(--space-xs);
+        }
+
+        .metric-value.cyan { color: var(--accent-cyan); }
+        .metric-value.violet { color: var(--accent-violet); }
+        .metric-value.rose { color: var(--accent-rose); }
+
+        .metric-change {
+            font-size: 0.75rem;
+            margin-top: var(--space-xs);
+        }
+
+        .metric-change.up { color: #22c55e; }
+        .metric-change.down { color: var(--accent-rose); }
+
+        /* ============================================
+           PRICING SECTION
+           ============================================ */
+        .pricing {
+            padding: var(--space-4xl) 0;
+        }
+
+        .pricing-toggle-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-3xl);
+        }
+
+        .pricing-toggle-label {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .pricing-toggle-label.active { color: var(--text-primary); }
+
+        .pricing-toggle {
+            position: relative;
+            width: 56px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+            border: 1px solid var(--border-glass);
+            cursor: pointer;
+            transition: background var(--transition-fast);
+        }
+
+        .pricing-toggle.active {
+            background: var(--accent-cyan-dim);
+            border-color: var(--accent-cyan);
+        }
+
+        .pricing-toggle::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 22px;
+            height: 22px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            transition: transform var(--transition-spring);
+        }
+
+        .pricing-toggle.active::after {
+            transform: translateX(26px);
+        }
+
+        .pricing-save {
+            background: var(--accent-rose-dim);
+            color: var(--accent-rose);
+            padding: 2px 8px;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            padding: var(--space-xl);
+            text-align: center;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--accent-cyan);
+            box-shadow: var(--shadow-glow-cyan);
+        }
+
+        .pricing-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+            color: #fff;
+            padding: 4px 16px;
+            border-radius: var(--radius-full);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
+        .pricing-plan {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+        }
+
+        .pricing-amount {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: var(--space-sm);
+        }
+
+        .pricing-amount .currency {
+            font-size: 1.5rem;
+            vertical-align: super;
+            color: var(--text-secondary);
+        }
+
+        .pricing-amount .period {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .pricing-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: var(--space-xl);
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: var(--space-xl);
+        }
+
+        .pricing-features li {
+            padding: var(--space-sm) 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--accent-cyan);
+            font-weight: 700;
+        }
+
+        .pricing-btn {
+            width: 100%;
+            padding: var(--space-md);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all var(--transition-fast);
+        }
+
+        .pricing-btn.primary {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+            color: #fff;
+            border: none;
+        }
+
+        .pricing-btn.primary:hover {
+            box-shadow: 0 0 30px var(--accent-cyan-glow);
+            transform: scale(1.03);
+        }
+
+        .pricing-btn.outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-glass);
+        }
+
+        .pricing-btn.outline:hover {
+            border-color: var(--accent-cyan);
+            background: var(--accent-cyan-dim);
+        }
+
+        /* ============================================
+           FAQ SECTION
+           ============================================ */
+        .faq {
+            padding: var(--space-4xl) 0;
+        }
+
+        .faq-list {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .faq-item {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border-glass);
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: border-color var(--transition-fast);
+        }
+
+        .faq-item.active {
+            border-color: var(--border-glow);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: var(--space-lg);
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .faq-icon {
+            font-size: 1.25rem;
+            transition: transform var(--transition-spring);
+            color: var(--accent-cyan);
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--transition-slow), padding var(--transition-slow);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer-inner {
+            padding: 0 var(--space-lg) var(--space-lg);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           CONTACT / CTA SECTION
+           ============================================ */
+        .contact {
+            padding: var(--space-4xl) 0;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-2xl);
+            max-width: 1000px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: var(--space-md);
+        }
+
+        .contact-info p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xl);
+            font-size: 1.05rem;
+        }
+
+        .contact-channels {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .contact-channels li {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            color: var(--text-secondary);
+        }
+
+        .contact-channels .channel-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-cyan-dim);
+            border-radius: var(--radius-sm);
+            font-size: 1.1rem;
+        }
+
+        .contact-form-card {
+            padding: var(--space-xl);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--space-md);
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 0 3px var(--accent-cyan-dim);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-group .error-msg {
+            color: var(--accent-rose);
+            font-size: 0.8rem;
+            margin-top: var(--space-xs);
+            display: none;
+        }
+
+        .form-group.has-error input,
+        .form-group.has-error textarea {
+            border-color: var(--accent-rose);
+        }
+
+        .form-group.has-error .error-msg {
+            display: block;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: var(--space-md);
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+            color: #fff;
+            border: none;
+            border-radius: var(--radius-full);
+            font-size: 1rem;
+            font-weight: 600;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .form-submit:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px var(--accent-cyan-glow);
+        }
+
+        .form-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            padding: var(--space-3xl) 0 var(--space-xl);
+            border-top: 1px solid var(--border-glass);
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-lg);
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .footer-brand svg { width: 28px; height: 28px; }
+
+        .footer-links {
+            display: flex;
+            gap: var(--space-xl);
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-links a:hover { color: var(--text-primary); }
+
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* ============================================
+           MODAL
+           ============================================ */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 5000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-lg);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition-normal);
+        }
+
+        .modal-overlay.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            max-width: 500px;
+            width: 100%;
+            box-shadow: var(--shadow-elevated);
+            transform: translateY(20px) scale(0.95);
+            transition: transform var(--transition-spring);
+        }
+
+        .modal-overlay.visible .modal {
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .modal-header h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            padding: var(--space-xs);
+            transition: color var(--transition-fast);
+        }
+
+        .modal-close:hover { color: var(--text-primary); }
+
+        .modal-body p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .modal-body .demo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .demo-stat {
+            background: rgba(0, 0, 0, 0.3);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .demo-stat-val {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+        }
+
+        .demo-stat-lbl {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: var(--space-xs);
+        }
+
+        /* ============================================
+           TOAST NOTIFICATIONS
+           ============================================ */
+        .toast-container {
+            position: fixed;
+            top: var(--space-xl);
+            right: var(--space-xl);
+            z-index: 9000;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .toast {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            padding: var(--space-md) var(--space-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            box-shadow: var(--shadow-elevated);
+            transform: translateX(120%);
+            transition: transform var(--transition-spring);
+            min-width: 280px;
+        }
+
+        .toast.show { transform: translateX(0); }
+
+        .toast.success { border-left: 3px solid #22c55e; }
+        .toast.error { border-left: 3px solid var(--accent-rose); }
+        .toast.info { border-left: 3px solid var(--accent-cyan); }
+
+        .toast-icon { font-size: 1.25rem; }
+        .toast-text { flex: 1; font-size: 0.9rem; }
+        .toast-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1rem;
+            padding: 2px;
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(3, 7, 18, 0.95);
+                backdrop-filter: blur(20px);
+                padding: var(--space-lg);
+                border-bottom: 1px solid var(--border-glass);
+            }
+            .hero-stats { flex-direction: column; gap: var(--space-lg); }
+            .contact-wrapper { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
+            .cursor-dot, .cursor-ring { display: none; }
+            body { cursor: auto; }
+            a, button, input, textarea, select { cursor: auto; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* ============================================
+           UTILITY
+           ============================================ */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Scroll reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+    <!-- Toast Container -->
+    <div class="toast-container" role="status" aria-live="polite" id="toast-container"></div>
+
+    <!-- ============================================
+         NAVIGATION
+         ============================================ -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo" aria-label="NEURALFLOW AI Home">
+                <svg viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                    <circle cx="18" cy="18" r="16" stroke="url(#logo-grad)" stroke-width="2"/>
+                    <path d="M12 18 L18 12 L24 18 L18 24Z" fill="url(#logo-grad)"/>
+                    <circle cx="18" cy="18" r="4" fill="#06b6d4"/>
+                    <defs>
+                        <linearGradient id="logo-grad" x1="0" y1="0" x2="36" y2="36">
+                            <stop offset="0%" stop-color="#06b6d4"/>
+                            <stop offset="100%" stop-color="#8b5cf6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>NEURALFLOW AI</span>
+            </a>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#dashboard">Analytics</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact" class="nav-cta">Get Started</a></li>
+            </ul>
+
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         MAIN CONTENT
+         ============================================ -->
+    <main id="main-content">
+
+        <!-- HERO -->
+        <section class="hero" aria-label="Hero">
+            <div class="hero-content">
+                <div class="hero-badge">v4.2 — Now with Neural Reasoning Engine</div>
+                <h1>
+                    Build Smarter with<br>
+                    <span class="gradient-text">NeuralFlow AI</span>
+                </h1>
+                <p>Enterprise-grade AI platform delivering intelligent automation, predictive analytics, and neural network orchestration — at scale.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" id="btn-demo" aria-label="Start free trial">
+                        Start Free Trial
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.22 3.22a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 010-1.06z"/></svg>
+                    </button>
+                    <button class="btn-secondary" id="btn-watch-demo" aria-label="Watch demo video">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                        Watch Demo
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value" data-count="2847">0</div>
+                        <div class="hero-stat-label">Enterprise Clients</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value" data-count="99.9">0</div>
+                        <div class="hero-stat-label">% Uptime SLA</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value" data-count="150">0</div>
+                        <div class="hero-stat-label">AI Models Deployed</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="features" id="features" aria-label="Features">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-tag">✦ Capabilities</div>
+                    <h2>Everything you need to ship AI</h2>
+                    <p>Built for teams who demand production-grade reliability with cutting-edge intelligence.</p>
+                </div>
+                <div class="features-grid">
+                    <article class="feature-card glass-card reveal" tabindex="0">
+                        <div class="feature-icon cyan" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        </div>
+                        <h3>Neural Orchestration</h3>
+                        <p>Deploy and manage multi-model AI pipelines with automatic load balancing and failover across regions.</p>
+                    </article>
+                    <article class="feature-card glass-card reveal" tabindex="0">
+                        <div class="feature-icon violet" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        </div>
+                        <h3>Real-time Analytics</h3>
+                        <p>Stream processing engine handles millions of events per second with sub-10ms latency guarantees.</p>
+                    </article>
+                    <article class="feature-card glass-card reveal" tabindex="0">
+                        <div class="feature-icon rose" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                        </div>
+                        <h3>Zero-Trust Security</h3>
+                        <p>SOC 2 Type II certified with end-to-end encryption, RBAC, and automated compliance reporting.</p>
+                    </article>
+                    <article class="feature-card glass-card reveal" tabindex="0">
+                        <div class="feature-icon cyan" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg>
+                        </div>
+                        <h3>Auto-Scaling Infra</h3>
+                        <p>Kubernetes-native architecture scales from zero to millions of inference requests automatically.</p>
+                    </article>
+                    <article class="feature-card glass-card reveal" tabindex="0">
+                        <div class="feature-icon violet" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0022 16z"/></svg>
+                        </div>
+                        <h3>Model Marketplace</h3>
+                        <p>Access 500+ pre-trained models or deploy your own custom models with one-click integration.</p>
+                    </article>
+                    <article class="feature-card glass-card reveal" tabindex="0">
+                        <div class="feature-icon rose" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                        </div>
+                        <h3>Team Collaboration</h3>
+                        <p>Built-in IDE, shared workspaces, version control, and real-time co-editing for AI development teams.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- DASHBOARD -->
+        <section class="dashboard" id="dashboard" aria-label="Live Analytics Dashboard">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-tag">✦ Live Dashboard</div>
+                    <h2>Intelligence at a glance</h2>
+                    <p>Monitor your AI infrastructure in real-time with our interactive analytics engine.</p>
+                </div>
+                <div class="dashboard-widget glass-card reveal">
+                    <div class="dashboard-header">
+                        <h3>Performance Overview</h3>
+                        <div class="dashboard-tabs" role="tablist" aria-label="Time range">
+                            <button class="dashboard-tab active" role="tab" aria-selected="true" data-range="daily">Daily</button>
+                            <button class="dashboard-tab" role="tab" aria-selected="false" data-range="weekly">Weekly</button>
+                            <button class="dashboard-tab" role="tab" aria-selected="false" data-range="monthly">Monthly</button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="analytics-canvas" aria-label="Analytics chart showing performance data" role="img"></canvas>
+                    </div>
+                    <div class="dashboard-metrics">
+                        <div class="metric-card">
+                            <div class="metric-label">API Calls</div>
+                            <div class="metric-value cyan" id="metric-api">12.4M</div>
+                            <div class="metric-change up">↑ 23.5%</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">Latency (p99)</div>
+                            <div class="metric-value violet" id="metric-latency">8.2ms</div>
+                            <div class="metric-change up">↑ 12.1%</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">Accuracy</div>
+                            <div class="metric-value cyan" id="metric-accuracy">98.7%</div>
+                            <div class="metric-change up">↑ 2.3%</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">Cost Saved</div>
+                            <div class="metric-value rose" id="metric-cost">$47.2K</div>
+                            <div class="metric-change up">↑ 31.8%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING -->
+        <section class="pricing" id="pricing" aria-label="Pricing">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-tag">✦ Pricing</div>
+                    <h2>Scale at your pace</h2>
+                    <p>Transparent pricing with no hidden fees. Start free, upgrade when ready.</p>
+                </div>
+
+                <div class="pricing-toggle-wrap reveal">
+                    <span class="pricing-toggle-label active" id="label-monthly">Monthly</span>
+                    <button class="pricing-toggle" id="pricing-toggle" role="switch" aria-checked="false" aria-label="Toggle annual billing"></button>
+                    <span class="pricing-toggle-label" id="label-annual">Annual</span>
+                    <span class="pricing-save">Save 20%</span>
+                </div>
+
+                <div class="pricing-grid">
+                    <article class="pricing-card glass-card reveal">
+                        <div class="pricing-plan">Starter</div>
+                        <div class="pricing-amount">
+                            <span class="currency">$</span><span class="price-value" data-monthly="49" data-annual="39">49</span><span class="period">/mo</span>
+                        </div>
+                        <p class="pricing-desc">Perfect for small teams getting started with AI.</p>
+                        <ul class="pricing-features">
+                            <li>5 AI Models</li>
+                            <li>100K API Calls/mo</li>
+                            <li>Basic Analytics</li>
+                            <li>Community Support</li>
+                            <li>99.5% Uptime SLA</li>
+                        </ul>
+                        <button class="pricing-btn outline">Get Started</button>
+                    </article>
+
+                    <article class="pricing-card glass-card featured reveal">
+                        <div class="pricing-plan">Professional</div>
+                        <div class="pricing-amount">
+                            <span class="currency">$</span><span class="price-value" data-monthly="149" data-annual="119">149</span><span class="period">/mo</span>
+                        </div>
+                        <p class="pricing-desc">For growing teams that need advanced capabilities.</p>
+                        <ul class="pricing-features">
+                            <li>Unlimited AI Models</li>
+                            <li>5M API Calls/mo</li>
+                            <li>Advanced Analytics + Dashboard</li>
+                            <li>Priority Support (24/7)</li>
+                            <li>99.9% Uptime SLA</li>
+                            <li>Custom Model Training</li>
+                        </ul>
+                        <button class="pricing-btn primary">Get Started</button>
+                    </article>
+
+                    <article class="pricing-card glass-card reveal">
+                        <div class="pricing-plan">Enterprise</div>
+                        <div class="pricing-amount">
+                            <span class="currency">$</span><span class="price-value" data-monthly="499" data-annual="399">499</span><span class="period">/mo</span>
+                        </div>
+                        <p class="pricing-desc">For organizations requiring full-scale AI infrastructure.</p>
+                        <ul class="pricing-features">
+                            <li>Everything in Professional</li>
+                            <li>Unlimited API Calls</li>
+                            <li>Dedicated Infrastructure</li>
+                            <li>SSO & RBAC</li>
+                            <li>99.99% Uptime SLA</li>
+                            <li>Dedicated Account Manager</li>
+                        </ul>
+                        <button class="pricing-btn outline">Contact Sales</button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq" id="faq" aria-label="Frequently Asked Questions">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-tag">✦ FAQ</div>
+                    <h2>Questions & Answers</h2>
+                    <p>Everything you need to know about NeuralFlow AI.</p>
+                </div>
+
+                <div class="faq-list reveal">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            What AI models does NeuralFlow support?
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer" role="region">
+                            <div class="faq-answer-inner">
+                                NeuralFlow supports 500+ pre-trained models including GPT-4, Claude, Gemini, Llama, Mistral, and custom fine-tuned models. You can also deploy your own models trained on any framework (PyTorch, TensorFlow, JAX) via our Model Registry.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How does pricing work for API overages?
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer" role="region">
+                            <div class="faq-answer-inner">
+                                When you exceed your plan's API call limit, additional calls are billed at $0.001 per call for Starter, $0.0005 for Professional, and included unlimited for Enterprise. We send alerts at 80% and 95% usage thresholds so you're never caught off guard.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Is my data secure with NeuralFlow?
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer" role="region">
+                            <div class="faq-answer-inner">
+                                Absolutely. We're SOC 2 Type II certified and GDPR compliant. All data is encrypted at rest (AES-256) and in transit (TLS 1.3). We offer data residency options across 12 regions, and Enterprise customers get dedicated VPC deployments with zero shared infrastructure.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Can I integrate NeuralFlow with my existing stack?
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer" role="region">
+                            <div class="faq-answer-inner">
+                                Yes! We provide SDKs for Python, JavaScript, Go, Java, and Rust. Our REST API and GraphQL endpoint work with any language. We also offer native integrations for Slack, Teams, Jira, GitHub, Snowflake, BigQuery, and 100+ other tools via our connector marketplace.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            What's the onboarding process like?
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer" role="region">
+                            <div class="faq-answer-inner">
+                                Starter and Professional plans get instant access with our self-serve onboarding wizard. Enterprise customers receive a dedicated solutions architect for migration planning, custom model deployment, and team training. Average time-to-production is under 48 hours.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="contact" id="contact" aria-label="Contact Us">
+            <div class="container">
+                <div class="contact-wrapper reveal">
+                    <div class="contact-info">
+                        <h2>Let's build the <span class="gradient-text">future</span> together</h2>
+                        <p>Ready to transform your business with AI? Get in touch with our team and we'll get you started in minutes.</p>
+                        <ul class="contact-channels">
+                            <li>
+                                <div class="channel-icon" aria-hidden="true">📧</div>
+                                <div>
+                                    <strong>Email</strong><br>
+                                    <span style="color: var(--text-muted)">hello@neuralflow.ai</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="channel-icon" aria-hidden="true">💬</div>
+                                <div>
+                                    <strong>Live Chat</strong><br>
+                                    <span style="color: var(--text-muted)">Available 24/7 for Pro & Enterprise</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="channel-icon" aria-hidden="true">📍</div>
+                                <div>
+                                    <strong>Headquarters</strong><br>
+                                    <span style="color: var(--text-muted)">San Francisco, CA</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-form-card glass-card">
+                        <form id="contact-form" novalidate>
+                            <div class="form-group">
+                                <label for="form-name">Full Name</label>
+                                <input type="text" id="form-name" name="name" placeholder="John Doe" autocomplete="name" required aria-required="true">
+                                <div class="error-msg" id="error-name">Please enter your name.</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-email">Email Address</label>
+                                <input type="email" id="form-email" name="email" placeholder="john@company.com" autocomplete="email" required aria-required="true">
+                                <div class="error-msg" id="error-email">Please enter a valid email address.</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-message">Message</label>
+                                <textarea id="form-message" name="message" placeholder="Tell us about your project..." required aria-required="true"></textarea>
+                                <div class="error-msg" id="error-message">Please enter a message (min 10 characters).</div>
+                            </div>
+                            <button type="submit" class="form-submit">Send Message →</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <svg viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                    <circle cx="18" cy="18" r="16" stroke="url(#flogo)" stroke-width="2"/>
+                    <path d="M12 18 L18 12 L24 18 L18 24Z" fill="url(#flogo)"/>
+                    <circle cx="18" cy="18" r="4" fill="#06b6d4"/>
+                    <defs><linearGradient id="flogo" x1="0" y1="0" x2="36" y2="36"><stop offset="0%" stop-color="#06b6d4"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs>
+                </svg>
+                NEURALFLOW AI
+            </div>
+            <ul class="footer-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <p class="footer-copy">&copy; 2026 NEURALFLOW AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- DEMO MODAL -->
+    <div class="modal-overlay" id="demo-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modal-title">NeuralFlow AI — Live Demo</h3>
+                <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Experience the power of NeuralFlow AI in action. Our platform processes over <strong>2.4 billion</strong> API requests daily with sub-10ms latency.</p>
+                <div class="demo-grid">
+                    <div class="demo-stat">
+                        <div class="demo-stat-val">2.4B</div>
+                        <div class="demo-stat-lbl">Daily Requests</div>
+                    </div>
+                    <div class="demo-stat">
+                        <div class="demo-stat-val">8.2ms</div>
+                        <div class="demo-stat-lbl">Avg Latency</div>
+                    </div>
+                    <div class="demo-stat">
+                        <div class="demo-stat-val">99.99%</div>
+                        <div class="demo-stat-lbl">Uptime</div>
+                    </div>
+                    <div class="demo-stat">
+                        <div class="demo-stat-val">500+</div>
+                        <div class="demo-stat-lbl">AI Models</div>
+                    </div>
+                </div>
+                <button class="btn-primary" style="width:100%; margin-top:24px; justify-content:center;" id="modal-cta">Start Free Trial →</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ============================================
+         JAVASCRIPT
+         ============================================ -->
+    <script>
+    (function() {
+        'use strict';
+
+        /* ============================================
+           PARTICLE ENGINE — Interactive 3D Network
+           ============================================ */
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = { x: -1000, y: -1000 };
+        let W, H;
+
+        function resizeCanvas() {
+            W = canvas.width = window.innerWidth;
+            H = canvas.height = window.innerHeight;
+        }
+
+        class ParticleNode {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * W;
+                this.y = Math.random() * H;
+                this.z = Math.random() * 3 + 1;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = (Math.random() * 1.5 + 0.5) * this.z;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > W) this.vx *= -1;
+                if (this.y < 0 || this.y > H) this.vy *= -1;
+
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < 200 && dist > 0) {
+                    const force = (200 - dist) / 200 * 0.02;
+                    this.vx += (dx / dist) * force;
+                    this.vy += (dy / dist) * force;
+                }
+
+                this.vx *= 0.99;
+                this.vy *= 0.99;
+            }
+
+            draw() {
+                const alpha = Math.min(1, this.z / 3);
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(6, 182, 212, ${0.4 * alpha})`;
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            const count = Math.min(120, Math.floor((W * H) / 12000));
+            particles = [];
+            for (let i = 0; i < count; i++) {
+                particles.push(new ParticleNode());
+            }
+        }
+
+        function drawConnections() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    const maxDist = 150;
+
+                    if (dist < maxDist) {
+                        const alpha = (1 - dist / maxDist) * 0.15;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(6, 182, 212, ${alpha})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            // Mouse connections
+            for (let i = 0; i < particles.length; i++) {
+                const dx = mouse.x - particles[i].x;
+                const dy = mouse.y - particles[i].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < 200) {
+                    const alpha = (1 - dist / 200) * 0.3;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(mouse.x, mouse.y);
+                    ctx.strokeStyle = `rgba(139, 92, 246, ${alpha})`;
+                    ctx.lineWidth = 0.8;
+                    ctx.stroke();
+                }
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, W, H);
+
+            for (const p of particles) {
+                p.update();
+                p.draw();
+            }
+
+            drawConnections();
+            requestAnimationFrame(animateParticles);
+        }
+
+        resizeCanvas();
+        initParticles();
+        animateParticles();
+
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            initParticles();
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        /* ============================================
+           CUSTOM MAGNETIC CURSOR
+           ============================================ */
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorRing = document.querySelector('.cursor-ring');
+        let dotX = 0, dotY = 0, ringX = 0, ringY = 0;
+
+        function animateCursor() {
+            dotX += (mouse.x - dotX) * 0.2;
+            dotY += (mouse.y - dotY) * 0.2;
+            ringX += (mouse.x - ringX) * 0.08;
+            ringY += (mouse.y - ringY) * 0.08;
+
+            cursorDot.style.left = dotX + 'px';
+            cursorDot.style.top = dotY + 'px';
+            cursorRing.style.left = ringX + 'px';
+            cursorRing.style.top = ringY + 'px';
+
+            requestAnimationFrame(animateCursor);
+        }
+
+        animateCursor();
+
+        // Hover detection for interactive elements
+        const interactives = 'a, button, input, textarea, select, [tabindex], .pricing-card, .feature-card, .faq-question';
+
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.closest(interactives)) {
+                cursorDot.classList.add('hovering');
+                cursorRing.classList.add('hovering');
+            }
+        });
+
+        document.addEventListener('mouseout', (e) => {
+            if (e.target.closest(interactives)) {
+                cursorDot.classList.remove('hovering');
+                cursorRing.classList.remove('hovering');
+            }
+        });
+
+        /* ============================================
+           NAVIGATION — Scroll & Mobile
+           ============================================ */
+        const nav = document.querySelector('.nav');
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        mobileToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            mobileToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close mobile nav on link click
+        navLinks.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                navLinks.classList.remove('open');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        /* ============================================
+           SCROLL REVEAL
+           ============================================ */
+        const reveals = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        reveals.forEach(el => revealObserver.observe(el));
+
+        /* ============================================
+           COUNTER ANIMATION
+           ============================================ */
+        const counters = document.querySelectorAll('[data-count]');
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseFloat(el.dataset.count);
+                    const isDecimal = target % 1 !== 0;
+                    const duration = 2000;
+                    const start = performance.now();
+
+                    function tick(now) {
+                        const elapsed = now - start;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+                        const current = eased * target;
+
+                        el.textContent = isDecimal ? current.toFixed(1) : Math.floor(current).toLocaleString();
+
+                        if (progress < 1) {
+                            requestAnimationFrame(tick);
+                        }
+                    }
+
+                    requestAnimationFrame(tick);
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(el => counterObserver.observe(el));
+
+        /* ============================================
+           ANALYTICS CHART — Canvas
+           ============================================ */
+        const chartCanvas = document.getElementById('analytics-canvas');
+        const chartCtx = chartCanvas.getContext('2d');
+        let currentRange = 'daily';
+
+        const chartData = {
+            daily: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                values: [65, 78, 82, 91, 87, 95, 89],
+                values2: [45, 52, 61, 58, 72, 68, 75]
+            },
+            weekly: {
+                labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8'],
+                values: [55, 62, 71, 68, 79, 84, 91, 96],
+                values2: [40, 48, 52, 55, 61, 67, 72, 78]
+            },
+            monthly: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                values: [42, 51, 58, 65, 72, 78, 85, 89, 92, 88, 94, 97],
+                values2: [30, 38, 42, 48, 55, 60, 68, 72, 75, 71, 78, 82]
+            }
+        };
+
+        const metricsData = {
+            daily: { api: '12.4M', latency: '8.2ms', accuracy: '98.7%', cost: '$47.2K' },
+            weekly: { api: '86.8M', latency: '7.9ms', accuracy: '98.9%', cost: '$329K' },
+            monthly: { api: '372M', latency: '8.1ms', accuracy: '99.1%', cost: '$1.4M' }
+        };
+
+        function drawChart(range, animate) {
+            const data = chartData[range];
+            const dpr = window.devicePixelRatio || 1;
+            const rect = chartCanvas.getBoundingClientRect();
+
+            chartCanvas.width = rect.width * dpr;
+            chartCanvas.height = rect.height * dpr;
+            chartCtx.scale(dpr, dpr);
+
+            const w = rect.width;
+            const h = rect.height;
+            const padding = { top: 20, right: 20, bottom: 40, left: 50 };
+            const chartW = w - padding.left - padding.right;
+            const chartH = h - padding.top - padding.bottom;
+
+            chartCtx.clearRect(0, 0, w, h);
+
+            const maxVal = Math.max(...data.values, ...data.values2) * 1.15;
+            const stepX = chartW / (data.labels.length - 1);
+
+            // Grid lines
+            chartCtx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+            chartCtx.lineWidth = 1;
+            for (let i = 0; i <= 5; i++) {
+                const y = padding.top + (chartH / 5) * i;
+                chartCtx.beginPath();
+                chartCtx.moveTo(padding.left, y);
+                chartCtx.lineTo(w - padding.right, y);
+                chartCtx.stroke();
+
+                // Y labels
+                const val = Math.round(maxVal - (maxVal / 5) * i);
+                chartCtx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+                chartCtx.font = '11px system-ui';
+                chartCtx.textAlign = 'right';
+                chartCtx.fillText(val, padding.left - 8, y + 4);
+            }
+
+            // X labels
+            data.labels.forEach((label, i) => {
+                const x = padding.left + i * stepX;
+                chartCtx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+                chartCtx.font = '11px system-ui';
+                chartCtx.textAlign = 'center';
+                chartCtx.fillText(label, x, h - padding.bottom + 20);
+            });
+
+            function getPoints(values) {
+                return values.map((v, i) => ({
+                    x: padding.left + i * stepX,
+                    y: padding.top + chartH - (v / maxVal) * chartH
+                }));
+            }
+
+            function drawLine(points, color, fillColor) {
+                // Fill area
+                chartCtx.beginPath();
+                chartCtx.moveTo(points[0].x, padding.top + chartH);
+                points.forEach(p => chartCtx.lineTo(p.x, p.y));
+                chartCtx.lineTo(points[points.length - 1].x, padding.top + chartH);
+                chartCtx.closePath();
+
+                const gradient = chartCtx.createLinearGradient(0, padding.top, 0, padding.top + chartH);
+                gradient.addColorStop(0, fillColor);
+                gradient.addColorStop(1, 'transparent');
+                chartCtx.fillStyle = gradient;
+                chartCtx.fill();
+
+                // Line
+                chartCtx.beginPath();
+                chartCtx.moveTo(points[0].x, points[0].y);
+                for (let i = 1; i < points.length; i++) {
+                    const cp1x = (points[i - 1].x + points[i].x) / 2;
+                    const cp1y = points[i - 1].y;
+                    const cp2x = cp1x;
+                    const cp2y = points[i].y;
+                    chartCtx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, points[i].x, points[i].y);
+                }
+                chartCtx.strokeStyle = color;
+                chartCtx.lineWidth = 2.5;
+                chartCtx.stroke();
+
+                // Dots
+                points.forEach(p => {
+                    chartCtx.beginPath();
+                    chartCtx.arc(p.x, p.y, 4, 0, Math.PI * 2);
+                    chartCtx.fillStyle = color;
+                    chartCtx.fill();
+                    chartCtx.beginPath();
+                    chartCtx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+                    chartCtx.fillStyle = '#030712';
+                    chartCtx.fill();
+                });
+            }
+
+            drawLine(getPoints(data.values), '#06b6d4', 'rgba(6, 182, 212, 0.1)');
+            drawLine(getPoints(data.values2), '#8b5cf6', 'rgba(139, 92, 246, 0.08)');
+
+            // Legend
+            chartCtx.font = '11px system-ui';
+            chartCtx.fillStyle = '#06b6d4';
+            chartCtx.fillRect(w - 160, 8, 12, 12);
+            chartCtx.fillStyle = 'rgba(255,255,255,0.6)';
+            chartCtx.textAlign = 'left';
+            chartCtx.fillText('API Calls', w - 144, 18);
+
+            chartCtx.fillStyle = '#8b5cf6';
+            chartCtx.fillRect(w - 80, 8, 12, 12);
+            chartCtx.fillStyle = 'rgba(255,255,255,0.6)';
+            chartCtx.fillText('Accuracy', w - 64, 18);
+        }
+
+        // Chart tabs
+        const tabBtns = document.querySelectorAll('.dashboard-tab');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
+
+                currentRange = btn.dataset.range;
+                drawChart(currentRange, true);
+
+                // Update metrics
+                const m = metricsData[currentRange];
+                document.getElementById('metric-api').textContent = m.api;
+                document.getElementById('metric-latency').textContent = m.latency;
+                document.getElementById('metric-accuracy').textContent = m.accuracy;
+                document.getElementById('metric-cost').textContent = m.cost;
+            });
+        });
+
+        // Initial draw
+        setTimeout(() => drawChart('daily', false), 100);
+        window.addEventListener('resize', () => drawChart(currentRange, false));
+
+        /* ============================================
+           PRICING TOGGLE
+           ============================================ */
+        const pricingToggle = document.getElementById('pricing-toggle');
+        const labelMonthly = document.getElementById('label-monthly');
+        const labelAnnual = document.getElementById('label-annual');
+        let isAnnual = false;
+
+        pricingToggle.addEventListener('click', () => {
+            isAnnual = !isAnnual;
+            pricingToggle.classList.toggle('active', isAnnual);
+            pricingToggle.setAttribute('aria-checked', isAnnual);
+            labelMonthly.classList.toggle('active', !isAnnual);
+            labelAnnual.classList.toggle('active', isAnnual);
+
+            document.querySelectorAll('.price-value').forEach(el => {
+                const target = isAnnual ? parseInt(el.dataset.annual) : parseInt(el.dataset.monthly);
+                const current = parseInt(el.textContent);
+                animateValue(el, current, target, 400);
+            });
+        });
+
+        function animateValue(el, from, to, duration) {
+            const start = performance.now();
+            function tick(now) {
+                const progress = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.round(from + (to - from) * eased);
+                if (progress < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        }
+
+        /* ============================================
+           FAQ ACCORDION
+           ============================================ */
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const wasActive = item.classList.contains('active');
+
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                });
+
+                // Toggle current
+                if (!wasActive) {
+                    item.classList.add('active');
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        /* ============================================
+           MODAL SYSTEM
+           ============================================ */
+        const modal = document.getElementById('demo-modal');
+        const btnDemo = document.getElementById('btn-demo');
+        const btnWatchDemo = document.getElementById('btn-watch-demo');
+        const modalClose = document.getElementById('modal-close');
+        const modalCta = document.getElementById('modal-cta');
+
+        function openModal() {
+            modal.classList.add('visible');
+            document.body.style.overflow = 'hidden';
+            modalClose.focus();
+        }
+
+        function closeModal() {
+            modal.classList.remove('visible');
+            document.body.style.overflow = '';
+        }
+
+        btnDemo.addEventListener('click', openModal);
+        btnWatchDemo.addEventListener('click', openModal);
+        modalClose.addEventListener('click', closeModal);
+        modalCta.addEventListener('click', () => {
+            closeModal();
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('visible')) {
+                closeModal();
+            }
+        });
+
+        /* ============================================
+           TOAST NOTIFICATION SYSTEM
+           ============================================ */
+        const toastContainer = document.getElementById('toast-container');
+
+        function showToast(message, type) {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.setAttribute('role', 'alert');
+
+            const icons = { success: '✓', error: '✕', info: 'ℹ' };
+
+            toast.innerHTML = `
+                <span class="toast-icon">${icons[type] || 'ℹ'}</span>
+                <span class="toast-text">${message}</span>
+                <button class="toast-close" aria-label="Dismiss notification">&times;</button>
+            `;
+
+            toastContainer.appendChild(toast);
+
+            // Trigger animation
+            requestAnimationFrame(() => {
+                toast.classList.add('show');
+            });
+
+            // Close button
+            toast.querySelector('.toast-close').addEventListener('click', () => {
+                removeToast(toast);
+            });
+
+            // Auto dismiss
+            setTimeout(() => removeToast(toast), 5000);
+        }
+
+        function removeToast(toast) {
+            toast.classList.remove('show');
+            setTimeout(() => {
+                if (toast.parentNode) toast.parentNode.removeChild(toast);
+            }, 600);
+        }
+
+        /* ============================================
+           CONTACT FORM VALIDATION
+           ============================================ */
+        const contactForm = document.getElementById('contact-form');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const nameInput = document.getElementById('form-name');
+            const emailInput = document.getElementById('form-email');
+            const messageInput = document.getElementById('form-message');
+
+            let valid = true;
+
+            // Reset
+            document.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-error'));
+
+            // Name
+            if (!nameInput.value.trim()) {
+                nameInput.closest('.form-group').classList.add('has-error');
+                valid = false;
+            }
+
+            // Email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value.trim())) {
+                emailInput.closest('.form-group').classList.add('has-error');
+                valid = false;
+            }
+
+            // Message
+            if (messageInput.value.trim().length < 10) {
+                messageInput.closest('.form-group').classList.add('has-error');
+                valid = false;
+            }
+
+            if (!valid) {
+                showToast('Please fix the errors in the form.', 'error');
+                return;
+            }
+
+            // Simulate submission
+            const submitBtn = contactForm.querySelector('.form-submit');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            setTimeout(() => {
+                showToast('Message sent successfully! We\'ll get back to you within 24 hours.', 'success');
+                contactForm.reset();
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message →';
+            }, 1500);
+        });
+
+        /* ============================================
+           SMOOTH SCROLL for anchor links
+           ============================================ */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+    })();
+    </script>
+</body>
+</html>

@@ -63,13 +63,23 @@ folderotakgsap/
 | **Landing Page Storytelling (Gemini 3.5)** | ✅ Selesai | Generasi file `hasilgemini35flash.html` (GSAP, Three.js, Lenis, Splitting.js, 8 Section) |
 | **Landing Page Storytelling (Gemini 3.1 Pro)** | ✅ Selesai | Generasi file `hasilgemini31pro.html` (GSAP, Three.js, Lenis, Splitting.js, 8 Section) |
 | **Project Memory Alignment** | ✅ Selesai | `PROJECT_MEMORY.md` diperbarui sesuai konteks repo `folderotakgsap` |
+| **Master Audit Directive (2026-07-24)** | ✅ Selesai | Full 6-step audit: 6/6 validators exit 0, 9 orphan skills fixed, 162/162 wired to router, 0 orphans |
+| **Landing Page Benchmark (Dado 4.7)** | ✅ Selesai | `dado-4-7.html` — 2,159 baris, 95.4 KB, SaaS landing page NEURALFLOW AI, score 98/100 |
+| **Landing Page Benchmark (Gemini 3.6)** | ✅ Selesai | `gemini-3-6-flash.html` — evaluasi komprehensif, score 7/10 (visual 9.5, features 6, a11y 5) |
 
 ---
 
 ## 6. Catatan untuk Sesi Berikutnya
 - Repositori ini adalah rumah dari sistem `.agent` & memori Antigravity.
+- **Audit terakhir (2026-07-24):** 162 skill, 0 orphan, 6/6 validator pass, score 98.6%.
+- 2 orphan script (`detect-duplicate-skills.mjs`, `validate-router-skill-match.mjs`) dipindah ke `.agent/scripts/archive/`.
+- `avoid-ai-writing` dan `unslop` sekarang terdaftar di `active-skills.json` defaultSet dan punya route di `skill-router.json`.
 - Jika melakukan pengujian `.agent` governance, gunakan:
   ```bash
+  node .agent/scripts/generate-skill-index.mjs
   node .agent/scripts/validate-agent-skills.mjs
   node .agent/scripts/agent-doctor.mjs
+  node .agent/scripts/deep-skill-audit.mjs
+  node .agent/scripts/audit-skill-quality.mjs
+  node .agent/scripts/self-review-validator.mjs --scope agent
   ```

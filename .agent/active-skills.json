@@ -48,7 +48,9 @@
     "whatsapp-bot-architecture",
     "gsap-react",
     "prompt-amplifier",
-    "web-audio-engineering"
+    "web-audio-engineering",
+    "avoid-ai-writing",
+    "unslop"
   ],
   "taskSets": {
     "gsap-ui": [

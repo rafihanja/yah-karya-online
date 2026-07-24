@@ -17,7 +17,7 @@
 Legend set: `default` = selalu aktif; `task:<set>` = task-set di active-skills.json;
 `on-demand:<bundle>` = perlu restore lebih dulu (`node .agent/scripts/restore-skill-bundle.mjs <bundle>`).
 
-**Total skill: 162** — di antaranya 46 default-set.
+**Total skill: 162** — di antaranya 48 default-set.
 
 ---
 
@@ -92,7 +92,7 @@ Legend set: `default` = selalu aktif; `task:<set>` = task-set di active-skills.j
 - **Path:** `.agent/skills/auto-pro-standards/SKILL.md`
 
 ### avoid-ai-writing
-- **Set:** unrouted (lihat router)
+- **Set:** default
 - **Kapan dipakai:** Audit and rewrite content to remove categories of AI writing patterns with replacement tables.
 - **Path:** `.agent/skills/avoid-ai-writing/SKILL.md`
 
@@ -742,7 +742,7 @@ Legend set: `default` = selalu aktif; `task:<set>` = task-set di active-skills.j
 - **Path:** `.agent/skills/ui-ux-designer/SKILL.md`
 
 ### unslop
-- **Set:** unrouted (lihat router)
+- **Set:** default
 - **Kapan dipakai:** Post-process AI-generated text to strip AI writing patterns (slop) before publishing.
 - **Path:** `.agent/skills/unslop/SKILL.md`
 

@@ -940,6 +940,135 @@
       "validation": [
         "project-build-if-available"
       ]
+    },
+    {
+      "when": [
+        "request:3d-design",
+        "request:antigravity",
+        "request:creative-3d",
+        "dependency:antigravity"
+      ],
+      "skills": [
+        "antigravity-design-expert",
+        "three-js-expert",
+        "3d-web-experience"
+      ],
+      "validation": [
+        "browser-or-visual-check-if-ui"
+      ],
+      "note": "Specialized 3D design expert for Antigravity IDE creative projects."
+    },
+    {
+      "when": [
+        "request:anti-slop",
+        "request:writing-audit",
+        "request:remove-ai-patterns",
+        "request:clean-writing",
+        "file:README.md",
+        "file:docs"
+      ],
+      "skills": [
+        "avoid-ai-writing",
+        "unslop"
+      ],
+      "validation": [
+        "grep-filler-phrases",
+        "grep-passive-voice"
+      ],
+      "note": "Anti-slop writing skills: audit and rewrite content to remove AI buzzwords, flowery phrases, and passive voice patterns."
+    },
+    {
+      "when": [
+        "request:database-admin",
+        "request:db-migration",
+        "request:db-backup",
+        "request:database-operations"
+      ],
+      "skills": [
+        "database-admin",
+        "database",
+        "database-design"
+      ],
+      "validation": [
+        "project-build-if-available"
+      ]
+    },
+    {
+      "when": [
+        "request:env-setup",
+        "request:environment-config",
+        "request:deploy-prep",
+        "request:ci-cd-setup"
+      ],
+      "skills": [
+        "environment-setup-guide",
+        "vercel-deployment"
+      ],
+      "validation": [
+        "env-var-check"
+      ]
+    },
+    {
+      "when": [
+        "request:frontend-dev",
+        "request:frontend-architecture",
+        "request:component-structure"
+      ],
+      "skills": [
+        "frontend-developer",
+        "frontend-design",
+        "react-best-practices"
+      ],
+      "validation": [
+        "npm-run-build-if-present",
+        "responsive-check-if-ui"
+      ]
+    },
+    {
+      "when": [
+        "request:gsap-framework",
+        "request:gsap-integration",
+        "request:animation-framework"
+      ],
+      "skills": [
+        "gsap-frameworks",
+        "gsap-core",
+        "gsap-performance"
+      ],
+      "validation": [
+        "project-build-if-available",
+        "browser-or-visual-check-if-ui"
+      ]
+    },
+    {
+      "when": [
+        "request:horizontal-parallax",
+        "request:horizontal-scroll",
+        "request:gsap-horizontal"
+      ],
+      "skills": [
+        "gsap-horizontal-parallax",
+        "gsap-scrolltrigger",
+        "gsap-performance"
+      ],
+      "validation": [
+        "reduced-motion-check",
+        "browser-or-visual-check-if-ui"
+      ]
+    },
+    {
+      "when": [
+        "request:gsap-utils",
+        "request:gsap-helpers",
+        "request:animation-utils"
+      ],
+      "skills": [
+        "gsap-utils",
+        "gsap-core"
+      ],
+      "validation": [
+        "project-build-if-available"
+      ]
     }
   ],
   "nonGenericResponseRules": [
