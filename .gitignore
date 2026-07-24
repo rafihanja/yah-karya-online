@@ -27,6 +27,9 @@ next-build/
 .claude/settings.local.json
 !.claude/settings.example.json
 
+# API Key test script (reads .env secrets — NEVER commit)
+test_api_keys*
+
 # Python & Test cache
 __pycache__/
 *.pyc
