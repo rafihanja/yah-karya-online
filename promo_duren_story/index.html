@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1280, height=720, initial-scale=1.0">
+  <title>Duren Story Warjok Serang - Video Promo 100% Foto Asli Google Maps</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+    body, html {
+      width: 1280px;
+      height: 720px;
+      background: #040711;
+      color: #ffffff;
+      overflow: hidden;
+    }
+    #stage {
+      position: relative;
+      width: 1280px;
+      height: 720px;
+      background: radial-gradient(circle at 50% 30%, #4c1d95 0%, #1e1b4b 50%, #040711 100%);
+      perspective: 1400px;
+      overflow: hidden;
+    }
+
+    /* Dynamic Particles Canvas */
+    #particleCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1280px;
+      height: 720px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Ambient Pulsing Lighting Orbs */
+    .glow-orb-gold {
+      position: absolute;
+      top: -120px;
+      left: -100px;
+      width: 650px;
+      height: 650px;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.3) 0%, rgba(0,0,0,0) 70%);
+      filter: blur(90px);
+      z-index: 2;
+    }
+    .glow-orb-purple {
+      position: absolute;
+      bottom: -120px;
+      right: -100px;
+      width: 650px;
+      height: 650px;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.35) 0%, rgba(0,0,0,0) 70%);
+      filter: blur(90px);
+      z-index: 2;
+    }
+
+    /* Scene Container */
+    .scene {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1280px;
+      height: 720px;
+      padding: 40px 60px;
+      display: flex;
+      z-index: 5;
+      transform-style: preserve-3d;
+    }
+
+    /* Common Typography */
+    .scene-tag {
+      color: #38bdf8;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.12);
+      padding: 4px 16px;
+      border-radius: 100px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    .scene-title-large {
+      font-size: 44px;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    }
+
+    /* SCENE 1: Hero Branding (0s - 6s) */
+    .scene1-content {
+      width: 55%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+    .scene1-image-box {
+      width: 45%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform-style: preserve-3d;
+    }
+    .hero-img-frame {
+      width: 400px;
+      aspect-ratio: 1 / 1;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 3px solid rgba(245, 158, 11, 0.7);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7), 0 0 40px rgba(245, 158, 11, 0.4);
+      position: relative;
+    }
+    .hero-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-badge-gold {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #0f172a;
+      padding: 8px 22px;
+      font-weight: 900;
+      font-size: 13px;
+      border-radius: 100px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 16px;
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+      width: fit-content;
+    }
+    .hero-main-title {
+      font-size: 60px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #ffffff 30%, #fef08a 70%, #f59e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.05;
+      margin-bottom: 14px;
+      letter-spacing: -1.5px;
+    }
+    .hero-sub {
+      font-size: 20px;
+      color: #cbd5e1;
+      line-height: 1.45;
+      margin-bottom: 24px;
+    }
+    .hero-rating-box {
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(24px);
+      border: 1.5px solid rgba(245, 158, 11, 0.4);
+      padding: 14px 28px;
+      border-radius: 100px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 18px;
+      font-weight: 800;
+      width: fit-content;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    }
+    .rating-val {
+      color: #fbbf24;
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    /* MENU CARDS (Auto-Fit Aspect Ratio Frames) */
+    .scene-wrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transform-style: preserve-3d;
+    }
+    .menu-cards-grid {
+      display: flex;
+      gap: 28px;
+      width: 100%;
+      max-width: 1160px;
+      transform-style: preserve-3d;
+    }
+    .menu-card {
+      flex: 1;
+      background: linear-gradient(145deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+      backdrop-filter: blur(24px);
+      border: 1.5px solid rgba(255, 255, 255, 0.18);
+      border-radius: 24px;
+      padding: 18px;
+      text-align: left;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      transform-style: preserve-3d;
+    }
+    .menu-card-img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 14px;
+      position: relative;
+      border: 2px solid rgba(245, 158, 11, 0.35);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+    .menu-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .menu-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #ef4444;
+      color: #ffffff;
+      padding: 5px 14px;
+      font-weight: 900;
+      font-size: 11px;
+      border-radius: 100px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.5);
+      z-index: 10;
+    }
+    .menu-card-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fbbf24;
+      margin-bottom: 8px;
+    }
+    .menu-card-desc {
+      font-size: 14px;
+      color: #cbd5e1;
+      line-height: 1.45;
+      margin-bottom: 14px;
+      flex-grow: 1;
+    }
+    .menu-card-footer {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 12px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #38bdf8;
+    }
+
+    /* SCENE 5: Real Storefront & Interior Split (27s - 34s) */
+    .storefront-split {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      transform-style: preserve-3d;
+    }
+    .storefront-card-col {
+      flex: 1;
+      background: linear-gradient(145deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border: 2px solid rgba(245, 158, 11, 0.5);
+      border-radius: 28px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+    }
+    .storefront-img-box {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      border: 2px solid rgba(255,255,255,0.15);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+    .storefront-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .storefront-card-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: #fbbf24;
+      margin-bottom: 8px;
+    }
+    .storefront-card-desc {
+      font-size: 15px;
+      color: #cbd5e1;
+      line-height: 1.45;
+    }
+
+    /* SCENE 6: Reviews (34s - 40s) */
+    .reviews-container {
+      display: flex;
+      gap: 28px;
+      width: 100%;
+      max-width: 1120px;
+      margin-top: 16px;
+    }
+    .review-card {
+      flex: 1;
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%);
+      backdrop-filter: blur(24px);
+      border: 1.5px solid rgba(245, 158, 11, 0.4);
+      border-radius: 28px;
+      padding: 28px 36px;
+      text-align: left;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 290px;
+    }
+    .review-stars {
+      color: #fbbf24;
+      font-size: 20px;
+      margin-bottom: 14px;
+    }
+    .typewriter-box {
+      font-size: 17px;
+      color: #ffffff;
+      line-height: 1.5;
+      font-style: italic;
+      min-height: 110px;
+      margin-bottom: 16px;
+    }
+    .cursor-blink {
+      display: inline-block;
+      width: 3px;
+      height: 18px;
+      background: #fbbf24;
+      margin-left: 4px;
+      vertical-align: middle;
+      animation: blink 0.8s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .reviewer-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 14px;
+    }
+    .reviewer-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #f59e0b;
+      color: #0f172a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      font-weight: 900;
+    }
+    .reviewer-name {
+      font-size: 17px;
+      font-weight: 800;
+      color: #fbbf24;
+    }
+    .reviewer-tag {
+      font-size: 13px;
+      color: #38bdf8;
+      font-weight: 600;
+    }
+
+    /* SCENE 7: Location & CTA (40s - 45s) */
+    .scene7-split {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 44px;
+      transform-style: preserve-3d;
+    }
+    .scene7-photo-col {
+      width: 48%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .storefront-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      max-height: 440px;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 3px solid rgba(245, 158, 11, 0.7);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.8), 0 0 45px rgba(245, 158, 11, 0.4);
+    }
+    .storefront-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .storefront-badge-bottom {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(245, 158, 11, 0.5);
+      border-radius: 16px;
+      padding: 12px 20px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 900;
+      color: #fbbf24;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    }
+    .scene7-info-col {
+      width: 52%;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+    .cta-head-title-sm {
+      font-size: 40px;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 10px;
+      line-height: 1.1;
+    }
+    .cta-full-address-sm {
+      font-size: 18px;
+      color: #fbbf24;
+      font-weight: 700;
+      margin-bottom: 18px;
+      line-height: 1.45;
+    }
+    .landmark-highlight-card-sm {
+      background: rgba(56, 189, 248, 0.15);
+      border: 1.5px dashed rgba(56, 189, 248, 0.6);
+      border-radius: 20px;
+      padding: 16px 24px;
+      margin-bottom: 22px;
+    }
+    .landmark-title-tag-sm {
+      font-size: 13px;
+      font-weight: 900;
+      color: #38bdf8;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      margin-bottom: 6px;
+    }
+    .landmark-desc-text-sm {
+      font-size: 16px;
+      color: #ffffff;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+    .cta-btn-green-sm {
+      background: linear-gradient(135deg, #22c55e, #15803d);
+      color: #ffffff;
+      padding: 16px 40px;
+      font-size: 24px;
+      font-weight: 900;
+      border-radius: 20px;
+      box-shadow: 0 12px 35px rgba(34, 197, 94, 0.5);
+      display: inline-block;
+      margin-bottom: 14px;
+      width: fit-content;
+    }
+    .cta-social-sm {
+      font-size: 16px;
+      color: #cbd5e1;
+      font-weight: 600;
+    }
+
+    /* Bottom Progress Bar */
+    .progress-bar-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 8px;
+      background: linear-gradient(90deg, #f59e0b, #38bdf8, #22c55e);
+      width: 0%;
+      z-index: 20;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/TextPlugin.min.js"></script>
+</head>
+<body>
+  <div id="stage" data-duration="45" data-composition-id="promo_duren" data-start="0" data-width="1280" data-height="720">
+    <canvas id="particleCanvas"></canvas>
+    <div class="glow-orb-gold" id="orbGold"></div>
+    <div class="glow-orb-purple" id="orbPurple"></div>
+    <div class="progress-bar-bottom" id="progress"></div>
+
+    <!-- Scene 1: Hero Branding (0s - 6s) -->
+    <div class="scene" id="scene1">
+      <div class="scene1-content" id="heroLeft">
+        <div class="hero-badge-gold" id="hBadge">KULINER LEGENDARIS SERANG BANTEN</div>
+        <h1 class="hero-main-title" id="hTitle">DUREN STORY WARJOK</h1>
+        <p class="hero-sub" id="hSub">Pusat Olahan Durian Murni Tanpa Biji & Aneka Kuliner Favorit di Kota Serang</p>
+        <div class="hero-rating-box" id="hRating">
+          <span>Rating Google:</span>
+          <span class="rating-val">4.7 / 5.0</span>
+          <span style="color:#94a3b8; font-weight:600;">(8.468+ Ulasan)</span>
+        </div>
+      </div>
+
+      <div class="scene1-image-box" id="heroRight">
+        <div class="hero-img-frame" id="hFrame">
+          <img src="./real_photos/photo_1.jpg" alt="Sop Duren Story Asli Google Maps">
+        </div>
+      </div>
+    </div>
+
+    <!-- Scene 2: Menu Utama Dessert Duren (6s - 13s) -->
+    <div class="scene" id="scene2" style="opacity: 0;">
+      <div class="scene-wrapper">
+        <div class="scene-tag" id="s2Tag">DESSERT FAVORIT</div>
+        <h2 class="scene-title-large" id="s2Title">SOP & PANCAKE DUREN MURNI</h2>
+
+        <div class="menu-cards-grid">
+          <div class="menu-card" id="s2Card1">
+            <div class="menu-card-img">
+              <span class="menu-badge">TERLARIS</span>
+              <img src="./real_photos/photo_2.jpg" alt="Sop Duren Keju Asli Google Maps">
+            </div>
+            <div class="menu-card-title">Sop Duren Keju</div>
+            <div class="menu-card-desc">Daging durian murni tanpa biji dipadu keju melimpah & susu manis lezat.</div>
+            <div class="menu-card-footer">✓ Pilihan Reguler 16oz & Jumbo 22oz</div>
+          </div>
+
+          <div class="menu-card" id="s2Card2">
+            <div class="menu-card-img">
+              <span class="menu-badge" style="background:#eab308; color:#0f172a;">FAVORIT</span>
+              <img src="./real_photos/photo_3.jpg" alt="Pancake Duren Super Asli Google Maps">
+            </div>
+            <div class="menu-card-title">Pancake Duren Super</div>
+            <div class="menu-card-desc">Kulit pancake lembut dengan isian daging durian tebal berkualitas tinggi.</div>
+            <div class="menu-card-footer">✓ 100% Durian Pilihan Terbaik</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scene 3: Olahan Duren Unik (13s - 20s) -->
+    <div class="scene" id="scene3" style="opacity: 0;">
+      <div class="scene-wrapper">
+        <div class="scene-tag" id="s3Tag">INOVASI KULINER</div>
+        <h2 class="scene-title-large" id="s3Title">CENDOL & DUREN PANGGANG</h2>
+
+        <div class="menu-cards-grid">
+          <div class="menu-card" id="s3Card1">
+            <div class="menu-card-img">
+              <span class="menu-badge" style="background:#3b82f6;">SPESIAL</span>
+              <img src="./real_photos/photo_4.jpg" alt="Cendol Duren Asli Google Maps">
+            </div>
+            <div class="menu-card-title">Cendol Duren Segar</div>
+            <div class="menu-card-desc">Perpaduan cendol tradisional dengan topping daging durian murni super gurih.</div>
+            <div class="menu-card-footer">✓ Segar & Melepas Dahaga</div>
+          </div>
+
+          <div class="menu-card" id="s3Card2">
+            <div class="menu-card-img">
+              <span class="menu-badge" style="background:#8b5cf6;">UNIK</span>
+              <img src="./real_photos/photo_5.jpg" alt="Duren Panggang Asli Google Maps">
+            </div>
+            <div class="menu-card-title">Duren Panggang Choconut</div>
+            <div class="menu-card-desc">Olahan durian bakar dengan taburan cokelat & keju melted beraroma khas.</div>
+            <div class="menu-card-footer">✓ Aroma Bakar Khas Menggugah Selera</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scene 4: Menu Makanan Berat (20s - 27s) -->
+    <div class="scene" id="scene4" style="opacity: 0;">
+      <div class="scene-wrapper">
+        <div class="scene-tag" id="s4Tag">MENU MAKANAN BERAT</div>
+        <h2 class="scene-title-large" id="s4Title">LEZAT UNTUK MAKAN SIANG & MALAM</h2>
+
+        <div class="menu-cards-grid">
+          <div class="menu-card" id="s4Card1">
+            <div class="menu-card-img">
+              <img src="./real_photos/photo_6.jpg" alt="Bakso & Dimsum Asli Google Maps">
+            </div>
+            <div class="menu-card-title">Bakso & Dimsum Mentai</div>
+            <div class="menu-card-desc">Bakso gurih berdaging kenyal dan Dimsum Mentai lumer yang nikmat.</div>
+            <div class="menu-card-footer">✓ Favorit Semua Usia</div>
+          </div>
+
+          <div class="menu-card" id="s4Card2">
+            <div class="menu-card-img">
+              <img src="./real_photos/photo_8.jpg" alt="Pempek & Rice Bowl Asli Google Maps">
+            </div>
+            <div class="menu-card-title">Pempek & Nasi Rice Bowl</div>
+            <div class="menu-card-desc">Pempek Palembang asli cuko mantap & Nasi Rice Bowl praktis kenyang.</div>
+            <div class="menu-card-footer">✓ Mantap & Mengenyangkan</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scene 5: Foto Fisik Toko & Suasana Resto (27s - 34s) -->
+    <div class="scene" id="scene5" style="opacity: 0;">
+      <div class="scene-wrapper">
+        <div class="scene-tag" id="s5Tag">OUTLET 2 LANTAI MODERN</div>
+        <h2 class="scene-title-large" id="s5Title" style="margin-bottom: 20px;">SUASANA NYAMAN & INSTAGRAMABLE</h2>
+
+        <div class="storefront-split">
+          <div class="storefront-card-col" id="s5Left">
+            <div class="storefront-img-box">
+              <img src="./real_photos/photo_7.jpg" alt="Fasad Depan Kedai Duren Story Asli Google Maps">
+            </div>
+            <div class="storefront-card-title">Tampak Depan Outlet Warjok</div>
+            <div class="storefront-card-desc">Gedung 2 lantai modern open space di pinggir Jalan Utama Ciwaru Raya Serang.</div>
+          </div>
+
+          <div class="storefront-card-col" id="s5Right">
+            <div class="storefront-img-box">
+              <img src="./real_photos/photo_10.jpg" alt="Suasana Interior Resto Asli Google Maps">
+            </div>
+            <div class="storefront-card-title">Area Indoor AC & Outdoor Balon</div>
+            <div class="storefront-card-desc">Suasana cozy, tempat luas, WiFi kencang, cocok untuk kumpul keluarga & nongkrong.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scene 6: Typewriter Reviews (34s - 40s) -->
+    <div class="scene" id="scene6" style="opacity: 0;">
+      <div class="scene-wrapper" style="width:100%; display:flex; flex-direction:column; align-items:center;">
+        <div class="scene-tag" id="s6Tag">ULASAN PELANGGAN GOOGLE</div>
+        <h2 class="scene-title-large" id="s6Title" style="margin-bottom: 14px;">APA KATA MEREKA?</h2>
+
+        <div class="reviews-container">
+          <div class="review-card" id="revCard1">
+            <div>
+              <div class="review-stars">★★★★★</div>
+              <div class="typewriter-box">
+                <span id="typeText1"></span><span class="cursor-blink"></span>
+              </div>
+            </div>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">B</div>
+              <div>
+                <div class="reviewer-name">Budi Santoso</div>
+                <div class="reviewer-tag">Google Local Guide · 8.400+ Ulasan</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card" id="revCard2">
+            <div>
+              <div class="review-stars">★★★★★</div>
+              <div class="typewriter-box">
+                <span id="typeText2"></span><span class="cursor-blink"></span>
+              </div>
+            </div>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">R</div>
+              <div>
+                <div class="reviewer-name">Rina Wijaya</div>
+                <div class="reviewer-tag">Wisata Kuliner Serang</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scene 7: Real Location Landmark & CTA (40s - 45s) -->
+    <div class="scene" id="scene7" style="opacity: 0;">
+      <div class="scene7-split" id="s7Box">
+        <div class="scene7-photo-col" id="s7Photo">
+          <div class="storefront-frame">
+            <img src="./real_photos/photo_7.jpg" alt="Outlet Tampak Depan Duren Story Warjok Asli Google Maps">
+            <div class="storefront-badge-bottom">
+              KEDAI 2 LANTAI MODERN & OPEN SPACE
+            </div>
+          </div>
+        </div>
+
+        <div class="scene7-info-col" id="s7Info">
+          <div class="cta-head-title-sm">LOKASI & PATOKAN UTAMA</div>
+          <div class="cta-full-address-sm">Jl. Ciwaru Raya No.12, Warung Pojok (Warjok), Sumurpecung, Serang, Banten</div>
+          
+          <div class="landmark-highlight-card-sm">
+            <div class="landmark-title-tag-sm">PATOKAN PRESISI</div>
+            <div class="landmark-desc-text-sm">
+              Dekat Perempatan Lampu Merah Warung Pojok (Warjok) Serang, berada di pinggir Jalan Utama Ciwaru Raya dengan Papan Nama Kuning Besar.
+            </div>
+          </div>
+
+          <div>
+            <div class="cta-btn-green-sm" id="ctaBtnGreen">
+              WhatsApp: +62 877-7900-0017
+            </div>
+          </div>
+          <div class="cta-social-sm">
+            Instagram: @durenstory | Buka Setiap Hari: 09.00 – 22.00 WIB
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    gsap.registerPlugin(TextPlugin);
+
+    // Canvas Floating Particle Engine
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = 1280;
+    canvas.height = 720;
+
+    const particles = Array.from({ length: 50 }, () => ({
+      x: Math.random() * 1280,
+      y: Math.random() * 720,
+      radius: Math.random() * 4 + 1.5,
+      alpha: Math.random() * 0.7 + 0.2,
+      speedY: Math.random() * 1.2 + 0.4,
+      speedX: (Math.random() - 0.5) * 0.4
+    }));
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, 1280, 720);
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(245, 158, 11, ${p.alpha})`;
+        ctx.fill();
+        p.y -= p.speedY;
+        p.x += p.speedX;
+        if (p.y < 0) p.y = 720;
+        if (p.x < 0) p.x = 1280;
+        if (p.x > 1280) p.x = 0;
+      });
+      requestAnimationFrame(drawParticles);
+    }
+    drawParticles();
+
+    // GSAP Master Dynamic Timeline (45 Seconds)
+    const tl = gsap.timeline({ paused: true });
+
+    // Progress Bar Animation (0s - 45s)
+    tl.to("#progress", { width: "100%", duration: 45, ease: "none" }, 0);
+
+    // Continuous Floating Animation for Background Orbs
+    tl.to("#orbGold", { y: 40, x: 30, duration: 4, repeat: 8, yoyo: true, ease: "sine.inOut" }, 0);
+    tl.to("#orbPurple", { y: -40, x: -30, duration: 5, repeat: 8, yoyo: true, ease: "sine.inOut" }, 0);
+
+    // SCENE 1: Dynamic 3D Entrance (0s - 6s)
+    tl.from("#hBadge", { opacity: 0, y: -30, scale: 0.8, duration: 0.8, ease: "back.out(1.7)" }, 0.4)
+      .from("#hTitle", { opacity: 0, y: 40, rotateX: -20, duration: 1.0, ease: "power4.out" }, 0.6)
+      .from("#hSub", { opacity: 0, y: 30, duration: 0.8, ease: "power3.out" }, 0.9)
+      .from("#hRating", { opacity: 0, scale: 0.8, duration: 0.8, ease: "back.out(1.5)" }, 1.2)
+      .from("#hFrame", { opacity: 0, x: 100, rotateY: -30, scale: 0.85, duration: 1.2, ease: "power4.out" }, 0.8)
+      
+      // Scene 1 Exit (5.2s - 6.0s)
+      .to("#scene1", { opacity: 0, rotateY: 15, scale: 0.9, duration: 0.8, ease: "power3.in" }, 5.2)
+      .set("#scene1", { visibility: "hidden" }, 6.0);
+
+    // SCENE 2: Menu Utama Dessert Duren (6s - 13s)
+    tl.to("#scene2", { opacity: 1, duration: 0.3 }, 6.0)
+      .from("#s2Tag", { opacity: 0, y: -20, duration: 0.6, ease: "power3.out" }, 6.2)
+      .from("#s2Title", { opacity: 0, y: 30, duration: 0.8, ease: "power4.out" }, 6.4)
+      .from("#s2Card1", { opacity: 0, y: 80, rotateY: -20, rotateX: 10, duration: 1.0, ease: "elastic.out(1, 0.7)" }, 6.7)
+      .from("#s2Card2", { opacity: 0, y: 80, rotateY: 20, rotateX: 10, duration: 1.0, ease: "elastic.out(1, 0.7)" }, 7.1)
+      
+      // Scene 2 Exit (12.2s - 13.0s)
+      .to("#scene2", { opacity: 0, y: -50, scale: 0.92, duration: 0.8, ease: "power3.in" }, 12.2)
+      .set("#scene2", { visibility: "hidden" }, 13.0);
+
+    // SCENE 3: Olahan Duren Unik (13s - 20s)
+    tl.to("#scene3", { opacity: 1, duration: 0.3 }, 13.0)
+      .from("#s3Tag", { opacity: 0, y: -20, duration: 0.6, ease: "power3.out" }, 13.2)
+      .from("#s3Title", { opacity: 0, y: 30, duration: 0.8, ease: "power4.out" }, 13.4)
+      .from("#s3Card1", { opacity: 0, x: -80, rotateY: -15, duration: 1.0, ease: "back.out(1.7)" }, 13.7)
+      .from("#s3Card2", { opacity: 0, x: 80, rotateY: 15, duration: 1.0, ease: "back.out(1.7)" }, 14.1)
+
+      // Scene 3 Exit (19.2s - 20.0s)
+      .to("#scene3", { opacity: 0, rotateX: -15, scale: 0.9, duration: 0.8, ease: "power3.in" }, 19.2)
+      .set("#scene3", { visibility: "hidden" }, 20.0);
+
+    // SCENE 4: Menu Makanan Berat (20s - 27s)
+    tl.to("#scene4", { opacity: 1, duration: 0.3 }, 20.0)
+      .from("#s4Tag", { opacity: 0, y: -20, duration: 0.6, ease: "power3.out" }, 20.2)
+      .from("#s4Title", { opacity: 0, y: 30, duration: 0.8, ease: "power4.out" }, 20.4)
+      .from("#s4Card1", { opacity: 0, y: 90, scale: 0.8, duration: 1.0, ease: "elastic.out(1, 0.7)" }, 20.7)
+      .from("#s4Card2", { opacity: 0, y: 90, scale: 0.8, duration: 1.0, ease: "elastic.out(1, 0.7)" }, 21.1)
+
+      // Scene 4 Exit (26.2s - 27.0s)
+      .to("#scene4", { opacity: 0, y: -50, duration: 0.8, ease: "power3.in" }, 26.2)
+      .set("#scene4", { visibility: "hidden" }, 27.0);
+
+    // SCENE 5: Real Storefront & Interior Split (27s - 34s)
+    tl.to("#scene5", { opacity: 1, duration: 0.3 }, 27.0)
+      .from("#s5Tag", { opacity: 0, y: -20, duration: 0.6, ease: "power3.out" }, 27.2)
+      .from("#s5Title", { opacity: 0, y: 30, duration: 0.8, ease: "power4.out" }, 27.4)
+      .from("#s5Left", { opacity: 0, x: -100, rotateY: 20, duration: 1.1, ease: "power4.out" }, 27.7)
+      .from("#s5Right", { opacity: 0, x: 100, rotateY: -20, duration: 1.1, ease: "power4.out" }, 28.1)
+
+      // Scene 5 Exit (33.2s - 34.0s)
+      .to("#scene5", { opacity: 0, scale: 0.9, duration: 0.8, ease: "power3.in" }, 33.2)
+      .set("#scene5", { visibility: "hidden" }, 34.0);
+
+    // SCENE 6: Typewriter Reviews (34s - 40s)
+    tl.to("#scene6", { opacity: 1, duration: 0.3 }, 34.0)
+      .from("#s6Tag", { opacity: 0, y: -20, duration: 0.6 }, 34.2)
+      .from("#s6Title", { opacity: 0, y: 30, duration: 0.8 }, 34.4)
+      .from("#revCard1", { opacity: 0, y: 60, rotateX: 15, duration: 0.9, ease: "back.out(1.5)" }, 34.7)
+      .from("#revCard2", { opacity: 0, y: 60, rotateX: 15, duration: 0.9, ease: "back.out(1.5)" }, 35.1)
+      
+      // Typewriter Effect
+      .to("#typeText1", { text: '"Sop Duren Kejunya melimpah parah, duren murni tanpa biji! Rekomendasi banget di Serang!"', duration: 3.5, ease: "none" }, 35.3)
+      .to("#typeText2", { text: '"Pancake duren super lumer & manisnya pas. Tempat paling recommended buat pecinta durian!"', duration: 3.5, ease: "none" }, 35.7)
+
+      // Scene 6 Exit (39.3s - 40.0s)
+      .to("#scene6", { opacity: 0, y: -40, duration: 0.7, ease: "power3.in" }, 39.3)
+      .set("#scene6", { visibility: "hidden" }, 40.0);
+
+    // SCENE 7: Real Location Landmark & CTA (40s - 45s)
+    tl.to("#scene7", { opacity: 1, duration: 0.3 }, 40.0)
+      .from("#s7Photo", { opacity: 0, x: -100, rotateY: -25, duration: 1.2, ease: "power4.out" }, 40.3)
+      .from("#s7Info", { opacity: 0, x: 100, rotateY: 25, duration: 1.2, ease: "power4.out" }, 40.6)
+      .from("#ctaBtnGreen", { opacity: 0, scale: 0.7, duration: 0.9, ease: "elastic.out(1.2, 0.5)" }, 41.3);
+
+    window.__timelines = window.__timelines || {};
+    window.__timelines.promo_duren = tl;
+  </script>
+</body>
+</html>

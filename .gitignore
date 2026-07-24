@@ -7,6 +7,7 @@ test_image.jpg
 API_KEYS_BACKUP.md
 
 node_modules/
+renders/
 next-build/
 .next/
 .env*

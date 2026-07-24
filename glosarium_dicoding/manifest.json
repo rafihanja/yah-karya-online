@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Glosarium Dicoding - Data Science & Fabric",
+  "version": "1.0.0",
+  "description": "Ekstensi Glosarium Istilah Data Science dan Microsoft Fabric Dicoding Academy dengan fitur pencarian instan.",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Glosarium Dicoding"
+  },
+  "permissions": [
+    "storage"
+  ]
+}
