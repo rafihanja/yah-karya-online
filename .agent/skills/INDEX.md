@@ -17,7 +17,7 @@
 Legend set: `default` = selalu aktif; `task:<set>` = task-set di active-skills.json;
 `on-demand:<bundle>` = perlu restore lebih dulu (`node .agent/scripts/restore-skill-bundle.mjs <bundle>`).
 
-**Total skill: 162** — di antaranya 48 default-set.
+**Total skill: 164** — di antaranya 50 default-set.
 
 ---
 
@@ -177,7 +177,7 @@ Legend set: `default` = selalu aktif; `task:<set>` = task-set di active-skills.j
 - **Path:** `.agent/skills/database-design/SKILL.md`
 
 ### deep-thinking-enforcer
-- **Set:** default
+- **Set:** default, task:decision-making
 - **Kapan dipakai:** Wajib digunakan untuk memaksa agent berpikir mendalam, perlahan, dan detail sebelum bertindak. Mencegah eksekusi prematur dan asumsi dangkal.
 - **Path:** `.agent/skills/deep-thinking-enforcer/SKILL.md`
 
@@ -217,7 +217,7 @@ Legend set: `default` = selalu aktif; `task:<set>` = task-set di active-skills.j
 - **Path:** `.agent/skills/environment-setup-guide/SKILL.md`
 
 ### expert-reasoning-operator
-- **Set:** default, task:quality
+- **Set:** default, task:decision-making, task:quality
 - **Kapan dipakai:** Always-on untuk setiap task substantif; gunakan juga saat user meminta kemampuan maksimal, expert reasoning, 1000x/1000x lipat, upgrade aturan/skill, atau task berdampak lintas-file; memaksa evidence ledger, risk budget, alternatif, dan va…
 - **Path:** `.agent/skills/expert-reasoning-operator/SKILL.md`
 
@@ -581,6 +581,11 @@ Legend set: `default` = selalu aktif; `task:<set>` = task-set di active-skills.j
 - **Kapan dipakai:** Taking Three.js and combining it with React. The pinnacle of 3D web experiences.
 - **Path:** `.agent/skills/react-three-fiber/SKILL.md`
 
+### reasoning-modes
+- **Set:** default, task:decision-making
+- **Kapan dipakai:** Structured reasoning modes (Brutal, Red Team, War, Research, Shadow) that change HOW mental models are applied, not WHICH models are used. Activate explicitly via trigger phrases or when context demands a specific lens. Complements strateg…
+- **Path:** `.agent/skills/reasoning-modes/SKILL.md`
+
 ### redis
 - **Set:** task:cache
 - **Kapan dipakai:** In-memory data structure store, used as a distributed, in-memory key-value database, cache, session store, and message broker.
@@ -675,6 +680,11 @@ Legend set: `default` = selalu aktif; `task:<set>` = task-set di active-skills.j
 - **Set:** task:animation-3d
 - **Kapan dipakai:** Split text into characters, words, and lines for stagger and reveal typography animations.
 - **Path:** `.agent/skills/split-type/SKILL.md`
+
+### strategic-thinking
+- **Set:** default, task:decision-making
+- **Kapan dipakai:** Library of 15 named mental models with trigger questions for structured reasoning about architecture, product, and engineering decisions. Use when evaluating trade-offs, making design decisions, assessing risk, or when explicit multi-persp…
+- **Path:** `.agent/skills/strategic-thinking/SKILL.md`
 
 ### supabase
 - **Set:** default, task:backend-db

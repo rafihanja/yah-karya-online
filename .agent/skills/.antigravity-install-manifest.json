@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-15T00:00:00.000Z",
+  "updatedAt": "2026-07-24T00:00:00.000Z",
   "entries": [
     "3d-web-experience",
     "accessibility-compliance-accessibility-audit",
@@ -114,6 +114,7 @@
     "react-patterns",
     "react-state-management",
     "react-three-fiber",
+    "reasoning-modes",
     "redis",
     "screen-reader-testing",
     "scroll-experience",
@@ -133,6 +134,7 @@
     "skill-upgrader",
     "spline-3d-integration",
     "split-type",
+    "strategic-thinking",
     "supabase",
     "systematic-debugging",
     "tailwind-design-system",

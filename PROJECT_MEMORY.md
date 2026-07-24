@@ -2,19 +2,19 @@
 
 > File ini ditulis otomatis oleh AI. JANGAN dihapus.
 > Fungsinya: Menjaga kesinambungan memori dan konteks proyek di repositori `folderotakgsap` (`rafihanja/yah-karya-online`).
-> Terakhir diupdate: 2026-07-23T17:31:00+07:00
+> Terakhir diupdate: 2026-07-24T19:38:00+07:00
 
 ---
 
 ## 1. Ringkasan Project
-- **Apa ini:** Repositori **"Brankas Memori & Konfigurasi Elite Agent"** milik **Rafi Hanja** untuk Antigravity IDE & AI coding tools. Berisi 162 Skill Elite, aturan tata kelola agen (*Agent Governance*), skrip utilitas Python Computer Vision (`finger_blur.py`, `demo_headroom.py`), dan konfigurasi lingkungan pengembang.
+- **Apa ini:** Repositori **"Brankas Memori & Konfigurasi Elite Agent"** milik **Rafi Hanja** untuk Antigravity IDE & AI coding tools. Berisi 164 Skill Elite (termasuk `strategic-thinking` & `reasoning-modes`), aturan tata kelola agen (*Agent Governance*), skrip utilitas Python Computer Vision (`finger_blur.py`, `demo_headroom.py`), dan konfigurasi lingkungan pengembang.
 - **Repositori Git:** `https://github.com/rafihanja/folderotakgsap.git` (`rafihanja/yah-karya-online`).
 - **Dibuat untuk:** Solo Founder / Elite Developer workspace management & multi-device memory sync.
 
 ---
 
 ## 2. Teknologi & Stack yang Dipakai
-- **AI Agent System:** `.agent/` (162 Elite Skills, Rules, Validator Scripts, Skill Router).
+- **AI Agent System:** `.agent/` (164 Elite Skills, Rules, Validator Scripts, Skill Router).
 - **Python Utilities:** Python 3, OpenCV (`cv2`), MediaPipe (`mediapipe`), `yt-dlp` (asynchronous YouTube audio downloader), Windows MCI API (audio playback).
 - **Node.js Tooling:** `.agent/scripts/` (skill validators, doctor, index generator, self-review validator).
 - **CLI Bridge Integration:** Anthropic Claude Code CLI (`.claude/settings.json`), OpenAI Codex CLI (`.codex`).
@@ -24,9 +24,9 @@
 ## 3. Struktur Repositori
 ```
 folderotakgsap/
-├── .agent/                    # Folder Utama Agent Governance & 162 Skills
+├── .agent/                    # Folder Utama Agent Governance & 164 Skills
 │   ├── rules/                 # Aturan wajib agent (evidence-first, fail-closed, dll)
-│   ├── skills/                # 162 Katalog Skill (session-boot, gsap, python, dll)
+│   ├── skills/                # 164 Katalog Skill (session-boot, gsap, python, strategic-thinking, reasoning-modes, dll)
 │   └── scripts/               # Script penguji & validator agent internal
 ├── .agents/                   # Workspace agent customization bridge
 ├── .claude/                   # Konfigurasi Claude CLI
@@ -54,7 +54,7 @@ folderotakgsap/
 ## 5. Progress & Status Terkini
 | Modul / Komponen | Status | Catatan |
 |---|---|---|
-| **Agent Governance (.agent)** | ✅ Active (100%) | 162 Skills, 0 issues. Red Team Audit 2x (Claude CLI + Antigravity) — 15 celah ditemukan & ditambal |
+| **Agent Governance (.agent)** | ✅ Active (100%) | 164 Skills, 0 issues. Red Team Audit 2x (Claude CLI + Antigravity) — 15 celah ditemukan & ditambal |
 | **Red Team Audit (Claude CLI)** | ✅ Selesai | 7 celah: fail-closed voluntary compliance, process.exit(1) untuk 3 script, content drift detection |
 | **Red Team Audit (Antigravity)** | ✅ Selesai | 8 celah BARU: full-repo scan (bukan hardcoded dirs), .md/.html secret scan, PROJECT_MEMORY check, Node v16+ guard |
 | **Python Finger Blur (finger_blur.py)** | ✅ Stable | Deteksi V-sign (MediaPipe) + blur dinamis + audio 'Foto Kita Blur' (yt-dlp) |
@@ -69,14 +69,16 @@ folderotakgsap/
 | **CI/CD Pipeline** | ✅ Selesai | `.github/workflows/agent-health-check.yml` — auto-validation on push, 10 steps |
 | **Landing Page Test Suite** | ✅ Selesai | `test_landing_page.mjs` — 63 automated checks, all passing |
 | **Enhanced Router Validation** | ✅ Selesai | 3 routes enhanced: antigravity-design-expert, frontend-developer, gsap-frameworks |
+| **Strategic Thinking & Reasoning Modes (2026-07-24)** | ✅ Selesai | 2 skill baru diekstrak dari Strategic Intelligence OS v2.0: `strategic-thinking` (15 mental models) + `reasoning-modes` (5 modes). 3 route baru, task-set `decision-making`. 6/6 validators pass, 164 total skills |
 
 ---
 
 ## 6. Catatan untuk Sesi Berikutnya
 - Repositori ini adalah rumah dari sistem `.agent` & memori Antigravity.
-- **Audit terakhir (2026-07-24):** 162 skill, 0 orphan, 6/6 validator pass, score 98.6%.
-- 2 orphan script (`detect-duplicate-skills.mjs`, `validate-router-skill-match.mjs`) dipindah ke `.agent/scripts/archive/`.
-- `avoid-ai-writing` dan `unslop` sekarang terdaftar di `active-skills.json` defaultSet dan punya route di `skill-router.json`.
+- **Audit terakhir (2026-07-24):** 164 skill, 0 orphan, 6/6 validator pass.
+- `strategic-thinking` dan `reasoning-modes` diadopsi dari Strategic Intelligence OS v2.0 — bukan copy-paste, tapi diadaptasi untuk domain teknis + bisnis. Wire ke router via `request:mental-model`, `request:tradeoff-analysis`, `request:pre-mortem`, `request:brutal`, `request:red-team`, `request:war-mode`, dll.
+- **Governance weight audit (2026-07-24):** Mandatory pre-flight = ~54K tokens (42% dari 128K context). Default set 48 skills = ~113K tokens. Dari 164 skill, hanya ~12 yang pernah relevan untuk pekerjaan aktual di repo ini. Ada ruang untuk pruning jika diinginkan.
+- `avoid-ai-writing` dan `unslop` terdaftar di `active-skills.json` defaultSet.
 - Jika melakukan pengujian `.agent` governance, gunakan:
   ```bash
   node .agent/scripts/generate-skill-index.mjs

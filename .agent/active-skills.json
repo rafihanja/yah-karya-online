@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-07-15",
+  "updatedAt": "2026-07-24",
   "purpose": "Keep the daily agent context focused so the full skill library does not overwhelm tasks.",
   "defaultSet": [
     "gsap-timeline",
@@ -50,7 +50,9 @@
     "prompt-amplifier",
     "web-audio-engineering",
     "avoid-ai-writing",
-    "unslop"
+    "unslop",
+    "strategic-thinking",
+    "reasoning-modes"
   ],
   "taskSets": {
     "gsap-ui": [
@@ -216,6 +218,12 @@
       "arsitek-pikiran",
       "prd-architect-pro",
       "dewa-prompter-v2"
+    ],
+    "decision-making": [
+      "strategic-thinking",
+      "reasoning-modes",
+      "expert-reasoning-operator",
+      "deep-thinking-enforcer"
     ],
     "auth": [
       "auth-implementation-patterns",

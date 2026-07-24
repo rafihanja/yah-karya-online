@@ -782,10 +782,14 @@
         "prd-architect-pro",
         "dewa-prompter-v2"
       ],
+      "optionalSkills": [
+        "strategic-thinking",
+        "reasoning-modes"
+      ],
       "validation": [
         "response-header-present"
       ],
-      "note": "Pipeline: arsitek-pikiran (ide->5 fase) -> prd-architect-pro (PRD.md) -> dewa-prompter-v2 (master prompt per fase). Semua output utama Bahasa Indonesia."
+      "note": "Pipeline: arsitek-pikiran (ide->5 fase) -> prd-architect-pro (PRD.md) -> dewa-prompter-v2 (master prompt per fase). Semua output utama Bahasa Indonesia. strategic-thinking dan reasoning-modes tersedia sebagai layer analisis tambahan."
     },
     {
       "when": [
@@ -1076,6 +1080,56 @@
       "validation": [
         "project-build-if-available"
       ]
+    },
+    {
+      "when": [
+        "request:mental-model",
+        "request:tradeoff-analysis",
+        "request:pre-mortem",
+        "request:constraint-analysis",
+        "request:leverage",
+        "request:inversion",
+        "request:first-principles",
+        "request:decision-framework",
+        "request:second-order"
+      ],
+      "skills": [
+        "strategic-thinking"
+      ],
+      "optionalSkills": [
+        "expert-reasoning-operator",
+        "deep-thinking-enforcer"
+      ],
+      "validation": [
+        "response-header-present",
+        "mental-model-named"
+      ],
+      "note": "Mental model library untuk structured reasoning. Gunakan minimal 2 model per analisis substantif, sebutkan nama secara eksplisit."
+    },
+    {
+      "when": [
+        "request:brutal",
+        "request:red-team",
+        "request:war-mode",
+        "request:research-mode",
+        "request:shadow-mode",
+        "request:pressure-test",
+        "request:no-sugarcoating",
+        "request:critique",
+        "request:adversarial"
+      ],
+      "skills": [
+        "reasoning-modes"
+      ],
+      "optionalSkills": [
+        "strategic-thinking",
+        "expert-reasoning-operator"
+      ],
+      "validation": [
+        "response-header-present",
+        "mode-marker-present"
+      ],
+      "note": "Reasoning modes: Brutal (tanpa basa-basi), Red Team (adversarial), War (deadline ketat), Research (fakta vs asumsi), Shadow (psikologi perilaku). Gabungkan dengan strategic-thinking untuk analisis paling tajam."
     }
   ],
   "nonGenericResponseRules": [

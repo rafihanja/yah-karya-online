@@ -152,3 +152,13 @@ dan validasi marker plus seluruh pasangan topik/sumber secara otomatis.
 **Lesson:** Skill yang ada di `active-skills.json` defaultSet/taskSets tapi tidak punya route di `skill-router.json` tetap bisa diakses tapi tidak bisa di-trigger otomatis oleh router. Selalu cross-check alignment antara skill folder ↔ INDEX.md ↔ skill-router.json ↔ active-skills.json secara otomatis setelah menambah skill baru.
 **Tags:** governance, validation, orphan-skills, router-alignment
 **Promote?:** yes
+
+## 2026-07-24 — folderotakgsap (governance weight audit)
+**Lesson:** Mandatory pre-flight bundle (8 governance files + 6 config/memory files) costs ~54K tokens — 42% of a 128K context window — before any actual work begins. Default set of 48 skills adds ~113K tokens. Of 164 total skills, only ~12 have ever been relevant to actual work in this repo. Governance complexity has diminishing returns: each additional layer linearly increases token cost but does not linearly increase output quality. Periodic weight audits should be standard practice.
+**Tags:** governance, token-budget, performance, audit
+**Promote?:** yes
+
+## 2026-07-24 — folderotakgsap (Strategic Intelligence OS extraction)
+**Lesson:** External prompt frameworks (like "Strategic Intelligence OS") designed for general AI usage can be mined for genuinely new capabilities (mental models, reasoning modes) without importing their entire structure. The correct pattern: identify what's genuinely novel vs what's already covered, extract only the novel parts into `.agent/skills/`, wire to router, validate. Don't import output formats, persona systems, or self-check mechanisms that conflict with existing enforcement.
+**Tags:** prompt-engineering, governance, skill-creation, integration
+**Promote?:** no
